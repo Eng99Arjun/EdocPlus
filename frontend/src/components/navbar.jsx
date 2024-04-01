@@ -1,17 +1,13 @@
 import React from 'react'
 const navbar = () => {
   return (
-    <header className="sticky inset-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-lg">
+    <header className="sticky inset-0 z-50 border-b border-slate-400 bg-white-200 backdrop-blur-lg">
   <nav className="mx-auto flex max-w-6xl gap-8 px-6 transition-all duration-200 ease-in-out lg:px-12 py-4">
     <div className="relative flex items-center">
-      <a href="/">
-        <img
-          src="https://www.svgrepo.com/show/499831/target.svg"
-          loading="lazy"
-          style={{ color: "transparent" }}
-          width={32}
-          height={32}
-        />
+      <a href="/"
+      className='text-green-600 font-semibold tracking-wide text-2xl uppercase sm:text-3xl'>
+        EDOC<span className='text-red-600'>+</span>
+        
       </a>
     </div>
     <ul className="hidden items-center justify-center gap-6 md:flex">
@@ -40,7 +36,7 @@ const navbar = () => {
     <div className="relative flex items-center justify-center md:hidden">
       <button type="button">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          // xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"

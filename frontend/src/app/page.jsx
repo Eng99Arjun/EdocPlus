@@ -4,51 +4,6 @@ const Home = () => {
   return (
     <>
 
-  {/* End block */}
-  <section>
-  <>
-  {/* Slider */}
-  <div
-    data-hs-carousel='{
-    "loadingClasses": "opacity-0"
-  }'
-    className="relative"
-  >
-    <div className="hs-carousel relative overflow-hidden w-full min-h-[350px] bg-white rounded-lg">
-      <div className="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
-        <div className="hs-carousel-slide">
-          <div className="flex justify-center h-full bg-gray-100 p-6">
-            <span className="self-center text-4xl transition duration-700">
-              <img src="slide-1.png" alt="" />
-            </span>
-          </div>
-        </div>
-        <div className="hs-carousel-slide">
-          <div className="flex justify-center h-full bg-gray-200 p-6">
-            <span className="self-center text-4xl transition duration-700">
-              Second slide
-            </span>
-          </div>
-        </div>
-        <div className="hs-carousel-slide">
-          <div className="flex justify-center h-full bg-gray-300 p-6">
-            <span className="self-center text-4xl transition duration-700">
-              Third slide
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="hs-carousel-pagination flex justify-center absolute bottom-3 start-0 end-0 space-x-2">
-      <span className="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer" />
-      <span className="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer" />
-      <span className="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer" />
-    </div>
-  </div>
-  {/* End Slider */}
-</>
-
-  </section>
   {/* Start block */}
   <section className="bg-gray-50 dark:bg-gray-800">
     <div className="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
@@ -130,7 +85,7 @@ const Home = () => {
         </div>
         <img
           className="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
-          src="./images/feature-1.png"
+          src="/login_page.webp"
           alt="dashboard feature image"
         />
       </div>
@@ -138,8 +93,8 @@ const Home = () => {
       <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
         <img
           className="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
-          src="./images/feature-2.png"
-          alt="feature image 2"
+          src="/new.webp"
+          alt=""
         />
         <div className="text-gray-500 sm:text-lg dark:text-gray-400">
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
