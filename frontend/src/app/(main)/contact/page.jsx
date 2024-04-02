@@ -15,9 +15,8 @@ const contact = () => {
               GET IN TOUCH WITH US
             </h2>
             <p className="text-base leading-relaxed text-body-color dark:text-dark-6 mb-9">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eius tempor incididunt ut labore et dolore magna aliqua. Ut enim
-              adiqua minim veniam quis nostrud exercitation ullamco
+            Reach out to us for better medical guidance. Our team of healthcare experts is ready to assist you with your queries and provide the support you need.
+             Contact us today and take the first step towards better health.”
             </p>
             <div className="mb-8 flex w-full max-w-[370px]">
               <div className="bg-primary/5 text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">
@@ -39,7 +38,7 @@ const contact = () => {
                   Our Location
                 </h4>
                 <p className="text-base text-body-color dark:text-dark-6">
-                  99 S.t Jomblo Park Pekanbaru 28292. Indonesia
+                  BABU BANARASI DAS LUCKNOW , INDIA
                 </p>
               </div>
             </div>
@@ -78,7 +77,7 @@ const contact = () => {
                   Phone Number
                 </h4>
                 <p className="text-base text-body-color dark:text-dark-6">
-                  (+62)81 414 257 9980
+                  (+91)8855215400
                 </p>
               </div>
             </div>
@@ -102,7 +101,7 @@ const contact = () => {
                   Email Address
                 </h4>
                 <p className="text-base text-body-color dark:text-dark-6">
-                  info@yourdomain.com
+                  babubanarsi122455@gmail.com
                 </p>
               </div>
             </div>

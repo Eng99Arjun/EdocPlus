@@ -14,19 +14,20 @@ const footer = () => {
                 className="mb-6 inline-block max-w-[160px]"
               >
                 <img
-                  src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg"
-                  alt="logo"
-                  className="max-w-full dark:hidden"
-                />
-                <img
-                  src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
-                  alt="logo"
-                  className="max-w-full hidden dark:block"
+                  //src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg"
+                  //alt="logo"
+                  //className="max-w-full dark:hidden"
+                ///>
+                //<img
+                  //src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
+                  //alt="logo"
+                  //className="max-w-full hidden dark:block"
                 />
               </a>
               <p className="text-base text-body-color dark:text-dark-6 mb-7">
-                Sed ut perspiciatis undmnis is iste natus error sit amet
-                voluptatem totam rem aperiam.
+              Your health, our mission – consult with top doctors online.
+Need assistance? Our support team is here to help you 24*7.
+
               </p>
               <p className="flex items-center text-sm font-medium text-dark dark:text-white">
                 <span className="mr-3 text-primary">
@@ -58,14 +59,14 @@ const footer = () => {
                     </defs>
                   </svg>
                 </span>
-                <span>+012 (345) 678 99</span>
+                <span>(+91) 8855215400</span>
               </p>
             </div>
           </div>
           <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
             <div className="w-full mb-10">
               <h4 className="text-lg font-semibold text-dark dark:text-white mb-9">
-                Resources
+                 For Patients
               </h4>
               <ul className="space-y-3">
                 <li>
@@ -73,7 +74,7 @@ const footer = () => {
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    SaaS Development
+                    Find  Doctor
                   </a>
                 </li>
                 <li>
@@ -81,7 +82,8 @@ const footer = () => {
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    Our Products
+                   
+
                   </a>
                 </li>
                 <li>
@@ -89,7 +91,7 @@ const footer = () => {
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    User Flow
+                    Pharmacy
                   </a>
                 </li>
                 <li>
@@ -97,7 +99,7 @@ const footer = () => {
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    User Strategy
+                    Pathology
                   </a>
                 </li>
               </ul>
@@ -114,7 +116,7 @@ const footer = () => {
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    About TailGrids
+                    About us
                   </a>
                 </li>
                 <li>
@@ -130,7 +132,7 @@ const footer = () => {
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    Success History
+                    Our Team
                   </a>
                 </li>
                 <li>
@@ -155,7 +157,7 @@ const footer = () => {
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    Premium Support
+                    Premium 
                   </a>
                 </li>
                 <li>
@@ -171,7 +173,7 @@ const footer = () => {
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    Know Our Team
+                    Contact us
                   </a>
                 </li>
                 <li>
@@ -179,7 +181,7 @@ const footer = () => {
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    Download App
+                    About us
                   </a>
                 </li>
               </ul>
@@ -245,7 +247,7 @@ const footer = () => {
                 </a>
               </div>
               <p className="text-base text-body-color dark:text-dark-6">
-                © 2025 TailGrids
+                © Arush Dhanajya
               </p>
             </div>
           </div>
