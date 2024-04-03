@@ -82,7 +82,7 @@ Need assistance? Our support team is here to help you 24*7.
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                   
+                   Book Tests
 
                   </a>
                 </li>
@@ -91,7 +91,7 @@ Need assistance? Our support team is here to help you 24*7.
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    Pharmacy
+                   Buy Meadicines
                   </a>
                 </li>
                 <li>
@@ -99,7 +99,7 @@ Need assistance? Our support team is here to help you 24*7.
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    Pathology
+                    Book Full Body Cheeckup
                   </a>
                 </li>
               </ul>
@@ -108,7 +108,7 @@ Need assistance? Our support team is here to help you 24*7.
           <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
             <div className="w-full mb-10">
               <h4 className="text-lg font-semibold text-dark dark:text-white mb-9">
-                Company
+                For Doctors
               </h4>
               <ul className="space-y-3">
                 <li>
@@ -116,7 +116,7 @@ Need assistance? Our support team is here to help you 24*7.
                     href="javascript:void(0)"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    About us
+                    Doctor Dashboard
                   </a>
                 </li>
                 <li>

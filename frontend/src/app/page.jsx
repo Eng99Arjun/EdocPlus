@@ -3,7 +3,7 @@ import React from 'react'
 const Home = () => {
   return (
     <>
-    <section className='my-60'>
+    {/* <section className='my-60'>
       <div className='h-'>
         <div className="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-45 w-60 md:w-80 p-5 bg-indigo-200 ">
           <a href="#" className="block w-full h-full">
@@ -25,7 +25,7 @@ const Home = () => {
           </a>
         </div>
       </div>
-    </section>
+    </section> */}
 
 
   {/* Start block */}
@@ -35,12 +35,10 @@ const Home = () => {
       <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
         <div className="text-gray-500 sm:text-lg dark:text-gray-400">
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            Work with tools you already use
+            Allround solutions to your Health Problems
           </h2>
           <p className="mb-8 font-light lg:text-xl">
-            Deliver great service experiences fast - without the complexity of
-            traditional ITSM solutions. Accelerate critical development work,
-            eliminate toil, and deploy changes with ease.
+          Expert medical care at the click of a button – wherever you are, whenever you need
           </p>
           {/* List */}
           <ul
@@ -62,7 +60,7 @@ const Home = () => {
                 />
               </svg>
               <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                Continuous integration and deployment
+                Doctor Consultation
               </span>
             </li>
             <li className="flex space-x-3">
@@ -80,7 +78,7 @@ const Home = () => {
                 />
               </svg>
               <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                Development workflow
+                Get your Checkups done on time 
               </span>
             </li>
             <li className="flex space-x-3">
@@ -98,13 +96,13 @@ const Home = () => {
                 />
               </svg>
               <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                Knowledge management
+                Get your medicine at door-step
               </span>
             </li>
           </ul>
           <p className="mb-8 font-light lg:text-xl">
-            Deliver great service experiences fast - without the complexity of
-            traditional ITSM solutions.
+            Get great service experiences fast - without the complexity of
+            traditional solutions.
           </p>
         </div>
         <img
@@ -117,17 +115,15 @@ const Home = () => {
       <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
         <img
           className="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
-          src="/new.webp"
+          src="/landind2.jpg"
           alt=""
         />
         <div className="text-gray-500 sm:text-lg dark:text-gray-400">
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            We invest in the world’s potential
+            Be ahead in your healthcare solutions.
           </h2>
           <p className="mb-8 font-light lg:text-xl">
-            Deliver great service experiences fast - without the complexity of
-            traditional ITSM solutions. Accelerate critical development work,
-            eliminate toil, and deploy changes with ease.
+            
           </p>
           {/* List */}
           <ul
@@ -149,7 +145,7 @@ const Home = () => {
                 />
               </svg>
               <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                Dynamic reports and dashboards
+                Track your health status
               </span>
             </li>
             <li className="flex space-x-3">
@@ -167,7 +163,7 @@ const Home = () => {
                 />
               </svg>
               <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                Templates for everyone
+                Manage your health records
               </span>
             </li>
             <li className="flex space-x-3">
@@ -185,7 +181,7 @@ const Home = () => {
                 />
               </svg>
               <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                Development workflow
+                Video & Text connectivity with the Doctors
               </span>
             </li>
             <li className="flex space-x-3">
@@ -203,31 +199,13 @@ const Home = () => {
                 />
               </svg>
               <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                Limitless business automation
+                Get Consultations at your time
               </span>
             </li>
-            <li className="flex space-x-3">
-              {/* Icon */}
-              <svg
-                className="flex-shrink-0 w-5 h-5 text-purple-500 dark:text-purple-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                Knowledge management
-              </span>
-            </li>
+            
           </ul>
           <p className="font-light lg:text-xl">
-            Deliver great service experiences fast - without the complexity of
-            traditional ITSM solutions.
+            
           </p>
         </div>
       </div>
@@ -246,7 +224,7 @@ const Home = () => {
         </h2>
         <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
           Our rigorous security and compliance standards are at the heart of all
-          we do. We work tirelessly to protect you and your customers.
+          we do. We work tirelessly to protect you and your family.
         </p>
         <div className="pt-6 mt-6 space-y-4 border-t border-gray-200 dark:border-gray-700">
           <div>
@@ -306,7 +284,7 @@ const Home = () => {
             />
           </svg>
           <h3 className="mb-2 text-2xl font-bold dark:text-white">
-            99.99% uptime
+            
           </h3>
           <p className="font-light text-gray-500 dark:text-gray-400">
             For Landwind, with zero maintenance downtime
