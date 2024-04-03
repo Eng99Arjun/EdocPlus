@@ -612,21 +612,21 @@ const About = () => {
                 Why Choose Us
               </span>
               <h2 className="mb-5 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]">
-                Make your customers happy by giving services.
+                Make your customers happy by giving world class services.
               </h2>
               <p className="mb-5 text-base text-body-color dark:text-dark-6">
-                It is a long established fact that a reader will be distracted by
-                the readable content of a page when looking at its layout. The
-                point of using Lorem Ipsum is that it has a more-or-less.
+              Our mission is to provide accessible, quality care, tailored to your needs.
+               With a team of seasoned professionals, we’re redefining the way you experience healthcare. 
+              Connect with us and discover a world where your health and convenience come first.
               </p>
               <p className="mb-8 text-base text-body-color dark:text-dark-6">
-                A domain name is one of the first steps to establishing your
-                brand. Secure a consistent brand image with a domain name that
-                matches your business.
+              To build  a single platform where a user can access healthcare services like 
+
+Online Doctor Consultation,Online checkup Scheduling,Buying medicines online.
               </p>
               <a
                 href="javascript:void(0)"
-                className="inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-primary hover:bg-opacity-90"
+                className="inline-flex items-center justify-center py-3 text-base font-medium text-center text-black border border-transparent rounded-md px-7 bg-primary hover:bg-opacity-90"
               >
                 Get Started
               </a>
