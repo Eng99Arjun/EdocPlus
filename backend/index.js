@@ -3,7 +3,10 @@ const cors = require('cors');
 
 
 const app = express();
-const port = 5000;5
+const port = 5000;
+const postRouter = require('./routers/postRouter')
+const patientRouter = require('./routers/patientRouter')
+
 
 // middleware
 app.use(cors({
@@ -14,6 +17,8 @@ app.use(cors({
 
 app.use(express.json());
 app.use( '/post', postRouter );
+app.use( '/patient', patientRouter );
+
 
 app.get('/', (req, res) => {
     res.send('response from express');

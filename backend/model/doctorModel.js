@@ -2,10 +2,10 @@ const { Schema, model } = require('../connection');
 
 const doctorSchema= new Schema({
     name:{type:String,required:true},
-    specilization:String,
+    specialization:String,
    // patientScore:number,
-    gender:{male,female},
-    Address:string
+    gender:String,
+    Address:String,
 });
 
 module.exports=model('posts',doctorSchema);
