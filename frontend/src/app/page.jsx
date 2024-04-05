@@ -3,26 +3,7 @@ import React from 'react'
 const Home = () => {
   return (
     <>
-    <section className='my-60'>
-      <div className=''>
-        <div className="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer md:w-72 pl-8 p-5 bg-indigo-200">
-          <a href="#" className="block w-full h-full">
-            <img
-              alt="blog photo"
-              src="/video_consulation.webp"
-              className=" h-56 w-52"
-            />
-            <div className=" bg-white dark:bg-gray-800 h-32 w-">
-              <p className="font-medium text-indigo-500 text-md">Article</p>
-              <p className="mb-2 text-xl font-medium text-gray-800 dark:text-white">
-                Supercharged
-              </p>
-              
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
+  
 
 
   {/* Start block */}
