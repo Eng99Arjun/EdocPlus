@@ -3,29 +3,7 @@ import React from 'react'
 const Home = () => {
   return (
     <>
-    {/* <section className='my-60'>
-      <div className='h-'>
-        <div className="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-45 w-60 md:w-80 p-5 bg-indigo-200 ">
-          <a href="#" className="block w-full h-full">
-            <img
-              alt="blog photo"
-              src="/video_consulation.webp"
-              className="object-cover w-full size-30"
-            />
-            <div className="w-full p-4 bg-white dark:bg-gray-800">
-              <p className="font-medium text-indigo-500 text-md">Article</p>
-              <p className="mb-2 text-xl font-medium text-gray-800 dark:text-white">
-                Supercharged
-              </p>
-              <p className="font-light text-gray-400 dark:text-gray-300 text-md">
-                The new supercar is here, 543 cv and 140 000$. This is best racing GT
-                about 7 years on...
-              </p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section> */}
+  
 
 
   {/* Start block */}
