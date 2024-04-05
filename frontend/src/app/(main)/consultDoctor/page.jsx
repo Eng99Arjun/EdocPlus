@@ -37,7 +37,7 @@ const consultDoctor = () => {
     {/* search bar ends */}
 
     {/* card */}
-{/* 
+
         <div className='rounded-xl shadow-lg w-56 ml-3'>
             <a href=""></a>
                 <div className='bg-blue-200 pl-3 pt-9 pr-9 pb-0 rounded-t-lg'>
@@ -55,7 +55,7 @@ const consultDoctor = () => {
                 <br />Solution
             </div>
         </div>
-         */}
+         
         <div className='flex items-center justify-center pt-12 pb-12 container mx-auto'>
 
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
