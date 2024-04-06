@@ -12,7 +12,7 @@ const About = () => {
               <div className="w-full px-3 sm:px-4 xl:w-1/2">
                 <div className="py-3 sm:py-4">
                   <img
-                    src="https://cdn.tailgrids.com/2.0/image/marketing/images/about/about-01/image-1.jpg"
+                    src="about1.jpg"
                     alt=""
                     className="w-full rounded-2xl"
                   />

@@ -1,37 +1,38 @@
+import Link from 'next/link'
 import React from 'react'
 const navbar = () => {
   return (
     <header className="sticky inset-0 z-50 border-b border-slate-400 bg-white-200 backdrop-blur-lg">
   <nav className="mx-auto flex max-w-6xl gap-8 px-6 transition-all duration-200 ease-in-out lg:px-12 py-4">
     <div className="relative flex items-center">
-      <a href="/"
+      <Link href="/"
       className='text-green-600 font-semibold tracking-wide text-2xl uppercase sm:text-3xl'>
         EDOC<span className='text-red-600'>+</span>
         
-      </a>
+      </Link>
     </div>
     <ul className="hidden items-center justify-center gap-6 md:flex">
       <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
-        <a href="#">Our Services</a>
+        <Link href="/">Our Services</Link>
       </li>
       <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
-        <a href="#">Contact us</a>
+        <Link href="/contact">Contact us</Link>
       </li>
       <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
-        <a href="#">About us</a>
+        <Link href="/about">About us</Link>
       </li>
     </ul>
     <div className="flex-grow" />
     <div className="hidden items-center justify-center gap-6 md:flex">
-      <a href="#" className="font-dm text-sm font-medium text-slate-700">
+      <Link href="/login" className="font-dm text-sm font-medium text-slate-700">
         Login 
-      </a>
-      <a
-        href="#"
+      </Link>
+      <Link
+        href="/signup"
         className="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]"
       >
         Sign up 
-      </a>
+      </Link>
     </div>
     <div className="relative flex items-center justify-center md:hidden">
       <button type="button">
