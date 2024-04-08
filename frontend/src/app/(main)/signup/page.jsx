@@ -28,14 +28,15 @@ const signup = () => {
       .required('email is required')
       .email('email is invalid'),
 
-    confirmPassword: Yup.string()
-      .required('Password is required'),
-
-    password: Yup.string().required('password is required')
+      
+      password: Yup.string().required('password is required')
       .matches(/[a-z]/, 'password must contain lowercase letter ')
       .matches(/[A-Z]/, 'password must contain uppercase letter ')
       .matches(/[0-9]/, 'password must contain number ')
       .matches(/\W/, 'password must contain special symbol  '),
+      
+        confirmPassword: Yup.string()
+        .required('Password is required'),
   });
 
   const signupForm = useFormik({
@@ -160,8 +161,10 @@ const signup = () => {
                       <small className="text-danger">{signupForm.errors.email}</small>
                     }
                   </div>
+
                   <div className="mb-6">
-                    <input
+                    <input          
+
                       type="number"
                       id='contactNo'
                       onChange={signupForm.handleChange}

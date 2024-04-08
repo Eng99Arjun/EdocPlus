@@ -1,6 +1,7 @@
 const { Schema, model } = require('../connection');
+// const patientModel = require('./patientRouter');
 
-const mySchema= new Schema({
+const patientSchema= new Schema({
     fullName:String,
     email:String,
     password:String,
@@ -8,7 +9,7 @@ const mySchema= new Schema({
     age:Number,
     gender: String,
     reports: {type : Array, default: []},
-    createdAt: {}
+    createdAt: {type:Date, default:Date.now}
 });
 
-module.exports=model('patient',mySchema);
+module.exports=model('patient',patientSchema);

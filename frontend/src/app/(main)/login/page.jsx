@@ -1,63 +1,84 @@
 'use client';
 import React from 'react';
-import {BiUser} from "react-icons/bi";
-import {AiOutlineUnlock} from 'react-icons/ai';
+import { BiUser } from "react-icons/bi";
+import { AiOutlineUnlock } from 'react-icons/ai';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
+const loginValidationSchema = Yup.object().shape({
+  email: Yup.string().required('Email is Required').email('Email is invalid'),
+  password: Yup.string().required('Password is Required')
+});
 
 const Login = () => {
-    const loginValidationSchema = Yup.object().shape({
-        email: Yup.string().required('Email is Required').email('Email is invalid'),
-        password: Yup.string().required('Password is Required')
+
+
+  // initialize formik
+  const loginForm = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    onSubmit: async (values, { resetForm }) => {
+      console.log(values);
+
+      const res = await fetch('http://localhost:5000/patient/authenticate', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
-    
-      // initialize formik
-      const loginForm = useFormik({
-        initialValues: {
-          email: '',
-          password: ''
-        },
-        onSubmit: (values, { resetForm }) => {
-          console.log(values);
-          resetForm();
-          // send data to backend
-        },
-        validationSchema: loginValidationSchema
-      });
-    
-  return (
-    <>
+      console.log(res.status);
+      action.resetForm();
+
+      if (res.status === 200) {
+        toast.success('Login Successfull')
+ 
+        const data = await res.json();
+        router.post('/seller/dashboard')
+      }
+      else if (res.status === 400
+      ) {
+        toast.error('Some error occured')
+      }
+    }
+
+  });
+    validationSchema: loginValidationSchema
+ };
+
+return (
+  <>
     {/* ====== Contact Section Start */}
     <section className="relative z-10 overflow-hidden  dark:bg-dark py-0 px-20 bg-slate-200 lg:py-[120px]">
       <div className="container mx-auto">
         <div className="flex flex-wrap -mx-4 lg:justify-between">
           <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
             <div className="mb-12 max-w-[570px] lg:mb-0">
-              
+
               <h2 className="text-dark dark:text-white mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                 Login
               </h2>
               <p className="text-base leading-relaxed text-body-color dark:text-dark-6 mb-9">
-              Instant Care, Anytime, Anywhere
+                Instant Care, Anytime, Anywhere
               </p>
-             <div className='p-0 m-0'>
+              <div className='p-0 m-0'>
                 <img src="/login.jpg" alt="" />
-             </div>
+              </div>
               <div className="mb-8 flex w-full max-w-[370px]">
                 <div className="bg-primary/5 text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">
-                  
+
                 </div>
                 <div className="w-full">
-                  
+
                 </div>
               </div>
               <div className="mb-8 flex w-full max-w-[370px]">
                 <div className="bg-primary/5 text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">
-                  
+
                 </div>
                 <div className="w-full">
-                 
+
                 </div>
               </div>
             </div>
@@ -72,15 +93,15 @@ const Login = () => {
                     onChange={loginForm.handleChange}
                     value={loginForm.values.email}
                     placeholder="Email"
-                    className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none" 
+                    className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
                   />
-                  
-                   {
-                        loginForm.touched.email &&
-                        <small className="text-danger">{loginForm.errors.email}</small>
-                    }
+
+                  {
+                    loginForm.touched.email &&
+                    <small className="text-danger">{loginForm.errors.email}</small>
+                  }
                 </div>
-                
+
                 <div className="mb-6">
                   <input
                     type="Password"
@@ -90,28 +111,28 @@ const Login = () => {
                     placeholder="Password"
                     className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
                   />
-                {
+                  {
                     loginForm.touched.password &&
                     <small className="text-danger">{loginForm.errors.password}</small>
-                }
+                  }
 
                 </div>
                 <div className="form-check mb-4">
-                        <input
-                          className="form-check-input me-2"
-                          type="checkbox"
-                          defaultValue=""
-                          id="form2Example33"
-                          defaultChecked=""
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="form2Example33"
-                        >
-                          Remember Me
-                        </label>
-                      </div>
-                
+                  <input
+                    className="form-check-input me-2"
+                    type="checkbox"
+                    defaultValue=""
+                    id="form2Example33"
+                    defaultChecked=""
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="form2Example33"
+                  >
+                    Remember Me
+                  </label>
+                </div>
+
                 <div>
                   <button
                     type="submit"
@@ -121,9 +142,9 @@ const Login = () => {
                   </button>
                 </div>
                 <div className="">
-                    <br />
-                    <br />
-                <p>Not Registered Yet?<a href='/signup' className='text-blue-600'>  Register Here</a></p>
+                  <br />
+                  <br />
+                  <p>Not Registered Yet?<a href='/signup' className='text-blue-600'>  Register Here</a></p>
                 </div>
               </form>
               <div>
@@ -941,7 +962,7 @@ const Login = () => {
     </section>
     {/* ====== Contact Section End */}
   </>
-  )
+)
 }
 
 export default Login

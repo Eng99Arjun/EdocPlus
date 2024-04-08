@@ -1,6 +1,77 @@
-import React from 'react'
+'use client';
+import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
+import contact from '../contact/page';
 
 const doctorSignup = () => {
+  const router = useRouter();
+  
+  const doctorSignupValidationSchema = Yup.object().shape({
+    name: Yup.string().required('Name is required'),
+    specialization: Yup.string().required('Specialization is required'),
+    gender: Yup.string(),
+    city:Yup.string().required('City is required'),
+    address:Yup.string().required('Address is required'),
+    contact:Yup.number().required('Contact Number is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string()
+      .required('Password is required')
+      .matches(/[a-z]/, 'password must contain lowercase letter ')
+      .matches(/[A-Z]/, 'password must contain uppercase letter ')
+      .matches(/[0-9]/, 'password must contain number ')
+      .matches(/\W/, 'password must contain special symbol  '),
+    
+      avatar:Yup.string().required('Photo is required'),
+    
+    confirmPassword:Yup.string().required('confirmation required'),
+
+    
+});
+
+  const doctorSignupForm = useFormik({
+    initialValues:{
+      name:'',
+      specialization:'',
+      avatar:'',
+      gender:'',
+      city:'',
+      address:'',
+      contact:'',
+      email:'',
+      password:'',
+      confirmPassword:''
+    },
+
+    onSubmit:(values,{resetForm}) => {
+      fetch("http://localhost:5000/doctor/add",{
+        method:'POST',
+        body:JSON.stringify(values),
+        headers:{
+          'Content-Type':'application/json'
+        }
+      })
+
+      .then((response) => {
+        if(response.status===200){
+          toast.success('Signup Successful');
+          router.push('/login');
+          resetForm();
+        } else{
+          toast.error('some error occured')
+        }
+      }).catch((err) => {
+        console.log(err);
+        toast.error('some error occured')
+      });
+
+    },
+    validationSchema:doctorSignupValidationSchema
+  });
+
+
   return (
     <div>
     <section className="relative z-10 overflow-hidden  dark:bg-dark px-20 bg-slate-200 lg:py-[50px]">
@@ -16,52 +87,161 @@ const doctorSignup = () => {
               src="/doctorSignup.jpg"
               className="img-fluid rounded-top"
               alt=""
-            />
-            
-            
-           
-           
+            />           
           </div>
         </div>
         <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
           <div className="relative p-8 bg-white rounded-lg shadow-lg dark:bg-dark-2 sm:p-12">
-            <form>
+            <form onSubmit={doctorSignupForm.handleSubmit}>
               <div className="mb-6">
                 <input
                   type="text"
+                  id='name'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.name}
                   placeholder="Doctor's Name"
                   className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
                 />
+                {
+                  doctorSignupForm.touched.name &&
+                  <small className="text-danger">{doctorSignupForm.errors.name}</small>
+                }
               </div>
+
+              <div className="mb-6">
+                <input
+                  type="text"
+                  id='specialization'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.specialization}
+                  placeholder="Doctor's Specialization"
+                  className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+                />
+                {
+                  doctorSignupForm.touched.name &&
+                  <small className="text-danger">{doctorSignupForm.specialization}</small>
+                }
+              </div>
+
+              <div className="mb-6">
+                <input
+                  type="text"
+                  id='avatar'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.avatar}
+                  placeholder="Doctor's Photo"
+                  className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+                />
+                {
+                  doctorSignupForm.touched.name &&
+                  <small className="text-danger">{doctorSignupForm.avatar}</small>
+                }
+              </div>
+
+              <div className="mb-6">
+                <input
+                  type="text"
+                  id='gender'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.gender}
+                  placeholder="Gender"
+                  className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+                />
+                {
+                  doctorSignupForm.touched.name &&
+                  <small className="text-danger">{doctorSignupForm.gender}</small>
+                }
+              </div>
+
+
               <div className="mb-6">
                 <input
                   type="email"
+                  id='email'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.email}
                   placeholder="Your Email"
                   className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
                 />
+                 {
+                    doctorSignupForm.touched.email &&
+                    <small className="text-danger">{doctorSignupForm.errors.email}</small>
+                  }
               </div>
               <div className="mb-6">
                 <input
                   type="number"
+                  id='contact'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.contact}
                   placeholder="Contact Number"
                   className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
                 />
+                 {
+                    doctorSignupForm.touched.contact &&
+                    <small className="text-danger">{doctorSignupForm.errors.contact}</small>
+                  }
               </div>
               <div className="mb-6">
                 <input
                   type="text"
+                  id='city'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.city}
                   placeholder="City"
                   className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
                 />
+                {
+                  doctorSignupForm.touched.city &&
+                  <small className="text-danger">{doctorSignupForm.errors.city}</small>
+                }
               </div>
               <div className="mb-6">
-                <inp
-                ut
+                <input
                   type="text"
                   placeholder="Address"
+                  id='address'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.address}
                   className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
                 />
+                {
+                  doctorSignupForm.touched.address &&
+                  <small className="text-danger">{doctorSignupForm.errors.address}</small>
+                }
+
               </div>
+              <div className="mb-6">
+                <input
+                  type="text"
+                  placeholder="Create Password"
+                  id='password'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.password}
+                  className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+                />
+                {
+                  doctorSignupForm.touched.address &&
+                  <small className="text-danger">{doctorSignupForm.errors.password}</small>
+                }
+
+              </div>
+              <div className="mb-6">
+                <input
+                  type="text"
+                  placeholder="Confirm Password"
+                  id='confirmPassword'
+                  onChange={doctorSignupForm.handleChange}
+                  value={doctorSignupForm.values.confirmPassword}
+                  className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+                />
+                {
+                  doctorSignupForm.touched.address &&
+                  <small className="text-danger">{doctorSignupForm.errors.confirmPassword}</small>
+                }
+
+              </div>
+
               
               <div>
                 <button
@@ -71,6 +251,11 @@ const doctorSignup = () => {
                   Register
                 </button>
               </div>
+              <div className="">
+                    <br />
+                    <br />
+                    <p>Already Registered ?<a href='/login' className='text-blue-600'>  Login Here</a></p>
+                  </div>
             </form>
             <div>
               <span className="absolute -top-10 -right-9 z-[-1]">

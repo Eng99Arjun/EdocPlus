@@ -1,4 +1,6 @@
 const { Schema, model } = require('../connection');
+// const doctorModel = require('./doctorRouter');
+
 
 const doctorSchema= new Schema({
     name:{type:String,required:true},
@@ -14,4 +16,4 @@ const doctorSchema= new Schema({
     createdAt: {type:Date, default:Date.now}
 });
 
-module.exports=model('posts',doctorSchema);
+module.exports=model('doctor',doctorSchema);    
