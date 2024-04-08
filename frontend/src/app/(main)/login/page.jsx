@@ -1,16 +1,17 @@
 'use client';
 import React from 'react';
-import { BiUser } from "react-icons/bi";
-import { AiOutlineUnlock } from 'react-icons/ai';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-const loginValidationSchema = Yup.object().shape({
-  email: Yup.string().required('Email is Required').email('Email is invalid'),
-  password: Yup.string().required('Password is Required')
-});
+
+
 
 const Login = () => {
 
+
+  const loginValidationSchema = Yup.object().shape({
+    email: Yup.string().required('Email is Required').email('Email is invalid'),
+    password: Yup.string().required('Password is Required')
+  });
 
   // initialize formik
   const loginForm = useFormik({
@@ -41,11 +42,9 @@ const Login = () => {
       ) {
         toast.error('Some error occured')
       }
-    }
-
-  });
+    },
     validationSchema: loginValidationSchema
- };
+ });
 
 return (
   <>
