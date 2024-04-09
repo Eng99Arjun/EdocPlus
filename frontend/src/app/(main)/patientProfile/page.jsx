@@ -1,10 +1,11 @@
 import React from 'react';
-const myStyle = {
-  color: 'white',
-  backgroundColor: 'DodgerBlue',
-  padding: '10px',
-  fontFamily: 'Arial'
-}
+
+// const myStyle = {
+//   color: 'white',
+//   backgroundColor: 'DodgerBlue',
+//   padding: '10px',
+//   fontFamily: 'Arial'
+// }
 
 const patientDashboard = () => {
   return (
