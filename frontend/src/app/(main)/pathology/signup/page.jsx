@@ -1,6 +1,6 @@
 import React from 'react'
 
-const pathologySignup = () => {
+const PathologySignup = () => {
   return (
     <div><>
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
@@ -97,4 +97,4 @@ const pathologySignup = () => {
   )
 }
 
-export default pathologySignup
+export default PathologySignup
