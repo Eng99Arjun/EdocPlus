@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link';
 
 const consultDoctor = () => {
 
@@ -33,7 +34,7 @@ const consultDoctor = () => {
                             </div>
                             <h5 className='text-2xl md:text-3xl font-medium mt-3'>Dr. {doctor.name}</h5>
                             <p className="text-slate-500  text:lg mt:3">{doctor.specialization}</p>
-                            <a href="#" className='text-center bg-white text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-800 hover:text-white focus:scale-95 transition-all duration-200 ease-out'>view</a>
+                            <Link href={'/view-doctor/'+doctor._id} className='text-center bg-white text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-800 hover:text-white focus:scale-95 transition-all duration-200 ease-out'>view</Link>
                         </div>
                     </div>
             ) )

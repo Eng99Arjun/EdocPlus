@@ -1,5 +1,5 @@
 const { Schema, model } = require('../connection');
-const patientModel = require('./patientRouter');
+
 
 const patientSchema = new Schema({
     fullName: String,

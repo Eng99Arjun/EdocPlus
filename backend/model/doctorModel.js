@@ -1,5 +1,4 @@
 const { Schema, model } = require('../connection');
-const doctorModel = require('./doctorRouter');
 
 
 const doctorSchema = new Schema({
