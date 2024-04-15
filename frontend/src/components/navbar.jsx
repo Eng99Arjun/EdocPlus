@@ -13,7 +13,7 @@ const navbar = () => {
     </div>
     <ul className="hidden items-center justify-center gap-6 md:flex">
       <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
-        <Link href="/">Our Services</Link>
+        <Link href="/consultDoctor">Doctors</Link>
       </li>
       <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
         <Link href="/contact">Contact us</Link>
@@ -24,11 +24,11 @@ const navbar = () => {
     </ul>
     <div className="flex-grow" />
     <div className="hidden items-center justify-center gap-6 md:flex">
-      <Link href="/login" className="font-dm text-sm font-medium text-slate-700">
+      <Link href="/user/login" className="font-dm text-sm font-medium text-slate-700">
         Login 
       </Link>
       <Link
-        href="/signup"
+        href="/user/signup"
         className="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]"
       >
         Sign up 

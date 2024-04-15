@@ -79,12 +79,12 @@ export default function appointmentDetail() {
                                 <legend className="text-sm font-semibold leading-6 text-gray-900 mb-3   ">Slots</legend>
                               <p className=""><span className="bg-white border px-3 py-1 mx-2">9:00AM</span>
                                <span className="bg-white border px-3 py-1">9:00AM</span>
-                               <sppan className="bg-white border px-3 py-1 mx-2">9:00AM</sppan>
-                               <span className="bg-white border px-3 py-1">9:00AM</span>
-                               <span className="bg-white border px-3 py-1 mx-2">9:00AM</span>
-                               <span className="bg-white border px-3 py-1">9:00AM</span>
-                               <span className="bg-white border px-3 py-1 mx-2">9:00AM</span>
-                               <span className="bg-white border px-3 py-1">9:00AM</span>
+                               <sppan className="bg-white border px-3 py-1 mx-2">11:00AM</sppan>
+                               <span className="bg-white border px-3 py-1">1:00PM</span>
+                               <span className="bg-white border px-3 py-1 mx-2">3:00PM</span>
+                               <span className="bg-white border px-3 py-1">6:00PM</span>
+                               <span className="bg-white border px-3 py-1 mx-2">9:00PM</span>
+                               <span className="bg-white border px-3 py-1">10:00PM</span>
                                </p> 
                             </fieldset>
 

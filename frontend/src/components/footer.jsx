@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const footer = () => {
@@ -70,12 +71,12 @@ Need assistance? Our support team is here to help you 24*7.
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="javascript:void(0)"
+                  <Link
+                    href="/consultDoctor"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
-                    Find  Doctor
-                  </a>
+                    Doctors
+                  </Link>
                 </li>
                 <li>
                   <a
@@ -112,20 +113,20 @@ Need assistance? Our support team is here to help you 24*7.
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="javascript:void(0)"
+                  <Link
+                    href="/consultDoctor"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
                     Doctor Dashboard
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
+                  <Link
+                    href="/contact"
                     className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
                   >
                     Contact &amp; Support
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
