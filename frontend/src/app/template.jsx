@@ -2,14 +2,17 @@
 import React, { useEffect } from 'react'
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
+import { DoctorProvider } from '@/context/DoctorContext';
 
-const template = ({children}) => {
+const template = ({ children }) => {
   return (
     <div>
-       {/* <Navbar/> */}
+      {/* <Navbar/> */}
+      <DoctorProvider>
         {children}
-        {/* <Footer/> */}
-        </div>
+      </DoctorProvider>
+      {/* <Footer/> */}
+    </div>
   )
 }
 export default template

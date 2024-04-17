@@ -17,7 +17,7 @@ router.post('/add', (req, res) => {
 
 router.post("/authenticate", (req, res) => {
     console.log(req.body);
-    Model.find(req.body)
+    Model.findOne(req.body)
         .then((result) => {
             if (result) {
                 const {_id, name, email}=result;
@@ -25,7 +25,7 @@ router.post("/authenticate", (req, res) => {
                 jwt.sign(
                     payload,
                     process.env.JWT_SECRET,
-                    {expiry:'2 days'},
+                    {expiresIn:'2 days'},
                     (err,token)=>{
                         if(err){
                             res.status(500).json({message:'error creating token'})

@@ -2,6 +2,8 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import useDoctorContext from '@/context/DoctorContext';
+import toast from 'react-hot-toast';
 
 
 
@@ -13,6 +15,8 @@ const Login = () => {
     password: Yup.string().required('Password is Required')
   });
 
+  const { setCurrentDoctor, setDoctorLoggedIn } = useDoctorContext();
+
   // initialize formik
   const loginForm = useFormik({
     initialValues: {
@@ -22,7 +26,7 @@ const Login = () => {
     onSubmit: async (values, { resetForm }) => {
       console.log(values);
 
-      const res = await fetch('http://localhost:5000/patient/authenticate', {
+      const res = await fetch('http://localhost:5000/doctor/authenticate', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
@@ -30,13 +34,16 @@ const Login = () => {
         }
       });
       console.log(res.status);
-      action.resetForm();
-
+      
       if (res.status === 200) {
-        toast.success('Login Successfull')
- 
+        console.log('login success');
         const data = await res.json();
-        router.post('/seller/dashboard')
+        toast.success('Login Successfull')
+        sessionStorage.setItem('doctor', JSON.stringify(data));
+        setCurrentDoctor(data);
+        setDoctorLoggedIn(true);
+        resetForm();
+        // router.post('/seller/dashboard')
       }
       else if (res.status === 400
       ) {
