@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ManageUser = () => {
+const ManagePatient = () => {
   return (
     <div>ManageUser</div>
   )
 }
 
-export default ManageUser;
+export default ManagePatient;

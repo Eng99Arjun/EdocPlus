@@ -6,9 +6,10 @@ import Footer from '@/components/footer';
 const template = ({children}) => {
   return (
     <div>
-       <Navbar/>
+       {/* <Navbar/> */}
         {children}
-        <Footer/></div>
+        {/* <Footer/> */}
+        </div>
   )
 }
 export default template

@@ -71,6 +71,32 @@ const doctorSignup = () => {
     validationSchema: doctorSignupValidationSchema
   });
 
+  const uploadFile = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+    const fd = new FormData();
+    fd.append('myfile', file);
+    fetch('http://localhost:5000/util/uploadfile', {
+      method: 'POST',
+      body: fd
+
+    })
+      .then((response) => {
+        if (response.status === 200) { 
+          toast.success('Photo Upload');
+          response.json()
+            .then((data) => {
+              doctorSignupForm.values.avatar = data.savedFile;
+            })
+        } else {
+          toast.error('some error occured')
+        }
+      }).catch((err) => {
+        console.log(err);
+        toast.error('some error occured')
+      });
+  }
+
 
   return (
     <div>
@@ -124,12 +150,13 @@ const doctorSignup = () => {
                   </div>
 
                   <div className="mb-6">
+
+                    <label htmlFor="avatar" className="text-dark dark:text-white">Upload Photo</label>
                     <input
-                      type="text"
+                      type="file"
                       id='avatar'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.avatar}
-                      placeholder="Doctor's Photo"
+                      onChange={uploadFile}
+                      placeholder=""
                       className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
                     />
                     {
@@ -139,14 +166,19 @@ const doctorSignup = () => {
                   </div>
 
                   <div className="mb-6">
-                    <input
+                    <select
                       type="text"
                       id='gender'
                       onChange={doctorSignupForm.handleChange}
                       value={doctorSignupForm.values.gender}
                       placeholder="Gender"
                       className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
+                    >
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+
+                    </select>
                     {
                       doctorSignupForm.touched.name &&
                       <small className="text-danger">{doctorSignupForm.gender}</small>

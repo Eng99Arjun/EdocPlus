@@ -6,6 +6,12 @@ const cors = require('cors');
 const port = 5000;
 const doctorRouter = require('./routers/doctorRouter')
 const patientRouter = require('./routers/patientRouter')
+const utilRouter = require('./routers/utilRouter')
+const slotRouter = require('./routers/slotRouter')
+const appointmentRouter = require('./routers/appointmentRouter')
+const reportRouter = require('./routers/reportRouter')
+
+
 
 
 // middleware
@@ -16,6 +22,11 @@ app.use(cors({
 app.use(express.json());
 app.use( '/doctor', doctorRouter );
 app.use( '/patient', patientRouter );
+app.use( '/util', utilRouter );
+app.use( '/slot', slotRouter );
+app.use( '/appointment', appointmentRouter );
+app.use( '/report', reportRouter );
+
 
 
 app.get('/', (req, res) => {

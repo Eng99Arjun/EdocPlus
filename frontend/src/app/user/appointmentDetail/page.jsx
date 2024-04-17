@@ -45,7 +45,7 @@ export default function appointmentDetail() {
 
 
 
-                        <div className="col-span-full">
+                        {/* <div className="col-span-full">
                             <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
                                 Upload Report
                             </label>
@@ -65,7 +65,7 @@ export default function appointmentDetail() {
                                     <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -74,18 +74,20 @@ export default function appointmentDetail() {
                     <div className=" pb-12">
 
 
-                        <div className="mt-10 space-y-10">
+                        <div className="mt-10  space-y-10">
                             <fieldset>
-                                <legend className="text-sm font-semibold leading-6 text-gray-900 mb-3   ">Slots</legend>
-                              <p className=""><span className="bg-white border px-3 py-1 mx-2">9:00AM</span>
-                               <span className="bg-white border px-3 py-1">9:00AM</span>
-                               <sppan className="bg-white border px-3 py-1 mx-2">11:00AM</sppan>
-                               <span className="bg-white border px-3 py-1">1:00PM</span>
-                               <span className="bg-white border px-3 py-1 mx-2">3:00PM</span>
-                               <span className="bg-white border px-3 py-1">6:00PM</span>
-                               <span className="bg-white border px-3 py-1 mx-2">9:00PM</span>
-                               <span className="bg-white border px-3 py-1">10:00PM</span>
-                               </p> 
+                                <select className="text-lg w-80 font-semibold leading-6 text-gray-900 mb-3   ">
+                                <option value="">Slots</option>
+                                <option value="">9:00</option>
+                                <option value="">9:30</option>
+                                <option value="">10:00</option>
+                                <option value="">10:30</option>
+                                <option value="">11:00</option>
+                                <option value="">11:30</option>
+                                <option value="">12:00</option>
+                              
+                                </select>
+                             
                             </fieldset>
 
                         </div>
