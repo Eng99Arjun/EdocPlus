@@ -28,6 +28,7 @@ const consultDoctor = () => {
         if(doctorList.length > 0) {
             return doctorList.map( (doctor) => (
                 <div className="rounded-xl shadow-lg bg-blue-200 mr-6">
+                  
                         <div className="p-5 flex flex-col ">
                             <div className='rounded-xl overflow-hidden '>
                                 <img src="video_consulation.webp" className='h-48 w-52' alt="" />

@@ -21,7 +21,7 @@ router.post("/authenticate", (req, res) => {
         .then((result) => {
             console.log(result);
             if (result) {
-                const { _id, name, email, avatar } = result;
+                const { _id, name, email, avatar, role } = result;
                 const payload = { _id, name, email, avatar };
                 jwt.sign(
                     payload,
@@ -33,7 +33,7 @@ router.post("/authenticate", (req, res) => {
                             res.status(500).json({ message: 'error creating token' })
                         }
                         else {
-                            console.log(token);
+                            // console.log(token);
                             res.status(200).json({ token, role, name, avatar })
                         }
                     }

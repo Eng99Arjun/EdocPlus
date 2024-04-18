@@ -24,14 +24,18 @@ const Navbar = () => {
         </ul>
         <div className="flex-grow" />
         <div className="hidden items-center justify-center gap-6 md:flex">
-          <Link href="/user/login" className="font-dm text-sm font-medium text-slate-700">
-            Login
-          </Link>
+          
           <Link
-            href="/user/signup"
+            href="/login"
             className="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]"
           >
-            Sign up
+            Patient Login
+          </Link>
+          <Link
+            href="/doctor-login"
+            className="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]"
+          >
+            Doctor
           </Link>
         </div>
         <div className="relative flex items-center justify-center md:hidden">
