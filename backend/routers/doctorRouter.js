@@ -16,7 +16,7 @@ router.post('/add', (req, res) => {
 })
 
 router.post("/authenticate", (req, res) => {
-    console.log('authenticating doctor');
+    console.log(req.body);
     Model.findOne(req.body)
         .then((result) => {
             console.log(result);

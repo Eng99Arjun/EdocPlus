@@ -27,6 +27,7 @@ app.use( '/slot', slotRouter );
 app.use( '/appointment', appointmentRouter );
 app.use( '/report', reportRouter );
 
+app.use(express.static('./static/uploads'));
 
 
 app.get('/', (req, res) => {

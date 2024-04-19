@@ -12,6 +12,9 @@ import './schedular.css';
 import toast from 'react-hot-toast'
 
 export default function Home() {
+
+  const [currentDoctor, setCurrentDoctor] = useState(JSON.parse(sessionStorage.getItem("doctor")));
+
   const [events, setEvents] = useState([
     { title: 'event 1', id: '1' },
     { title: 'event 2', id: '2' },
@@ -104,7 +107,8 @@ export default function Home() {
     fetch('http://localhost:5000/slot/add', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-auth-token': currentDoctor.token
       },
       body: JSON.stringify(slot)
     })

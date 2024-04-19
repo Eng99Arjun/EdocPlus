@@ -4,12 +4,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import useDoctorContext from '@/context/DoctorContext';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 
 
 const Login = () => {
 
-  const { currentDoctor, setCurrentDoctor } = useDoctorContext([])
+  const { setCurrentDoctor, setDoctorLoggedIn } = useDoctorContext([])
+  const router = useRouter();
 
   const loginValidationSchema = Yup.object().shape({
     email: Yup.string().required('Email is Required').email('Email is invalid'),
@@ -37,11 +39,11 @@ const Login = () => {
       if (res.status === 200) {
         resetForm();
         toast.success('Login Successfull');
-        setCurrentDoctor(true);
+        setDoctorLoggedIn(true);
         const data = await res.json();
-        currentDoctor(data);
+        setCurrentDoctor(data);
         sessionStorage.setItem('doctor', JSON.stringify(data));
-        router.push('/');
+        router.push('/doctor/manage-schedule');
       }
       else if (res.status === 400) {
         toast.error('Some error occured')

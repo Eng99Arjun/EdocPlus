@@ -26,6 +26,7 @@ export const DoctorProvider = ({children}) => {
         setCurrentDoctor,
         doctorLoggedIn,
         setDoctorLoggedIn,
+        
         logout,
       }}
     >

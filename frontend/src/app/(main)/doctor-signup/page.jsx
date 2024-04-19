@@ -24,8 +24,6 @@ const doctorSignup = () => {
       .matches(/[0-9]/, 'password must contain number ')
       .matches(/\W/, 'password must contain special symbol  '),
 
-    avatar: Yup.string().required('Photo is required'),
-
     confirmPassword: Yup.string().required('confirmation required'),
 
 
