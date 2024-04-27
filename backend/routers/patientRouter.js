@@ -57,6 +57,15 @@ router.get('/getall', (req, res) => {
         });
 })
 
+router.get('/getbyemail/:email',(req,res)=> {
+    Model.findOne({email:req.params.email})
+    .then((result) => {
+        if(result) res.status(200).json(result);
+        else res.status(404).json({message:"Patient not found"})
+    }).catch((err) => {
+        
+    });
+})
 
 
 module.exports = router;
