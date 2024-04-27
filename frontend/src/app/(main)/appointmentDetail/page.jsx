@@ -1,6 +1,6 @@
 import React from 'react'
 
-const detail= () => {
+const appointmentDetail= () => {
   return (
     <>
     <div className="container  py-24 px-72">
@@ -59,4 +59,4 @@ const detail= () => {
   )
 }
 
-export default detail
+export default appointmentDetail

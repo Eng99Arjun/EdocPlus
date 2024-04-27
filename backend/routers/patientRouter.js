@@ -20,8 +20,8 @@ router.post("/authenticate", (req, res) => {
     Model.findOne(req.body)
         .then((result) => {
             if (result) {
-                const {_id, name, email}=result;
-                const payload ={_id,name,email};
+                const {_id, fullName, email, password,gender,age,contactNo,reports}=result;
+                const payload ={_id,fullName,email, password,gender,age, contactNo,reports};
                 jwt.sign(
                     payload,
                     process.env.JWT_SECRET,
@@ -31,7 +31,7 @@ router.post("/authenticate", (req, res) => {
                             res.status(500).json({message:'error creating token'})
                         }
                         else {
-                            res.status(200).json({ token,role:result.role})
+                            res.status(200).json({ token,fullName,email, password,gender,age, contactNo,reports})
                         }
                     }
                 )

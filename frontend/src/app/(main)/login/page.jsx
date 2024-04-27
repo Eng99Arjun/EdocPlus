@@ -150,11 +150,7 @@ const PatientLogin = () => {
                   <div className="">
                     <br />
                     <br />
-<<<<<<< HEAD
-                    <p>Not Registered Yet?<Link href='/signup' className='text-blue-600'>  Register Here</Link></p>
-=======
                     <p>Not Registered Yet?<a href='/signup' className='text-blue-600'>  Register Here</a></p>
->>>>>>> dc93a0f58d255e6b9ccaab13f2b1d4fdc370860b
                   </div>
                 </form>
                 <div>
