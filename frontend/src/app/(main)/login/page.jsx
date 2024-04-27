@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import usePatientContext from '@/context/PatientContext';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 
@@ -149,7 +150,7 @@ const PatientLogin = () => {
                   <div className="">
                     <br />
                     <br />
-                    <p>Not Registered Yet?<a href='/patient-signup' className='text-blue-600'>  Register Here</a></p>
+                    <p>Not Registered Yet?<Link href='/signup' className='text-blue-600'>  Register Here</Link></p>
                   </div>
                 </form>
                 <div>

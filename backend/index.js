@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
-
 const port = 5000;
 const doctorRouter = require('./routers/doctorRouter')
 const patientRouter = require('./routers/patientRouter')
@@ -10,9 +8,6 @@ const utilRouter = require('./routers/utilRouter')
 const slotRouter = require('./routers/slotRouter')
 const appointmentRouter = require('./routers/appointmentRouter')
 const reportRouter = require('./routers/reportRouter')
-
-
-
 
 // middleware
 app.use(cors({

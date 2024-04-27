@@ -1,7 +1,7 @@
 
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
-export default function appointmentDetail() {
+export default function appointmentBook() {
     return (
         <form>
             <div className="flex items-center justify-center flex-col">

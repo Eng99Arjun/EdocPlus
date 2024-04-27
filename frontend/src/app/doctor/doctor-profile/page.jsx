@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ViewDoctor = () => {
+const doctorProfile = () => {
   return (
     <>
         <section className='m-10'>
@@ -154,4 +154,4 @@ const ViewDoctor = () => {
   )
 }
 
-export default ViewDoctor
+export default doctorProfile
