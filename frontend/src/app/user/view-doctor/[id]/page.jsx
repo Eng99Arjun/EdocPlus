@@ -19,7 +19,7 @@ useEffect(() => {
   return (
     <>
 { doctorList !== null ? (
-    <div className="bg-gray-100 dark:bg-gray-800 py-8">
+    <div className="bg-gray-200 dark:bg-gray-800 h-screen flex items-center justify-center py-8">
       <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row -mx-4">
           <div className=" mr-4">
