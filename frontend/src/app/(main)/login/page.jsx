@@ -149,7 +149,7 @@ const PatientLogin = () => {
                   <div className="">
                     <br />
                     <br />
-                    <p>Not Registered Yet?<a href='/patient-signup' className='text-blue-600'>  Register Here</a></p>
+                    <p>Not Registered Yet?<a href='/signup' className='text-blue-600'>  Register Here</a></p>
                   </div>
                 </form>
                 <div>
