@@ -54,5 +54,14 @@ router.get("/getbyid/:id", (req,res) => {
     });
 })
 
+router.get("/getbydoctor/:id", (req,res) => {
+    Model.find({doctor : req.params.id})
+    .then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        res.status(500).json(err)
+    });
+})
+
 
 module.exports = router;

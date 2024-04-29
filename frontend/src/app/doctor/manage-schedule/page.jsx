@@ -104,6 +104,7 @@ export default function Home() {
   }
 
   const addNewSlot = (slot) => {
+    slot.date = slot.start;
     fetch('http://localhost:5000/slot/add', {
       method: 'POST',
       headers: {

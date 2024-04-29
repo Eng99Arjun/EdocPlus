@@ -1,143 +1,207 @@
 'use client';
+import Link from 'next/link';
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
+const DoctorProfile = () => {
 
-const ViewDoctor = () => {
   const { id } = useParams();
-  const [doctorList, setDoctorList] = useState([]);
+  const [doctorDetails, setDoctorDetails] = useState(null);
+  const [slotData, setSlotData] = useState({});
 
-  const fetchData = async () => {
-    const res = await fetch("http://localhost:5000/doctor/getbyid/" + id);
-    const data = await res.json();
-    console.log(data);
-    setDoctorList(data);
+  const fetchDoctorDetails = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/doctor/getbyid/${id}`)
+      .then((response) => {
+        console.log(response.status);
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        setDoctorDetails(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-useEffect(() => {
-  fetchData()
-})
-  return (
-    <>
-{ doctorList !== null ? (
-    <div className="bg-gray-200 dark:bg-gray-800 h-screen flex items-center justify-center py-8">
-      <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row -mx-4">
-          <div className=" mr-4">
-            <div className="rounded-lg bg-gray-300 dark:bg-gray-700 w-72 flex-auto p-2">
-              <img
-                className="pl-2"
-                src={'http://localhost:5000/' + doctorList.avatar}
-                alt="Doctor Image"
-              />
-            </div>
-          </div>
-          <div className='m-4'>
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-                {doctorList.name}
-              </h2>
-              <div className="mr-4 mb-2">
-                <span className="font-bold text-xl text-gray-700 dark:text-gray-300">
-                  {doctorList.specalization}
-                </span>
 
-              </div>
-              <div>
-                <br />
-                <span className="font-bold text-gray-700 dark:text-gray-300">
-                  Years of Experience:
-                </span>
-                <span className="text-gray-600 dark:text-gray-300"> 8 </span>
-              </div>
-              <div>
+  const fetchDoctorSlots = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/slot/getbydoctor/${id}`)
+      .then((response) => {
+        console.log(response.status);
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        const uniqueDates = [...new Set(data.map(item => item.date.split('T')[0]))];
+        let temp = {};
+        uniqueDates.forEach(date => {
+          if (temp[date]) {
+            temp[date].push(data.filter(item => item.date.split('T')[0] === date).map(item => item.time));
+          } else {
+            temp[date] = data.filter(item => item.date.split('T')[0] === date).map(item => item.time);
+          }
+        })
+        console.log(temp);
+        setSlotData(temp);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
-                <br />
-                <span className="font-bold text-gray-700 dark:text-gray-300">
-                  Location:
-                </span>
-                <span className="text-gray-600 dark:text-gray-300"> {doctorList.city}</span>
-              </div>
-              <div>
-                <br />
-                <span className="font-bold text-gray-700 dark:text-gray-300">
-                  Professional Degree:
-                </span>
-                <span className="text-gray-600 dark:text-gray-300">{doctorList.degree}</span>
-              </div>
-            </div>
-          </div>
-
-
-          <div className="md:flex-1 px-4">
-
-            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante
-              justo. Integer euismod libero id mauris malesuada tincidunt.
-            </p>
-            <div className="flex mb-4">
-              <div className="mr-4">
-                <span className="font-bold text-gray-700 dark:text-gray-300">
-                  Charge per Session:
-                </span>
-                <span className="text-gray-600 dark:text-gray-300">{doctorList.charge}</span>
-              </div>
-              <div>
-                <span className="font-bold text-gray-700 dark:text-gray-300">
-                  Availability:
-                </span>
-                <span className="text-gray-600 dark:text-gray-300">Available</span>
-              </div>
-            </div>
-
-            <div>
-              <span className="font-bold text-gray-700 dark:text-gray-300">
-                Doctor Description:
-              </span>
-              <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                {doctorList.description}
-              </p>
-            </div>
-          <div className='grid grid-cols-5'> 
-            <div>
-
-            <h1 className='text-xl'>Slots</h1>
-            </div>
-            <div>
-
-            <button className='w-28 h-9 bg-blue-500 text-white font-bold text-xl rounded-3xl'>Slot1</button>
-            </div>
-            <div>
-
-            <button className='w-28 h-9 bg-blue-500 text-white font-bold text-xl rounded-3xl'>Slot2 </button>
-            </div>
-            <div>
-
-            <button className='w-28 h-9 bg-blue-500 text-white font-bold text-xl rounded-3xl'>Slot3</button>
-            </div>
-            <div>
-
-            <button className='w-28 h-9 bg-blue-500 text-white font-bold text-xl rounded-3xl'>Slot4
-            </button>
-            </div>
-          </div>
-            <div className="flex -mx-2 mb-4 mt-4">
-              <div className="w-1/2 px-2">
-                <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
-                  <a href="/user/appointmentBook">Make Appointment</a>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+  const showAvailableSlots = () => {
+    return slotData && Object.keys(slotData).map(date => (
+      <div key={date} className='m-7 grid grid-cols-2 font-semibold '>
+        <h2>{date} - {new Date(date).getDay()}</h2>
+        {
+          slotData[date].map(slot => (
+            <p key={slot}>{slot}</p>
+          ))
+        }
       </div>
+    ))
+  }
+
+  useEffect(() => {
+    fetchDoctorDetails();
+    fetchDoctorSlots();
+  }, [])
+
+  const displayDoctorDetails = () => {
+    if (doctorDetails === null) {
+      return <p>Loading...</p>
+    } else {
+      return <>
+        <section className='m-10'>
+          <div
+            className="relative overflow-hidden rounded-lg bg-cover bg-no-repeat p-12 text-center"
+            style={{ backgroundImage: 'url("/doctor-cover.webp")', height: 200 }}
+          >
+            <div
+              className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed"
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
+            >
+              <div className="flex h-full items-center justify-center">
+                <div className="text-white">
+                  <h2 className="mb-4 text-4xl font-semibold">Dr. {doctorDetails.name}</h2>
+                  <h4 className="mb-6 text-xl font-semibold">{doctorDetails.specialization}</h4>
+                   <Link href={`/user/appointmentBook/${doctorDetails._id}`}
+                    type="button"
+                    className="rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                    data-twe-ripple-init=""
+                    data-twe-ripple-color="light"
+                  >
+                    Book Appointment
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Jumbotron */}
+        </section>
+
+
+
+        <section className='m-10'>
+          <div className='grid grid-cols-3 '>
+            <div className="relative flex flex-col text-gray-700 bg-white shadow-xl bg-clip-border rounded-xl w-96">
+              <div className='bg-green-400 h-1'></div>
+              <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
+                <img
+                  src="https://docs.material-tailwind.com/img/team-3.jpg"
+                  alt="profile-picture"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                  Natalie Paisley
+                </h4>
+                <p className="text-slate-500">
+                  General Practitioner
+                </p>
+              </div>
+              <div className='bg-green-400 h-1 ml-12 mr-12'></div>
+              <div className='m-10'>
+                <h1>
+                  PERSONAL INFO
+                </h1>
+                <br />
+                <div className="grid grid-cols-1 gap-4">
+
+                  <div>
+                    <p className="text-slate-500">Email</p>
+                    <p className="text-slate-500">
+                      <a href="mailto:doctor@mail.com">mahi07@gmail.com
+                      </a>
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-slate-500">Phone</p>
+                    <p className="text-slate-500">+91 1234567890</p>
+                  </div>
+                  <div>
+                    <p className="text-slate-500">Address</p>
+                    <p className="text-slate-500"> 123, New Delhi, India</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div>
+              <p>
+                <h1 className='text-gray-700 text-3xl font-sans'>
+                  ABOUT
+                </h1>
+                <br />
+                <p className="text-slate-500">
+                  Dr. Natalie Paisley is a General Practitioner with 10 years of experience. She is a specialist in treating general health issues and has a special interest in
+                  treating patients with diabetes and hypertension. She is a member of the American Medical Association and has completed her MBBS from the University of California.
+                </p>
+              </p>
+              <div className='bg-green-500 h-1 mt-9'></div>
+              <div className='mt-5 text-slate-500'>
+                <div className='grid grid-cols-2 text-xl font-mono text-slate-500'>
+                  <h1>Speciality</h1>
+                  <p>General Practitioner</p>
+                </div>
+
+                <div className='grid grid-cols-2 text-xl font-mono mt-7'>
+                  <h1>Degrees</h1>
+                  <p>MBBS</p>
+                </div>
+                <div className='grid grid-cols-2 text-xl font-mono mt-7'>
+                  <h1>Training</h1>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsam natus doloribus ullam voluptates incidunt enim mollitia totam inventore nam.</p>
+                </div>
+                <div className='grid grid-cols-2 text-xl font-mono mt-7'>
+                  <h1>Treatments</h1>
+                  <p>65</p>
+                </div>
+              </div>
+            </div>
+
+            <div className=" m-24 shadow-xl bg-clip-border  rounded-xl w-96 p-4 text-slate-500 ">
+              <div className='bg-green-400 h-1 '></div>
+              <h1 className='text-center text-3xl mt-4 font-bold font-mono text-gray-700'> Schedule</h1>
+              {
+                showAvailableSlots()
+              }
+
+
+            </div>
+
+          </div>
+        </section>
+      </>
+    }
+  }
+
+  return (
+    <div>
+      {displayDoctorDetails()}
     </div>
-  ): (
-    <div>Loading</div>
-    
-  )
-}
-</>
   )
 }
 
-export default ViewDoctor
+export default DoctorProfile

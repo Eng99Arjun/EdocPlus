@@ -1,3 +1,4 @@
+import appointmentBook from '@/app/user/appointmentBook/[id]/page'
 import React from 'react'
 
 const doctorProfile = () => {
@@ -23,7 +24,7 @@ const doctorProfile = () => {
                         data-twe-ripple-init=""
                         data-twe-ripple-color="light"
                     >
-                        Book Appointment
+                        <Link href={`/user/appointmentBook/${doctor._id}`} className='text-center  text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-700 hover:text-white focus:scale-95 transition-all bg-blue-500 duration-200 ease-out'>Book Appointment</Link>
                     </button>
                     </div>
                 </div>

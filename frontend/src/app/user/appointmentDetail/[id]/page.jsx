@@ -1,6 +1,35 @@
-import React from 'react'
+'use client'
+import usePatientContext from '@/context/PatientContext'
+import { useParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react'
 
 const appointmentDetail= () => {
+
+  const { id } = useParams();
+  const [doctorDetails, setdoctorDetails] = useState([]) 
+const { currentPatient } = usePatientContext();
+
+const fetchDoctorDetails = async () => {
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/doctor/getbyid/${id}`)
+  .then((response) => {
+    console.log(response.status);
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+    setdoctorDetails(data);
+    
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+}
+
+useEffect(() => {
+  fetchDoctorDetails();
+}, [])
+
   return (
     <>
     <div className="container  py-24 px-72">
@@ -34,7 +63,7 @@ const appointmentDetail= () => {
     </tr>
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">Doctor Name</td>
-      <td className="px-6 py-4 whitespace-nowrap">jon</td>
+      <td className="px-6 py-4 whitespace-nowrap">{doctorDetails.name}</td>
     </tr>
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">Doctor id</td>
