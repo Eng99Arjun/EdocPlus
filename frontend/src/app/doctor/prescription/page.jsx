@@ -55,15 +55,13 @@ const prescription = () => {
     </div>
   </div>
   <div>
-    <button className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-      Medicine
-    </button>
   </div>
   <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
   <table className="w-full table-fixed">
     <thead>
       <tr className="bg-gray-100">
         <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+          
           Name of Medicine
         </th>
         <th className="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
@@ -79,58 +77,30 @@ const prescription = () => {
     </thead>
     <tbody className="bg-white">
       <tr>
-        <td className="py-4 px-6 border-b border-gray-200">John Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          johndoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
         <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-green-500 text-white py-1 px-2 rounded-full text-xs">
-            Active
-          </span>
+          <input type="text"  className='' placeholder='Med Name with type'/>
+        </td>
+        <td className="py-4 px-6 border-b border-gray-200 truncate">
+          <input type="text" placeholder='Taking Time' />
+        </td>
+        <td className="py-4 px-6 border-b border-gray-200">
+          <input type="radio" className='radio'/>
+        </td>
+        <td className="py-4 px-6 border-b border-gray-200">
+         <input type="radio" className='radio' />
         </td>
       </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td className="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-        <td className="py-4 px-6 border-b border-gray-200 truncate">
-          janedoe@gmail.com
-        </td>
-        <td className="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-        <td className="py-4 px-6 border-b border-gray-200">
-          <span className="bg-red-500 text-white py-1 px-2 rounded-full text-xs">
-            Inactive
-          </span>
-        </td>
-      </tr>
-      {/* Add more rows here */}
+      
     </tbody>
   </table>
 </div>
 
+  <div>
+    <button className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none mt-10 ml-72">
+      Submit
+    </button>
+
+  </div>
 </>
   )
 }
