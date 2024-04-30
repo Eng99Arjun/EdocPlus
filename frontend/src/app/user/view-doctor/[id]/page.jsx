@@ -108,16 +108,15 @@ const DoctorProfile = () => {
               <div className='bg-green-400 h-1'></div>
               <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
                 <img
-                  src="https://docs.material-tailwind.com/img/team-3.jpg"
-                  alt="profile-picture"
+                 src={'http://localhost:5000/'+doctorDetails.avatar}
                 />
               </div>
               <div className="p-6 text-center">
                 <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                  Natalie Paisley
+                  {doctorDetails.name}
                 </h4>
                 <p className="text-slate-500">
-                  General Practitioner
+                  {doctorDetails.specialization}
                 </p>
               </div>
               <div className='bg-green-400 h-1 ml-12 mr-12'></div>
@@ -131,17 +130,16 @@ const DoctorProfile = () => {
                   <div>
                     <p className="text-slate-500">Email</p>
                     <p className="text-slate-500">
-                      <a href="mailto:doctor@mail.com">mahi07@gmail.com
-                      </a>
-                    </p>
+                      <p className="">{doctorDetails.email}</p> 
+                                         </p>
                   </div>
                   <div>
                     <p className="text-slate-500">Phone</p>
-                    <p className="text-slate-500">+91 1234567890</p>
+                    <p className="text-slate-500">{doctorDetails.contact}</p>
                   </div>
                   <div>
                     <p className="text-slate-500">Address</p>
-                    <p className="text-slate-500"> 123, New Delhi, India</p>
+                    <p className="text-slate-500">{doctorDetails.address}</p>
                   </div>
                 </div>
 
@@ -163,7 +161,7 @@ const DoctorProfile = () => {
               <div className='mt-5 text-slate-500'>
                 <div className='grid grid-cols-2 text-xl font-mono text-slate-500'>
                   <h1>Speciality</h1>
-                  <p>General Practitioner</p>
+                  <p>{doctorDetails.specialization}</p>
                 </div>
 
                 <div className='grid grid-cols-2 text-xl font-mono mt-7'>

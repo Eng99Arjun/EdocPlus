@@ -47,39 +47,33 @@ useEffect(() => {
   <tbody className="bg-white divide-y divide-gray-200">
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">Patient Name</td>
-      <td className="px-6 py-4 whitespace-nowrap">Jane</td>
+      <td className="px-6 py-4 whitespace-nowrap">{currentPatient.fullName}</td>
     </tr>
-    <tr>
-      <td className="px-6 py-4 whitespace-nowrap">Patient id</td>
-      <td className="px-6 py-4 whitespace-nowrap"></td>
-    </tr>
+   
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">Phone-No</td>
-      <td className="px-6 py-4 whitespace-nowrap">1244585235</td>
+      <td className="px-6 py-4 whitespace-nowrap">{currentPatient.contactNo}</td>
     </tr>
     <tr>
-      <td className="px-6 py-4 whitespace-nowrap">Date</td>
-      <td className="px-6 py-4 whitespace-nowrap">12-01-2024</td>
+      <td className="px-6 py-4 whitespace-nowrap">Age</td>
+      <td className="px-6 py-4 whitespace-nowrap">{currentPatient.age}</td>
     </tr>
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">Doctor Name</td>
       <td className="px-6 py-4 whitespace-nowrap">{doctorDetails.name}</td>
     </tr>
-    <tr>
-      <td className="px-6 py-4 whitespace-nowrap">Doctor id</td>
-      <td className="px-6 py-4 whitespace-nowrap">Jane</td>
-    </tr>
+ 
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">slots</td>
       <td className="px-6 py-4 whitespace-nowrap">10:00AM</td>
     </tr>
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">Fees</td>
-      <td className="px-6 py-4 whitespace-nowrap">500</td>
+      <td className="px-6 py-4 whitespace-nowrap">{doctorDetails.fees}</td>
     </tr>
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">Doctor SPECIALIZATION </td>
-      <td className="px-6 py-4 whitespace-nowrap"></td>
+      <td className="px-6 py-4 whitespace-nowrap">{doctorDetails.specialization}</td>
     </tr>
   </tbody>
 </table>

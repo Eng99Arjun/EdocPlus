@@ -2,12 +2,15 @@
 import usePatientContext from '@/context/PatientContext'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useFormik } from 'formik';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 export default function appointmentBook() {
     const { currentPatient } = usePatientContext();
     const router = useRouter()
+    const { id } = useSearchParams();
+    const [doctorDetails, setDoctorDetails] = useState(null);
 
     const applicationForm = useFormik({
         initialValues: {
@@ -29,7 +32,7 @@ export default function appointmentBook() {
                     if (res.status === 200) {
 
                         toast.success('Appointment Booked');
-                        router.push('/user/appointmentDetail/:id');
+                        router.push('/user/appointmentDetail/._id');
                     }
                     else {
                         toast.error('Failed to Book Appointment');
@@ -42,6 +45,26 @@ export default function appointmentBook() {
         }
 
     })
+
+    const fetchDoctorDetails = () => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/doctor/getbyid/${id}`)
+          .then((response) => {
+            console.log(response.status);
+            return response.json();
+          })
+          .then(data => {
+            console.log(data);
+            setDoctorDetails(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+
+      useEffect(() => {
+        fetchDoctorDetails();
+     
+      }, [])
 
     return (
         <form onSubmit={applicationForm.handleSubmit}>

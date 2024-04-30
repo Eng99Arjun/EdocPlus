@@ -12,6 +12,7 @@ const doctorSchema = new Schema({
     contact: String,
     email: String,
     password: String,
+    fees:String,
     createdAt: { type: Date, default: Date.now }
 });
 

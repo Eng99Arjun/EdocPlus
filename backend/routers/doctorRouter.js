@@ -21,8 +21,8 @@ router.post("/authenticate", (req, res) => {
         .then((result) => {
             console.log(result);
             if (result) {
-                const { _id, name, email, avatar, role } = result;
-                const payload = { _id, name, email, avatar };
+                const { _id, name, email, avatar, role,fees } = result;
+                const payload = { _id, name, email, avatar,fees };
                 jwt.sign(
                     payload,
                     process.env.JWT_SECRET,

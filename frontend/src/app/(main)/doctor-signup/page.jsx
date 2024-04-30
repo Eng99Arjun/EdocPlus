@@ -39,6 +39,7 @@ const doctorSignup = () => {
       address: '',
       contact: '',
       email: '',
+      fees:'',
       password: '',
       confirmPassword: ''
     },
@@ -238,6 +239,21 @@ const doctorSignup = () => {
                     {
                       doctorSignupForm.touched.address &&
                       <small className="text-danger">{doctorSignupForm.errors.address}</small>
+                    }
+
+                  </div>
+                  <div className="mb-6">
+                    <input
+                      type="text"
+                      placeholder="Fees"
+                      id='fees'
+                      onChange={doctorSignupForm.handleChange}
+                      value={doctorSignupForm.values.fees}
+                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+                    />
+                    {
+                      doctorSignupForm.touched.fees &&
+                      <small className="text-danger">{doctorSignupForm.errors.fees}</small>
                     }
 
                   </div>
