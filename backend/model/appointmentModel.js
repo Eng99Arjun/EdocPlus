@@ -1,12 +1,13 @@
-const { Schema, model } = require('../connection');
+const { Schema, model, Types } = require('../connection');
 
 
 const appointmentSchema = new Schema({
-    doctor:{ type: Schema.Types.ObjectId},
-    slot:{type: Schema.Types.ObjectId},
-    patient:{type: Schema.Types.ObjectId},
-    details:String 
-    
+    doctor: { type: Types.ObjectId, ref: 'doctor'},
+    slot: { type: Types.ObjectId, ref: 'slot'},
+    patient: { type: Types.ObjectId, ref: 'patient'},
+    details: String,
+    status: { type: String, default: 'booked' },
+    createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = model('appointment', appointmentSchema);

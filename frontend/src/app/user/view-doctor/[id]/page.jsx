@@ -85,7 +85,7 @@ const DoctorProfile = () => {
                 <div className="text-white">
                   <h2 className="mb-4 text-4xl font-semibold">Dr. {doctorDetails.name}</h2>
                   <h4 className="mb-6 text-xl font-semibold">{doctorDetails.specialization}</h4>
-                   <Link href={`/user/appointmentBook/${doctorDetails._id}`}
+                  <Link href={`/user/appointmentBook/${doctorDetails._id}`}
                     type="button"
                     className="rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
                     data-twe-ripple-init=""
@@ -108,7 +108,7 @@ const DoctorProfile = () => {
               <div className='bg-green-400 h-1'></div>
               <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
                 <img
-                 src={'http://localhost:5000/'+doctorDetails.avatar}
+                  src={'http://localhost:5000/' + doctorDetails.avatar}
                 />
               </div>
               <div className="p-6 text-center">
@@ -130,8 +130,8 @@ const DoctorProfile = () => {
                   <div>
                     <p className="text-slate-500">Email</p>
                     <p className="text-slate-500">
-                      <p className="">{doctorDetails.email}</p> 
-                                         </p>
+                      <p className="">{doctorDetails.email}</p>
+                    </p>
                   </div>
                   <div>
                     <p className="text-slate-500">Phone</p>
@@ -186,7 +186,7 @@ const DoctorProfile = () => {
                 showAvailableSlots()
               }
 
-
+              <Link href={"/user/appointmentBook/" + doctorDetails._id} className='bg-green-400 w-full px-6 py-3 h-10 mt-5 rounded-lg text-white'>Book Appointment</Link>
             </div>
 
           </div>

@@ -3,6 +3,7 @@ const router = express.Router();
 const Model = require('../model/doctorModel')
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
+const verifyToken = require('./verifyToken');
 
 router.post('/add', (req, res) => {
     console.log(req.body);
@@ -21,8 +22,8 @@ router.post("/authenticate", (req, res) => {
         .then((result) => {
             console.log(result);
             if (result) {
-                const { _id, name, email, avatar, role,fees } = result;
-                const payload = { _id, name, email, avatar,fees };
+                const { _id, name, email, avatar, role, fees } = result;
+                const payload = { _id, name, email, avatar, fees };
                 jwt.sign(
                     payload,
                     process.env.JWT_SECRET,
@@ -71,7 +72,25 @@ router.delete('/delete/:id', (req, res) => {
 router.get("/getbyid/:id", (req, res) => {
     Model.findById(req.params.id)
         .then((result) => {
-            res.json(result)
+            res.status(200).json(result)
+        }).catch((err) => {
+            res.status(500).json(err)
+        });
+})
+
+router.put("/update/:id", (req, res) => {
+    Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then((result) => {
+            res.status(200).json(result)
+        }).catch((err) => {
+            res.status(500).json(err)
+        });
+})
+
+router.get("/getdoctor", verifyToken, (req, res) => {
+    Model.findById(req.user._id)
+        .then((result) => {
+            res.status(200).json(result)
         }).catch((err) => {
             res.status(500).json(err)
         });

@@ -23,15 +23,15 @@ const ManageAppointment = () => {
     const deleteDoctor = (id) => {
         console.log(id);
 
-        const res = fetch ('http://localhost:5000/doctor/delete/'+id, {method: 'DELETE'})
-         if (res.status === 200) {
+        const res = fetch('http://localhost:5000/doctor/delete/' + id, { method: 'DELETE' })
+        if (res.status === 200) {
             fetchData();
-         }
         }
+    }
 
 
     const displayDoctors = () => {
-        return  Data.map((doctor) => {
+        return Data.map((doctor) => {
             return <tr className='className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"' >
                 <th
                     scope="row"
@@ -54,7 +54,7 @@ const ManageAppointment = () => {
                 </td>
                 <td className="px-6 py-4">
                     <button
-                       onClick = {() => {deleteDoctor(doctor._id)}}
+                        onClick={() => { deleteDoctor(doctor._id) }}
                         className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                         Delete
