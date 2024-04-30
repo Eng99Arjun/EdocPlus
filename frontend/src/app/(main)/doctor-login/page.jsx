@@ -68,7 +68,7 @@ const Login = () => {
                   Login to your account to access your dashboard
                 </p>
                 <div className='p-0 m-0'>
-                  <img src="/login.jpg" alt="" />
+                  <img src="/doctor-login.jpg" alt="" />
                 </div>
                 <div className="mb-8 flex w-full max-w-[370px]">
                   <div className="bg-primary/5 text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">
