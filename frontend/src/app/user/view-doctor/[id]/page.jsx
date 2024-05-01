@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
+const WEEKDAYS = [
+  'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+]
+
 const DoctorProfile = () => {
 
   const { id } = useParams();
@@ -52,7 +56,7 @@ const DoctorProfile = () => {
   const showAvailableSlots = () => {
     return slotData && Object.keys(slotData).map(date => (
       <div key={date} className='m-7 grid grid-cols-2 font-semibold '>
-        <h2>{date} - {new Date(date).getDay()}</h2>
+        <h2>{date} - {WEEKDAYS[new Date(date).getDay()]}</h2>
         {
           slotData[date].map(slot => (
             <p key={slot}>{slot}</p>

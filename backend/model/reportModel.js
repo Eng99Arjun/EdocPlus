@@ -1,8 +1,8 @@
-const { Schema, model } = require('../connection');
+const { Schema, model, Types } = require('../connection');
 
 
 const reportSchema = new Schema({
-    patientName: String,
+    patient: String,
     testName: String,
     DOB: Date,
     Gender: String,
