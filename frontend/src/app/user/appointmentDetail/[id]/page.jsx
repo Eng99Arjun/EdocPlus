@@ -7,7 +7,7 @@ const appointmentDetail= () => {
 
   const { id } = useParams();
   const [doctorDetails, setdoctorDetails] = useState([]) 
-const { currentPatient } = usePatientContext();
+  const { currentPatient } = usePatientContext();
 
 const fetchDoctorDetails = async () => {
   fetch(`${process.env.NEXT_PUBLIC_API_URL}/doctor/getbyid/${id}`)
@@ -65,7 +65,7 @@ useEffect(() => {
  
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">slots</td>
-      <td className="px-6 py-4 whitespace-nowrap">10:00AM</td>
+      <td className="px-6 py-4 whitespace-nowrap"></td>
     </tr>
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">Fees</td>
