@@ -99,7 +99,7 @@ const DoctorProfile = () => {
                                         />
                                     </div>
                                     <p className="text-center text-2xl text-dark">
-                                        <span className="mb-2">{currentDoctor.username}</span>
+                                        {/* <span className="mb-2">{currentDoctor.username}</span> */}
                                     </p>
                                     <p className="text-center text-xl text-gray-500"> <span className="fw-bold">{currentDoctor.email}</span></p>
                                     <p className="text-xl text-center"> <span className="text-black font-semibold ">User Id:</span><span>{currentDoctor._id}</span></p>
