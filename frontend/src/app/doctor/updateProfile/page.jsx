@@ -76,7 +76,7 @@ const Profile = () => {
                 className="border-rounded mx-w-full  h-auto w-24 rounded-full d-block m-auto"
                 src={
                   currentUser.avatar &&
-                  ${'http://localhost:5000'}/${currentUser.avatar}
+                  `${'http://localhost:5000'}/${currentUser.avatar}`
                 }
                 alt="loading.."
               />
