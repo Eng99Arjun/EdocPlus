@@ -7,7 +7,7 @@ const layout = ({children}) => {
   return (
     <div>
         <Navbar />
-        <Sidebar />
+        {/* <Sidebar /> */}
         <div className='ms-72'>
           {children}
         </div>
