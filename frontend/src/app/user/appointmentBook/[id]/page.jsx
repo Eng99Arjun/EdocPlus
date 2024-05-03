@@ -11,7 +11,6 @@ export default function appointmentBook() {
     const router = useRouter()
     const { id } = useParams();
     const [doctorDetails, setDoctorDetails] = useState(null);
-
     const slotRef = useRef(null);
     const detailsRef = useRef(null);
 
@@ -51,6 +50,7 @@ export default function appointmentBook() {
                 console.log(res.status);
                 if (res.status === 200) {
                     toast.success('Appointment Booked');
+                    router.push('/user/manage-user-appointment');
                 }
                 else {
                     toast.error('Failed to Book Appointment');
@@ -140,7 +140,7 @@ export default function appointmentBook() {
                 </button>
                 <button
                     onClick={bookAppointment}
-                    type="button"
+                    type="submit"
                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                     submit

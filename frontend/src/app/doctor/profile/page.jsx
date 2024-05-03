@@ -71,10 +71,10 @@ const DoctorProfile = () => {
             return <h1>Loading...</h1>
         } else {
             return (
-                <div className="container-fluid h-auto  bg-gray-300 w-full">
-                    <div className="grid grid-cols-2 ">
-                        <div className="h-3/4 p-24">
-                            <div className=" mx-auto rounded bg-white ">
+                <div className="container-fluid   bg-gray-300 w-full ">
+                    <div className="grid grid-cols-2 m-4">
+                        <div className="h-3/4 p-24 mt-5">
+                            <div className=" mx-auto rounded bg-white p-10 mt-6">
                                 <img
                                     height={200}
                                     className="border-rounded mx-w-full  h-auto w-24 rounded-full d-block m-auto"
@@ -101,8 +101,8 @@ const DoctorProfile = () => {
                                     <p className="text-center text-2xl text-dark">
                                         {/* <span className="mb-2">...</span> */}
                                     </p>
-                                    <p className="text-center text-xl text-gray-500"> <span className="fw-bold">{currentDoctor.email}</span></p>
-                                    <p className="text-xl text-center"> <span className="text-black font-semibold ">User Id:</span><span>{currentDoctor._id}</span></p>
+                                    <p className="text-center text-xl text-gray-500 m-4"> <span className="fw-bold">{currentDoctor.email}</span></p>
+                                    <p className="text-xl text-center m-4"> <span className="text-black font-semibold ">User Id:</span><span>{currentDoctor._id}</span></p>
                                     <ul className="list-group list-group-flush text-center">
 
                                         <li className="list-group-item d-flex justify-content-between mb-4 align-items-center px-0">
@@ -113,7 +113,7 @@ const DoctorProfile = () => {
                                                 <span className="fw-bold">{currentDoctor.password}</span>
                                             )}
                                             <button
-                                                className="btn bg-white hover:bg-slate-200"
+                                                className="btn bg-white hover:bg-slate-200 m-4"
                                                 onClick={() => setPasswordHidden(!passwordHidden)}
                                             >
                                                 {passwordHidden ? "Show" : "Hide"}
@@ -186,9 +186,52 @@ const DoctorProfile = () => {
                                                     className="w-full py-2 rounded-lg px-2"
                                                 />
                                             </div>
+                                            {/* Address input */}
+                                            <label className="form-label fw-bold" htmlFor="form7Example6">
+                                                Address
+                                            </label>
+                                            <div className="form-outline mb-4">
+                                                <input
+                                                    type="number"
+                                                    id="contact"
+                                                    onChange={updateForm.handleChange}
+                                                    value={updateForm.values.address
+                                                    }
+                                                    className="w-full py-2 rounded-lg px-2"
+                                                />
+                                            </div>
+                                            {/* Degree input */}
+                                            <label className="form-label fw-bold" htmlFor="form7Example6">
+                                                Degrees
+                                            </label>
+                                            <div className="form-outline mb-4">
+                                                <input
+                                                    type="number"
+                                                    id="contact"
+                                                    onChange={updateForm.handleChange}
+                                                    value={updateForm.values.degree}
+                                                    className="w-full py-2 rounded-lg px-2"
+                                                />
+                                            </div>
+                                            {/* Address input */}
+                                            <label className="form-label fw-bold" htmlFor="form7Example6">
+                                                Trainings
+                                            </label>
+                                            <div className="form-outline mb-4">
+                                                <input
+                                                    type="number"
+                                                    id="contact"
+                                                    onChange={updateForm.handleChange}
+                                                    value={updateForm.values.training}
+                                                    className="w-full py-2 rounded-lg px-2"
+                                                />
+                                            </div>
+
+                                
+
                                             {/* Message input */}
                                             <label className="form-label fw-bold" htmlFor="form7Example7">
-                                                Additional information
+                                                About
                                             </label>
                                             <div className="form-outline mb-4">
                                                 <textarea
@@ -198,19 +241,7 @@ const DoctorProfile = () => {
                                                     defaultValue={""}
                                                 />
                                             </div>
-                                            {/* Checkbox */}
-                                            <div className="form-check d-flex justify-content-center mb-2">
-                                                <input
-                                                    className="form-check-input me-2"
-                                                    type="checkbox"
-                                                    defaultValue=""
-                                                    id="form7Example8"
-                                                    defaultChecked=""
-                                                />
-                                                <label className="form-check-label" htmlFor="form7Example8">
-                                                    Create an account?
-                                                </label>
-                                            </div>
+                                           
                                         </form>
                                     )}
                                 </Formik>

@@ -1,4 +1,5 @@
 'use client';
+import usePatientContext from '@/context/PatientContext';
 import Link from 'next/link';
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
@@ -7,14 +8,24 @@ const WEEKDAYS = [
   'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
 ]
 
+
 const DoctorProfile = () => {
+const [currentPatient, setCurrentPatient] = useState(JSON.parse(sessionStorage.getItem('patient')));
+
 
   const { id } = useParams();
   const [doctorDetails, setDoctorDetails] = useState(null);
   const [slotData, setSlotData] = useState({});
 
   const fetchDoctorDetails = () => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/doctor/getbyid/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/doctor/getbyid/${id}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+              "x-auth-token": currentPatient.token,
+          
+      }
+    })
       .then((response) => {
         console.log(response.status);
         return response.json();
@@ -149,7 +160,7 @@ const DoctorProfile = () => {
 
               </div>
             </div>
-
+{/* 
             <div>
               <p>
                 <h1 className='text-gray-700 text-3xl font-sans'>
@@ -181,16 +192,16 @@ const DoctorProfile = () => {
                   <p>65</p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className=" m-24 shadow-xl bg-clip-border  rounded-xl w-96 p-4 text-slate-500 ">
               <div className='bg-green-400 h-1 '></div>
-              <h1 className='text-center text-3xl mt-4 font-bold font-mono text-gray-700'> Schedule</h1>
+              <h1 className='text-center text-3xl mt-4 font-bold font-mono text-gray-700 mb-5'> Schedule</h1>
               {
                 showAvailableSlots()
               }
 
-              <Link href={"/user/appointmentBook/" + doctorDetails._id} className='bg-green-400 w-full px-6 py-3 h-10 mt-5 rounded-lg text-white'>Book Appointment</Link>
+              <Link href={"/user/appointmentBook/" + doctorDetails._id} className='bg-green-400  w-full px-6 py-3 h-10 mt-5 rounded-lg text-white'>Book Appointment</Link>
             </div>
 
           </div>

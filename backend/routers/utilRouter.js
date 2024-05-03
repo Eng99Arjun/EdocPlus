@@ -47,7 +47,7 @@ router.post('/sendotp', (req, res) => {
         from : process.env.EMAIL_ID,
         to : req.body.email,
         subject : 'OTP for Password Reset',
-        html: `<p> OTP for password reset is <b>${otp}</b> </p>`
+        html:` <p> OTP for password reset is <b>${otp}</b> </p>`
     })
     .then((info) => {
         return res.status(201).json(
@@ -58,6 +58,7 @@ router.post('/sendotp', (req, res) => {
             }
         )
     }).catch((err) => {
+        console.log(err);
         return res.status(500).json({ msg: err });
     });
 })
@@ -65,11 +66,11 @@ router.post('/sendotp', (req, res) => {
 
 router.get('/verifyotp/:email/:otp', (req, res) => {
     const oldOTP = generatedOTP[req.params.email];
-    if(oldOTP == req.params.otp){
+    if(oldOTP == req.params.otp){t54
         return res.status(200).json({msg : 'OTP Verified'});
     }else{
         return res.status(401).json({msg : 'OTP Not Verified'});
     }
 })
 
-module.exports = router;
+module.exports = router
