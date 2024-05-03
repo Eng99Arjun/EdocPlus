@@ -67,5 +67,15 @@ router.get('/getbyemail/:email',(req,res)=> {
     });
 })
 
+router.get("/getbymail/:email", (req,res) => {
+    console.log(req.params.email)
+    Model.find({ email: req.params.email })
+    .then((result) => {
+      res.json(result)
+    }).catch((err) => {
+      console.error(err)
+      res.status(500).json(err)
+     });
+  });
 
 module.exports = router;
