@@ -11,7 +11,6 @@ export default function appointmentBook() {
     const router = useRouter()
     const { id } = useParams();
     const [doctorDetails, setDoctorDetails] = useState(null);
-
     const slotRef = useRef(null);
     const detailsRef = useRef(null);
 
