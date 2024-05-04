@@ -84,10 +84,10 @@ const prescription = () => {
           <input type="text" placeholder='Taking Time' />
         </td>
         <td className="py-4 px-6 border-b border-gray-200">
-          <input type="radio" className='radio'/>
+          <input type="radio"/>
         </td>
         <td className="py-4 px-6 border-b border-gray-200">
-         <input type="radio" className='radio' />
+         <input type="radio" />
         </td>
       </tr>
       
