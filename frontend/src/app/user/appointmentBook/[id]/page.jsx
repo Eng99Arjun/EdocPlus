@@ -50,6 +50,7 @@ export default function appointmentBook() {
                 console.log(res.status);
                 if (res.status === 200) {
                     toast.success('Appointment Booked');
+                    router.push('/user/manage-user-appointment');
                 }
                 else {
                     toast.error('Failed to Book Appointment');
