@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import useDoctorContext from '@/context/DoctorContext';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 
@@ -71,7 +72,7 @@ const Login = () => {
       <form onSubmit={loginForm.handleSubmit}>
       <div className="md:flex w-full">
         <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
-        <img src="https://cdni.iconscout.com/illustration/premium/thumb/sign-up-page-1886582-1598253.png?f=webp" alt="" />
+        <img src="https://i.pinimg.com/736x/5a/ac/81/5aac81d05289ca18cd0b401841428b69.jpg" alt="" />
         </div>
         <div className="w-full shadow-2xl md:w-1/2 py-10 px-5 md:px-10">
           <div className="text-center mb-10">
@@ -158,6 +159,7 @@ const Login = () => {
                 </button>
               </div>
             </div>
+          <span className='text-center'>New user?</span>  <Link  href="doctor-signup" className="text-blue-600">Create an account</Link>
           </div>
         </div>
       </div>
