@@ -44,7 +44,7 @@ const PatientLogin = () => {
         const data = await res.json();
         setCurrentPatient(data);
         sessionStorage.setItem('patient', JSON.stringify(data));
-        router.push('/user/consultDoctor');
+        router.push('/user/profile');
       }
       else if (res.status === 400) {
         toast.error('Some error occured')

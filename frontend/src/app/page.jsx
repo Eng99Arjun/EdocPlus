@@ -198,7 +198,7 @@ const Home = () => {
               Trusted Worldwide
             </p>
             <h2 className="mt-3 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-3xl dark:text-white">
-              Trusted by over 600 million users and 10,000 teams
+              Trusted by over 6000+ users and 1000 Doctor
             </h2>
             <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
               Our rigorous security and compliance standards are at the heart of all
@@ -265,7 +265,7 @@ const Home = () => {
 
               </h3>
               <p className="font-light text-gray-500 dark:text-gray-400">
-                For Landwind, with zero maintenance downtime
+                Edoc+, with zero maintenance downtime
               </p>
             </div>
             <div>
@@ -278,7 +278,7 @@ const Home = () => {
                 <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
               </svg>
               <h3 className="mb-2 text-2xl font-bold dark:text-white">
-                600M+ Users
+                6000+ Users
               </h3>
               <p className="font-light text-gray-500 dark:text-gray-400">
                 Trusted by over 600 milion users around the world
@@ -298,11 +298,11 @@ const Home = () => {
                 />
               </svg>
               <h3 className="mb-2 text-2xl font-bold dark:text-white">
-                100+ countries
+                10+
+
+               countries
               </h3>
-              <p className="font-light text-gray-500 dark:text-gray-400">
-                Have used Landwind to create functional websites
-              </p>
+              <p> we are serving in   </p>
             </div>
             <div>
               <svg
@@ -314,10 +314,10 @@ const Home = () => {
                 <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
               </svg>
               <h3 className="mb-2 text-2xl font-bold dark:text-white">
-                5+ Million
+                1000+
               </h3>
               <p className="font-light text-gray-500 dark:text-gray-400">
-                Transactions per day
+                Patient visit Daily 
               </p>
             </div>
           </div>
@@ -341,9 +341,7 @@ const Home = () => {
             </svg>
             <blockquote>
               <p className="text-xl font-medium text-gray-900 md:text-2xl dark:text-white">
-                "Landwind is just awesome. It contains tons of predesigned
-                components and pages starting from login screen to complex
-                dashboard. Perfect choice for your next SaaS application."
+                
               </p>
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -354,10 +352,10 @@ const Home = () => {
               />
               <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
                 <div className="pr-3 font-medium text-gray-900 dark:text-white">
-                  Micheal Gough
+                  
                 </div>
                 <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
-                  CEO at Google
+                  
                 </div>
               </div>
             </figcaption>
@@ -370,23 +368,22 @@ const Home = () => {
         <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
           <div className="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
             <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-              Designed for business teams like yours
+              Happy Customer
             </h2>
             <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-              Here at Landwind we focus on markets where technology, innovation, and
-              capital can unlock long-term value and drive economic growth.
+              
             </p>
           </div>
           <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
             {/* Pricing Card */}
             <div className="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-              <h3 className="mb-4 text-2xl font-semibold">Starter</h3>
+              <h3 className="mb-4 text-2xl font-semibold">Ram Kumar Verma</h3>
               <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                Best option for personal use &amp; for your next project.
+        
               </p>
               <div className="flex items-baseline justify-center my-8">
-                <span className="mr-2 text-5xl font-extrabold">$29</span>
-                <span className="text-gray-500 dark:text-gray-400">/month</span>
+                <span className="mr-2 text-5xl font-extrabold"></span>
+                <span className="text-gray-500 dark:text-gray-400"></span>
               </div>
               {/* List */}
               <ul role="list" className="mb-8 space-y-4 text-left">
@@ -404,7 +401,7 @@ const Home = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span>Individual configuration</span>
+                  <span>Specialise Doctor</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
@@ -420,8 +417,9 @@ const Home = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span>No setup, or hidden fees</span>
+                  <span>No hidden fees</span>
                 </li>
+                
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
                   <svg
@@ -437,7 +435,7 @@ const Home = () => {
                     />
                   </svg>
                   <span>
-                    Team size: <span className="font-semibold">1 developer</span>
+                    Premium support
                   </span>
                 </li>
                 <li className="flex items-center space-x-3">
@@ -455,47 +453,24 @@ const Home = () => {
                     />
                   </svg>
                   <span>
-                    Premium support: <span className="font-semibold">6 months</span>
-                  </span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  {/* Icon */}
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span>
-                    Free updates: <span className="font-semibold">6 months</span>
+                    Well Mannered staff
                   </span>
                 </li>
               </ul>
-              <a
-                href="#"
-                className="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900"
-              >
-                Get started
-              </a>
+             
             </div>
             {/* Pricing Card */}
             <div className="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-              <h3 className="mb-4 text-2xl font-semibold">Company</h3>
+              <h3 className="mb-4 text-2xl font-semibold">Hemant Kumar Singh</h3>
               <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                Relevant for multiple users, extended &amp; premium support.
+               
               </p>
               <div className="flex items-baseline justify-center my-8">
-                <span className="mr-2 text-5xl font-extrabold">$99</span>
+                <span className="mr-2 text-5xl font-extrabold"></span>
                 <span
                   className="text-gray-500 dark:text-gray-400"
                 >
-                  /month
+                  
                 </span>
               </div>
               {/* List */}
@@ -514,7 +489,7 @@ const Home = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span>Individual configuration</span>
+                  <span>On time Delivery of Meadicine</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
@@ -530,7 +505,7 @@ const Home = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span>No setup, or hidden fees</span>
+                  <span>No  hidden fees</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
@@ -547,9 +522,10 @@ const Home = () => {
                     />
                   </svg>
                   <span>
-                    Team size: <span className="font-semibold">10 developers</span>
+                   Pathology is  Good.
                   </span>
                 </li>
+                
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
                   <svg
@@ -565,45 +541,19 @@ const Home = () => {
                     />
                   </svg>
                   <span>
-                    Premium support:{" "}
-                    <span className="font-semibold">24 months</span>
-                  </span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  {/* Icon */}
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span>
-                    Free updates: <span className="font-semibold">24 months</span>
+                    Video Calling Interaction with Doctor
                   </span>
                 </li>
               </ul>
-              <a
-                href="#"
-                className="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900"
-              >
-                Get started
-              </a>
+             
             </div>
             {/* Pricing Card */}
             <div className="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-              <h3 className="mb-4 text-2xl font-semibold">Enterprise</h3>
-              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                Best for large scale uses and extended redistribution rights.
-              </p>
+              <h3 className="mb-4 text-2xl font-semibold">Arun Sharma</h3>
+              
               <div className="flex items-baseline justify-center my-8">
-                <span className="mr-2 text-5xl font-extrabold">$499</span>
-                <span className="text-gray-500 dark:text-gray-400">/month</span>
+                <span className="mr-2 text-5xl font-extrabold"></span>
+                <span className="text-gray-500 dark:text-gray-400"></span>
               </div>
               {/* List */}
               <ul role="list" className="mb-8 space-y-4 text-left">
@@ -621,7 +571,7 @@ const Home = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span>Individual configuration</span>
+                  <span>Specialties: Affordable Doctor Fees</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
@@ -637,8 +587,9 @@ const Home = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span>No setup, or hidden fees</span>
+                  <span> No hidden charges</span>
                 </li>
+               
                 <li className="flex items-center space-x-3">
                   {/* Icon */}
                   <svg
@@ -654,8 +605,8 @@ const Home = () => {
                     />
                   </svg>
                   <span>
-                    Team size:{" "}
-                    <span className="font-semibold">100+ developers</span>
+                   
+                    <span className="font-semibold">Near By Doctor Avalable</span>
                   </span>
                 </li>
                 <li className="flex items-center space-x-3">
@@ -673,35 +624,11 @@ const Home = () => {
                     />
                   </svg>
                   <span>
-                    Premium support:{" "}
-                    <span className="font-semibold">36 months</span>
-                  </span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  {/* Icon */}
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span>
-                    Free updates: <span className="font-semibold">36 months</span>
+                    Online Report System
                   </span>
                 </li>
               </ul>
-              <a
-                href="#"
-                className="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900"
-              >
-                Get started
-              </a>
+             
             </div>
           </div>
         </div>
@@ -728,7 +655,7 @@ const Home = () => {
                   aria-expanded="true"
                   aria-controls="accordion-flush-body-1"
                 >
-                  <span>Can I use Landwind in open-source projects?</span>
+                  <span>How Can i book appointment</span>
                   <svg
                     data-accordion-icon=""
                     className="w-6 h-6 rotate-180 shrink-0"
@@ -751,21 +678,9 @@ const Home = () => {
               >
                 <div className="py-5 border-b border-gray-200 dark:border-gray-700">
                   <p className="mb-2 text-gray-500 dark:text-gray-400">
-                    Landwind is an open-source library of interactive components
-                    built on top of Tailwind CSS including buttons, dropdowns,
-                    modals, navbars, and more.
+                    
                   </p>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    Check out this guide to learn how to{" "}
-                    <a
-                      href="#"
-                      className="text-purple-600 dark:text-purple-500 hover:underline"
-                    >
-                      get started
-                    </a>{" "}
-                    and start developing websites even faster with components on top
-                    of Tailwind CSS.
-                  </p>
+
                 </div>
               </div>
               <h3 id="accordion-flush-heading-2">
@@ -776,7 +691,7 @@ const Home = () => {
                   aria-expanded="false"
                   aria-controls="accordion-flush-body-2"
                 >
-                  <span>Is there a Figma file available?</span>
+                  <span>how to contact us</span>
                   <svg
                     data-accordion-icon=""
                     className="w-6 h-6 shrink-0"
@@ -825,7 +740,7 @@ const Home = () => {
                   aria-controls="accordion-flush-body-3"
                 >
                   <span>
-                    What are the differences between Landwind and Tailwind UI?
+                    What are the differences between Edoc+ and Other?
                   </span>
                   <svg
                     data-accordion-icon=""
@@ -891,7 +806,7 @@ const Home = () => {
                   aria-expanded="false"
                   aria-controls="accordion-flush-body-4"
                 >
-                  <span>What about browser support?</span>
+                  <span>What about if i have an emergence</span>
                   <svg
                     data-accordion-icon=""
                     className="w-6 h-6 shrink-0"
@@ -958,16 +873,14 @@ const Home = () => {
         <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
           <div className="max-w-screen-sm mx-auto text-center">
             <h2 className="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">
-              Start your free trial today
+              Book Appointment
             </h2>
-            <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">
-              Try Landwind Platform for 30 days. No credit card required.
-            </p>
+           
             <a
               href="#"
               className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
             >
-              Free trial for 30 days
+              Book
             </a>
           </div>
         </div>

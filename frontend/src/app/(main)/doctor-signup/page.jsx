@@ -4,7 +4,12 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-
+import { FaUser } from "react-icons/fa";
+import { FaHeartbeat } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { ImAddressBook } from "react-icons/im";
+import { MdContactPage } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 const doctorSignup = () => {
   const router = useRouter();
@@ -39,7 +44,7 @@ const doctorSignup = () => {
       address: '',
       contact: '',
       email: '',
-      fees:'',
+      fees: '',
       password: '',
       confirmPassword: ''
     },
@@ -56,7 +61,7 @@ const doctorSignup = () => {
         .then((response) => {
           if (response.status === 200) {
             toast.success('Signup Successful');
-            router.push('/login');
+            router.push('/doctor-login');
             resetForm();
           } else {
             toast.error('some error occured')
@@ -81,7 +86,7 @@ const doctorSignup = () => {
 
     })
       .then((response) => {
-        if (response.status === 200) { 
+        if (response.status === 200) {
           toast.success('Photo Upload');
           response.json()
             .then((data) => {
@@ -104,13 +109,13 @@ const doctorSignup = () => {
           <div className="flex flex-wrap -mx-4 lg:justify-between">
             <div className="w-full lg:w-1/2 xl:w-6/12">
               <div className="mb-12 max-w-[570px] lg:mb-0">
-                <h2 className="text-dark dark:text-white  text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
+                <h2 className="text-dark dark:text-white text-center text-[32px] font-bold uppercase sm:text-[40px] lg:text-[25px] xl:text-[30px] mb-3">
                   Doctor Registration
                 </h2>
 
                 <img
-                  src="/doctorSignup.jpg"
-                  className="img-fluid rounded-top"
+                  src="https://img.freepik.com/free-vector/hand-drawn-doctor-cartoon-illustration_23-2150680327.jpg?size=338&ext=jpg&ga=GA1.1.1224184972.1714694400&semt=ais"
+                  className="img-fluid w-screen rounded-top"
                   alt=""
                 />
               </div>
@@ -118,184 +123,252 @@ const doctorSignup = () => {
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative p-8 bg-white rounded-lg shadow-lg dark:bg-dark-2 sm:p-12">
                 <form onSubmit={doctorSignupForm.handleSubmit}>
-                  <div className="mb-6">
-                    <input
-                      type="text"
-                      id='name'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.name}
-                      placeholder="Doctor's Name"
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.name &&
-                      <small className="text-danger">{doctorSignupForm.errors.name}</small>
-                    }
-                  </div>
-
-                  <div className="mb-6">
-                    <input
-                      type="text"
-                      id='specialization'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.specialization}
-                      placeholder="Doctor's Specialization"
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.name &&
-                      <small className="text-danger">{doctorSignupForm.specialization}</small>
-                    }
-                  </div>
-
-                  <div className="mb-6">
-
-                    <label htmlFor="avatar" className="text-dark dark:text-white">Upload Photo</label>
-                    <input
-                      type="file"
-                      id='avatar'
-                      onChange={uploadFile}
-                      placeholder=""
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.name &&
-                      <small className="text-danger">{doctorSignupForm.avatar}</small>
-                    }
-                  </div>
-
-                  <div className="mb-6">
-                    <select
-                      type="text"
-                      id='gender'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.gender}
-                      placeholder="Gender"
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    >
-                      <option value="">Select Gender</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-
-                    </select>
-                    {
-                      doctorSignupForm.touched.name &&
-                      <small className="text-danger">{doctorSignupForm.gender}</small>
-                    }
-                  </div>
-
-
-                  <div className="mb-6">
-                    <input
-                      type="email"
-                      id='email'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.email}
-                      placeholder="Your Email"
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.email &&
-                      <small className="text-danger">{doctorSignupForm.errors.email}</small>
-                    }
-                  </div>
-                  <div className="mb-6">
-                    <input
-                      type="number"
-                      id='contact'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.contact}
-                      placeholder="Contact Number"
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.contact &&
-                      <small className="text-danger">{doctorSignupForm.errors.contact}</small>
-                    }
-                  </div>
-                  <div className="mb-6">
-                    <input
-                      type="text"
-                      id='city'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.city}
-                      placeholder="City"
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.city &&
-                      <small className="text-danger">{doctorSignupForm.errors.city}</small>
-                    }
-                  </div>
-                  <div className="mb-6">
-                    <input
-                      type="text"
-                      placeholder="Address"
-                      id='address'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.address}
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.address &&
-                      <small className="text-danger">{doctorSignupForm.errors.address}</small>
-                    }
-
-                  </div>
-                  <div className="mb-6">
-                    <input
-                      type="text"
-                      placeholder="Fees"
-                      id='fees'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.fees}
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.fees &&
-                      <small className="text-danger">{doctorSignupForm.errors.fees}</small>
-                    }
-
-                  </div>
-                  <div className="mb-6">
-                    <input
-                      type="text"
-                      placeholder="Create Password"
-                      id='password'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.password}
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.address &&
-                      <small className="text-danger">{doctorSignupForm.errors.password}</small>
-                    }
-
-                  </div>
-                  <div className="mb-6">
-                    <input
-                      type="text"
-                      placeholder="Confirm Password"
-                      id='confirmPassword'
-                      onChange={doctorSignupForm.handleChange}
-                      value={doctorSignupForm.values.confirmPassword}
-                      className="border-stroke dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
-                    />
-                    {
-                      doctorSignupForm.touched.address &&
-                      <small className="text-danger">{doctorSignupForm.errors.confirmPassword}</small>
-                    }
-
-                  </div>
-
 
                   <div>
-                    <button
-                      type="submit"
-                      className="w-full p-3 bg-slate-900 text-white transition border rounded border-primary bg-primary hover:bg-opacity-90"
-                    >
-                      Register
-                    </button>
+                    <div className="flex -mx-3">
+                      <div className="w-1/2 px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Doctor's Name
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <FaUser className='text-gray-500' />
+                          </div>
+                          <input
+                            type="text"
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="John"
+                            id='name'
+                            required=''
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.name}
+                          />
+                        </div>
+                      </div>
+                      <div className="w-1/2 px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Specialization
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <FaHeartbeat className='text-gray-500' />
+                          </div>
+                          <input
+                            type="text"
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="ENT"
+                            id='specialization'
+                            required=''
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.specialization}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex -mx-3">
+                      <div className="w-full px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Email
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <MdEmail className='text-gray-600' />
+                          </div>
+                          <input
+                            type="email"
+                            id='email'
+                            required=''
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.email}
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="johnsmith@example.com"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex -mx-3">
+                      <div className="w-full px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Image
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <MdEmail className='text-gray-600' />
+                          </div>
+                          <input
+                            type="file"
+                            onChange={uploadFile}
+                            required=''
+                            value={doctorSignupForm.values.avatar}
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="johnsmith@example.com"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex -mx-3">
+                      <div className="w-1/2 px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Contact
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <MdContactPage  className='text-gray-500' />
+                          </div>
+                          <input
+                            type="text"
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="9876543210"
+                            id='contact'
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.contact}
+                            required=''
+                          />
+                        </div>
+                      </div>
+                      <div className="w-1/2 px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          City
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <FaHeartbeat className='text-gray-500' />
+                          </div>
+                          <input
+                            type="text"
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="City"
+                            id='city'
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.city}
+                            required=''
+                          />
+                        </div>
+                      </div>
+                    </div>  <div className="flex -mx-3">
+                      <div className="w-1/2 px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Gender
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <FaUser className='text-gray-500' />
+                          </div>
+
+                          <select
+                            type="text"
+                            id='gender'
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.gender}
+                            placeholder="Gender"
+                            required=''
+                            className="text-gray-700 text-body-color  w-full rounded  py-1 px-[14px] border-none"
+                          >
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+
+                          </select>
+                        </div>
+                      </div>
+                      <div className="w-1/2 px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Fees
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <FaHeartbeat className='text-gray-500' />
+                          </div>
+                          <input
+                            type="text"
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="Fees"
+                            id='fees'
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.fees}
+                            required=''
+                          />
+                        </div>
+
+
+                      </div>
+
+                    </div>
+
+
+
+                    <div className="flex -mx-3">
+                      <div className="w-full px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Address
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <ImAddressBook className="text-gray-600" />
+                          </div>
+                          <input
+                            type="address"
+                            id='address'
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.address}
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="Hazratganj"
+                            required=''
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex -mx-3">
+                      <div className="w-1/2 px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Password
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                            <RiLockPasswordFill  className='text-gray-500' />
+                          </div>
+                          <input
+                            type="password"
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="*****"
+                            id='password'
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.password}
+                            required=''
+                          />
+                        </div>
+                      </div>
+                      <div className="w-1/2 px-3 mb-5">
+                        <label htmlFor="" className="text-xs font-semibold px-1">
+                          Confirm Password
+                        </label>
+                        <div className="flex">
+                          <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                          <RiLockPasswordFill  className='text-gray-500' />
+                          </div>
+                          <input
+                            type="text"
+                            className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                            placeholder="*****"
+                            id='confirmPassword'
+                            onChange={doctorSignupForm.handleChange}
+                            value={doctorSignupForm.values.confirmPassword}
+                            required=''
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div className="flex -mx-3">
+                      <div className="w-full px-3 mb-5">
+                        <button type="submit" className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+                          REGISTER NOW
+                        </button>
+                      </div>
+                    </div>
                   </div>
                   <div className="">
                     <br />

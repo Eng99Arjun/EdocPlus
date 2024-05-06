@@ -16,7 +16,7 @@ const Navbar = () => {
         </div>
         <ul className="hidden items-center justify-center gap-6 md:flex">
           <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
-            <Link href="/user/consultDoctor">Doctors</Link>
+            <Link href="/consultDoctor">Doctors</Link>
           </li>
           <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
             <Link href="/contact">Contact us</Link>
