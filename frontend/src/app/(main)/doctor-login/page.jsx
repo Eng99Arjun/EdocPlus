@@ -46,7 +46,7 @@ const Login = () => {
         sessionStorage.setItem('doctor', JSON.stringify(data));
         router.push('/doctor/manage-schedule');
       }
-      else if (res.status === 400) {
+      else if (res.status === 401) {
         toast.error('Some error occured')
       }
     },

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../model/patientModel')
 const jwt = require('jsonwebtoken');
+const verifyToken = require('./verifyToken');
 require('dotenv').config();
 
 router.post('/add', (req, res) => {
