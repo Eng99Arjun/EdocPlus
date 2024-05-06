@@ -62,10 +62,10 @@ const Login = () => {
               <div className="mb-12 max-w-[570px] lg:mb-0">
 
                 <h2 className="text-dark dark:text-white mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-                  Login
+                  Doctor Login
                 </h2>
                 <p className="text-base leading-relaxed text-body-color dark:text-dark-6 mb-9">
-                  Login to your account to access your dashboard
+                  Login to manage your schedule and appointments with patients
                 </p>
                 <div className='p-0 m-0'>
                   <img src="/doctor-login.jpg" alt="" />

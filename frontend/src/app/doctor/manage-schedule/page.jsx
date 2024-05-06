@@ -14,6 +14,7 @@ import toast from 'react-hot-toast'
 export default function Home() {
 
   const [currentDoctor, setCurrentDoctor] = useState(JSON.parse(sessionStorage.getItem("doctor")));
+  const [slotList, setSlotList] = useState([]);
 
   const [events, setEvents] = useState([
     { title: 'event 1', id: '1' },
@@ -62,14 +63,24 @@ export default function Home() {
   }
 
   function handleDeleteModal(data) {
+    // console.log(data.event.id);
     setShowDeleteModal(true)
-    setIdToDelete(Number(data.event.id))
+    setIdToDelete((data.event.id))
   }
 
   function handleDelete() {
-    setAllEvents(allEvents.filter(event => Number(event.id) !== Number(idToDelete)))
-    setShowDeleteModal(false)
-    setIdToDelete(null)
+    console.log(idToDelete);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/slot/delete/${idToDelete}`, {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (response.status === 200) {
+          toast.success('Slot deleted successfully')
+          setAllEvents(allEvents.filter(event => (event.id) !== (idToDelete)))
+          setShowDeleteModal(false)
+          setIdToDelete(null)
+        }
+      })
   }
 
   function handleCloseModal() {
@@ -90,7 +101,7 @@ export default function Home() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    setAllEvents([...allEvents, newEvent])
+    setAllEvents([...allEvents, {...newEvent, title: newEvent.time}])
     console.log(newEvent);
     addNewSlot(newEvent);
     setShowModal(false)
@@ -102,6 +113,31 @@ export default function Home() {
       id: 0
     })
   }
+
+  const fetchSlots = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/slot/getdoctorslots`, {
+      headers: {
+        'x-auth-token': currentDoctor.token
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setAllEvents(data.map(slot => ({
+          title: slot.time,
+          start: new Date(slot.date),
+          date: new Date(slot.date),
+          allDay: true,
+          id: slot._id
+        })))
+      })
+      .catch(error => console.log('error', error))
+  }
+
+  useEffect(() => {
+    fetchSlots();
+  }, [])
+
 
   const addNewSlot = (slot) => {
     slot.date = slot.start;
@@ -118,7 +154,7 @@ export default function Home() {
         if (response.status === 200) {
           toast.success('Slot added successfully')
           response.json()
-        }else{
+        } else {
           toast.error('Failed to add slot')
         }
       })
@@ -130,8 +166,8 @@ export default function Home() {
   return (
     <>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="grid grid-cols-10">
-          <div className="col-span-8">
+        <div className="grid grid-cols-12 w-full">
+          <div className="col-span-10">
             <FullCalendar
               plugins={[
                 dayGridPlugin,
@@ -154,7 +190,7 @@ export default function Home() {
               eventClick={(data) => handleDeleteModal(data)}
             />
           </div>
-          <div id="draggable-el" className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50">
+          {/* <div id="draggable-el" className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50">
             <h1 className="font-bold text-lg text-center">Drag Event</h1>
             {events.map(event => (
               <div
@@ -165,7 +201,7 @@ export default function Home() {
                 {event.title}
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         <Transition.Root show={showDeleteModal} as={Fragment}>

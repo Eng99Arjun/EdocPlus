@@ -64,5 +64,15 @@ router.get("/getbydoctor/:id", (req, res) => {
         });
 })
 
+router.get("/getdoctorslots", verifyToken, (req, res) => {
+    Model.find({ doctor: req.user._id })
+        .then((result) => {
+            res.json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
+
 
 module.exports = router;

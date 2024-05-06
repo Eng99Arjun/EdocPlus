@@ -96,5 +96,9 @@ router.get("/getdoctor", verifyToken, (req, res) => {
         });
 })
 
+router.get("/authorise", verifyToken, (req, res) => {
+    res.status(200).json({ allowed: true });
+});
+
 
 module.exports = router;
