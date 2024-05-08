@@ -1,8 +1,11 @@
+'use client';
 import usePatientContext from '@/context/PatientContext'
 import Link from 'next/link'
 import React from 'react'
+
 const Navbar = () => {
- const { logout } = usePatientContext
+
+  const { logout } = usePatientContext();
 
   return (
     <header className="sticky inset-0 z-50 border-b border-slate-400 bg-white-200 backdrop-blur-lg">
@@ -27,14 +30,13 @@ const Navbar = () => {
         </ul>
         <div className="flex-grow" />
         <div className="hidden items-center justify-center gap-6 md:flex">
-          
-          <Link
-            href="#"
+
+          <button
             onClick={logout}
             className="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]"
           >
-            Log Out 
-          </Link>
+            Log Out
+          </button>
           <Link
             href="/user/profile"
             className="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]"

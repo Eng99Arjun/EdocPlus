@@ -4,20 +4,22 @@ const { createContext, useState, useContext } = require("react");
 
 const PatientContext = createContext();
 
-export const PatientProvider = ({children}) => {
+export const PatientProvider = ({ children }) => {
   const router = useRouter();
 
   const [currentPatient, setCurrentPatient] = useState(
-    JSON.parse(sessionStorage.getItem("patient"))
+    JSON.parse(localStorage.getItem("patient"))
   );
 
   const [patientLoggedIn, setPatientLoggedIn] = useState(currentPatient !== null);
 
   const logout = () => {
     setCurrentPatient(null);
-    sessionStorage.removeItem("patient");
+    localStorage.removeItem("patient");
     setPatientLoggedIn(false);
-    router.push("/patientlogin");
+    // clear cookie
+    document.cookie = "token=; expires = Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    router.push("/login");
   };
 
   return (
@@ -27,7 +29,6 @@ export const PatientProvider = ({children}) => {
         setCurrentPatient,
         patientLoggedIn,
         setPatientLoggedIn,
-        
         logout,
       }}
     >
