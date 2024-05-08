@@ -1,11 +1,17 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 
 const DoctorDashboard = () => {
+
+  const [currentDoctor] = useState(
+    JSON.parse(sessionStorage.getItem("doctor"))
+  );
+
   return (
     <div>
       <div>
         <h1 className='font-mono text-3xl'>
-          Welcome, Dr. XYZ
+         {currentDoctor.name}
         </h1>
         </div>
 
