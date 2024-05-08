@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 const patientDashboard = () => {
 
   const [currentUser, setcurrentUser] = useState(
-    JSON.parse(sessionStorage.getItem("patient"))
+    JSON.parse(localStorage.getItem("patient"))
   );
 
   const useForm = useFormik({
@@ -23,7 +23,7 @@ const patientDashboard = () => {
       const userData = await res.json();
       console.log(userData);
       setcurrentUser(userData);
-      sessionStorage.setItem("user", JSON.stringify(userData));
+      localStorage.setItem("user", JSON.stringify(userData));
     }
   })
 

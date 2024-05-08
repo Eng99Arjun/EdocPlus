@@ -43,7 +43,9 @@ const PatientLogin = () => {
         setPatientLoggedIn(true);
         const data = await res.json();
         setCurrentPatient(data);
-        sessionStorage.setItem('patient', JSON.stringify(data));
+        localStorage.setItem('patient', JSON.stringify(data));
+        // set cookie
+        document.cookie = `token=${data.token}`;
         router.push('/user/profile');
       }
       else if (res.status === 400) {
