@@ -91,11 +91,10 @@ const signup = () => {
                 <h2 className="text-dark dark:text-white mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                   Registration
                 </h2>
-                <p className="text-base leading-relaxed text-body-color dark:text-dark-6 mb-9">
-                  First step towards your better healthcare.
-                </p>
                 <div className='p-0 m-0'>
-                  <img src="/signup.jpg" alt="" />
+                  <img src="/signup.jpg" 
+                  alt="" 
+                  className='border-8 border-blue-700 rounded-lg'/>
                 </div>
                 <div className="mb-8 flex w-full max-w-[370px]">
                   <div className="bg-primary/5 text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">

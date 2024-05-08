@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import { FaUser } from "react-icons/fa";
+import { FaIdCard, FaUser } from "react-icons/fa";
 import { FaHeartbeat } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { ImAddressBook } from "react-icons/im";
@@ -114,8 +114,8 @@ const doctorSignup = () => {
                 </h2>
 
                 <img
-                  src="https://img.freepik.com/free-vector/hand-drawn-doctor-cartoon-illustration_23-2150680327.jpg?size=338&ext=jpg&ga=GA1.1.1224184972.1714694400&semt=ais"
-                  className="img-fluid w-screen rounded-top"
+                  src="doctor-signup.jpg"
+                  className="img-fluid w-screen rounded-md border-white border-8 mt-16"
                   alt=""
                 />
               </div>
@@ -137,7 +137,7 @@ const doctorSignup = () => {
                           <input
                             type="text"
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="John"
+                            placeholder=""
                             id='name'
                             required=''
                             onChange={doctorSignupForm.handleChange}
@@ -156,7 +156,7 @@ const doctorSignup = () => {
                           <input
                             type="text"
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="ENT"
+                            
                             id='specialization'
                             required=''
                             onChange={doctorSignupForm.handleChange}
@@ -181,7 +181,7 @@ const doctorSignup = () => {
                             onChange={doctorSignupForm.handleChange}
                             value={doctorSignupForm.values.email}
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="johnsmith@example.com"
+
                           />
                         </div>
                       </div>
@@ -201,7 +201,7 @@ const doctorSignup = () => {
                             required=''
                             value={doctorSignupForm.values.avatar}
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="johnsmith@example.com"
+                            
                           />
                         </div>
                       </div>
@@ -219,7 +219,7 @@ const doctorSignup = () => {
                           <input
                             type="text"
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="9876543210"
+                            
                             id='contact'
                             onChange={doctorSignupForm.handleChange}
                             value={doctorSignupForm.values.contact}
@@ -238,7 +238,7 @@ const doctorSignup = () => {
                           <input
                             type="text"
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="City"
+                            
                             id='city'
                             onChange={doctorSignupForm.handleChange}
                             value={doctorSignupForm.values.city}
@@ -261,7 +261,7 @@ const doctorSignup = () => {
                             id='gender'
                             onChange={doctorSignupForm.handleChange}
                             value={doctorSignupForm.values.gender}
-                            placeholder="Gender"
+                            
                             required=''
                             className="text-gray-700 text-body-color  w-full rounded  py-1 px-[14px] border-none"
                           >
@@ -278,12 +278,12 @@ const doctorSignup = () => {
                         </label>
                         <div className="flex">
                           <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                            <FaHeartbeat className='text-gray-500' />
+                            <FaIdCard className='text-gray-500' />
                           </div>
                           <input
                             type="text"
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="Fees"
+                            
                             id='fees'
                             onChange={doctorSignupForm.handleChange}
                             value={doctorSignupForm.values.fees}
@@ -313,7 +313,7 @@ const doctorSignup = () => {
                             onChange={doctorSignupForm.handleChange}
                             value={doctorSignupForm.values.address}
                             className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                            placeholder="Hazratganj"
+                            
                             required=''
                           />
                         </div>
@@ -373,7 +373,7 @@ const doctorSignup = () => {
                   <div className="">
                     <br />
                     <br />
-                    <p>Already Registered ?<a href='/login' className='text-blue-600'>  Login Here</a></p>
+                    <p>Already Registered ?<a href='/doctor-login' className='text-blue-600'>  Login Here</a></p>
                   </div>
                 </form>
                 <div>

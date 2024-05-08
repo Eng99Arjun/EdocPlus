@@ -65,11 +65,12 @@ const PatientLogin = () => {
                 <h2 className="text-dark dark:text-white mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                   Patient Login
                 </h2>
-                <p className="text-base leading-relaxed text-body-color dark:text-dark-6 mb-9">
-                  Login to consult with your Doctor
-                </p>
+                
                 <div className='p-0 m-0'>
-                  <img src="/login.jpg" alt="" />
+                  <img src="/login.jpg" 
+                  alt=""
+                  className="border-white border-8 rounded-lg" 
+                  />
                 </div>
                 <div className="mb-8 flex w-full max-w-[370px]">
                   <div className="bg-primary/5 text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">
