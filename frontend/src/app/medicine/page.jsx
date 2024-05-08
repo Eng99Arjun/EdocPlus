@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react'
 
-const report= () => {
+const Medicine= () => {
 
   
   const [Data, setData] = useState([]);
@@ -40,7 +40,7 @@ const report= () => {
   }, [])
 
 
-  const displayReports = () => {
+  const displayMedicines = () => {
     return  Data.map((report) => {
         return <div className="container mx-auto py-10 px-5">
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
@@ -55,13 +55,13 @@ const report= () => {
             <hr className="my-4" />
           
             <div className="mt-4">
-              <h3 className="text-lg font-semibold mb-2">Test Name</h3>
+              <h3 className="text-lg font-semibold mb-2">Medicines</h3>
               <div>
               
                 <ul className="list-disc list-inside text-sm">
                 
                   <li>
-                    <span className="font-semibold">Test Name: </span> {report.medicalTests}
+                    {report.prescription}
                   </li>
                 </ul>
               </div>
@@ -75,8 +75,8 @@ const report= () => {
 }
 
   return (  
-   displayReports()
+   displayMedicines()
   )
 }
 
-export default report
+export default Medicine

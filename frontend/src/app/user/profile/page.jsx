@@ -5,9 +5,7 @@ import React, { useState } from 'react';
 const patientDashboard = () => {
 
   const [currentUser, setcurrentUser] = useState(
-    JSON.parse(sessionStorage.getItem("patient"
-
-    ))
+    JSON.parse(sessionStorage.getItem("patient"))
   );
 
   const useForm = useFormik({
@@ -154,9 +152,9 @@ const patientDashboard = () => {
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 font-semibold">First Name</div>
                     <input type className="px-4 py-2"
-                     values={useForm.values.fullName} 
-                     id="fullName"
-                     onChange={useForm.handleChange}></input>
+                      values={useForm.values.fullName}
+                      id="fullName"
+                      onChange={useForm.handleChange}></input>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 font-semibold">Last Name</div>

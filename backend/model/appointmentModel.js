@@ -6,6 +6,7 @@ const appointmentSchema = new Schema({
     slot: { type: Types.ObjectId, ref: 'slot'},
     patient: { type: Types.ObjectId, ref: 'patient'},
     details: String,
+    completed: { type: Boolean, default: false },
     status: { type: String, default: 'booked' },
     createdAt: { type: Date, default: Date.now },
 });
