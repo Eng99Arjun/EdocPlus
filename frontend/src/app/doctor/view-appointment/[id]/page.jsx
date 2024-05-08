@@ -3,20 +3,20 @@ import { useParams } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react'
 
 const medicalTestOptions = [
-  'Blood Test',
-  'Urine Test',
-  'X-Ray',
-  'MRI',
-  'CT Scan',
-  'Ultrasound',
-  'ECG',
-  'EEG',
-  'EMG',
-  'Endoscopy',
-  'Colonoscopy',
-  'Biopsy',
-  'Mammography',
-  'Pap Smear',
+  ' Blood Test',
+  ' Urine Test',
+  ' X-Ray',
+  ' MRI',
+  ' CT Scan',
+  ' Ultrasound',
+  ' ECG',
+  ' EEG',
+  ' EMG',
+  ' Endoscopy',
+  ' Colonoscopy',
+  ' Biopsy',
+  ' Mammography',
+  ' Pap Smear',
 ]
 
 const ViewAppointment = () => {
@@ -117,10 +117,17 @@ const ViewAppointment = () => {
     if (reportDetails !== null) {
       return (
         <div>
-          <h1>Report Details</h1>
-          <textarea ref={reportRef} defaultValue={reportDetails.report} />
-          <textarea ref={prescriptionRef} defaultValue={reportDetails.prescription} />
-          <button onClick={updateReport}>Update Report</button>
+        
+            <h1 className='text-xl font-serif mb-3'>Report Details</h1>
+   
+          <textarea ref={reportRef} className='w-full bg-blue-50 border-none shadow mb-5' defaultValue={reportDetails.report} />
+          <h1 className='text-xl font-serif mb-3'>Medicines</h1>
+         
+          <textarea className='w-full bg-blue-50 border-none shadow mb-5' ref={prescriptionRef} defaultValue={reportDetails.prescription} />
+
+          <div className='m-5 ms-44'>
+        <button className='bg-blue-400 rounded-lg  font-serif text-white p-2' onClick={updateReport}>Update Report</button>
+      </div>
         </div>
       )
     } else {
@@ -150,13 +157,25 @@ const ViewAppointment = () => {
 
   return (
     <div>
-      <h1>Appointment Details</h1>
-      <p>{appointmentDetails?.patient.fullName}</p>
-      <p>{appointmentDetails?.slot.date}</p>
-      <p>{appointmentDetails?.slot.time}</p>
-      {displayReport()}
-      <h1>Medical Tests</h1>
-      {showMedicalTests()}
+      <h1 className='text-3xl text-center text-blue-900 py-3 font-semibold'>Appointment Details</h1>
+      <div className='grid grid-cols-2'>
+      <div className='p-12'>
+          <p>{appointmentDetails?.patient.fullName}</p>
+          <p>{appointmentDetails?.slot.date}</p>
+          <p>{appointmentDetails?.slot.time}</p>
+          {displayReport()}
+
+        </div>
+        <div className='p-8'>
+          <h1 className='text-xl font-serif mb-3'>Medical Tests</h1>
+          <div className='shadow p-5 bg-blue-50'>
+          {showMedicalTests()}
+
+          </div>
+        </div>
+       
+      </div>
+    
     </div>
   )
 }
