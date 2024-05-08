@@ -25,7 +25,18 @@ router.post('/authenticate', (req, res) => {
 })
 
 router.get('/getall', (req, res) => {
-    Model.find()
+    Model.find().populate({
+        path: 'appointment',
+        populate: {
+            path: 'patient'
+        }
+
+    }).populate({
+        path: 'appointment',
+        populate: {
+            path: 'doctor'
+        }
+    })
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {
