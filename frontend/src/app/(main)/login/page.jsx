@@ -43,7 +43,9 @@ const PatientLogin = () => {
         setPatientLoggedIn(true);
         const data = await res.json();
         setCurrentPatient(data);
-        sessionStorage.setItem('patient', JSON.stringify(data));
+        localStorage.setItem('patient', JSON.stringify(data));
+        // set cookie
+        document.cookie = `token=${data.token}`;
         router.push('/user/profile');
       }
       else if (res.status === 400) {
@@ -60,7 +62,7 @@ const PatientLogin = () => {
         <div className="container mx-auto">
           <div className="flex flex-wrap -mx-4 lg:justify-between">
             <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
-              <div className="mb-12 max-w-[570px] lg:mb-0">
+              <div className="max-w-[570px] lg:mb-0">
 
                 <h2 className="text-dark dark:text-white mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                   Patient Login
@@ -93,6 +95,12 @@ const PatientLogin = () => {
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative p-8 bg-white rounded-lg shadow-lg dark:bg-dark-2 sm:p-12">
                 <form onSubmit={loginForm.handleSubmit}>
+                   <h2 className="text-dark dark:text-white mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
+                  Patient Login
+                </h2>
+                <p className="text-base leading-relaxed text-body-color dark:text-dark-6 mb-9">
+                  Login to your account to access your dashboard
+                </p>
                   <div className="mb-6">
                     <input
                       id='email'

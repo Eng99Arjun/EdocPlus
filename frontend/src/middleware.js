@@ -5,19 +5,19 @@ import { cookies } from "next/headers";
 export async function middleware(req, res) {
     const cookieStore = cookies()
     const token = cookieStore.get('token') || '';
-    const ApiResponse = await fetch('http://localhost:5000/user/authorise', {
+    const ApiResponse = await fetch('http://localhost:5000/patient/authorise', {
         headers: {
             'x-auth-token': token.value
         }
     });
     console.log(ApiResponse.status);
     if (ApiResponse.status !== 200) {
-        return NextResponse.redirect(new URL('/authenticate', req.url));
+        return NextResponse.redirect(new URL('/login', req.url));
     } else {
         return NextResponse.next();
     }
 }
 
 export const config = {
-    matcher: '/admin/manageproduct'
+    matcher: ['/user/:path*']
 }

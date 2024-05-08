@@ -10,7 +10,7 @@ const WEEKDAYS = [
 
 
 const DoctorProfile = () => {
-const [currentPatient, setCurrentPatient] = useState(JSON.parse(sessionStorage.getItem('patient')));
+const [currentPatient, setCurrentPatient] = useState(JSON.parse(localStorage.getItem('patient')));
 
 
   const { id } = useParams();
