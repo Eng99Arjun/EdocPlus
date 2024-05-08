@@ -71,185 +71,177 @@ const DoctorProfile = () => {
             return <h1>Loading...</h1>
         } else {
             return (
-                <div className="container-fluid   bg-gray-300 w-full ">
-                    <div className="grid grid-cols-2 m-4">
-                        <div className="h-3/4 p-24 mt-5">
-                            <div className=" mx-auto rounded bg-white p-10 mt-6">
-                                <img
-                                    height={200}
-                                    className="border-rounded mx-w-full  h-auto w-24 rounded-full d-block m-auto"
-                                    src={
-                                        currentDoctor.avatar &&
-                                        `${process.env.NEXT_PUBLIC_API_URL}/${currentDoctor.avatar}`} alt="loading.." />
-                                {/* <hr className="mt-2 mb-2" /> */}
-                                <div>
-                                    <div className="text-center my-4">
-                                        <label
-                                            className="btn bg-white hover:bg-slate-200 w-100 mt-3"
-                                            htmlFor="upload-image"
-                                        >
-                                            {" "}
-                                            <i className="fas fa-pen"></i>&nbsp;Edit{" "}
-                                        </label>
-                                        <input
-                                            type="file"
-                                            hidden
-                                            onChange={uploadProfileImage}
-                                            id="upload-image"
-                                        />
-                                    </div>
-                                    <p className="text-center text-2xl text-dark">
-                                        {/* <span className="mb-2">...</span> */}
-                                    </p>
-                                    <p className="text-center text-xl text-gray-500 m-4"> <span className="fw-bold">{currentDoctor.email}</span></p>
-                                    <p className="text-xl text-center m-4"> <span className="text-black font-semibold ">User Id:</span><span>{currentDoctor._id}</span></p>
-                                    <ul className="list-group list-group-flush text-center">
-
-                                        <li className="list-group-item d-flex justify-content-between mb-4 align-items-center px-0">
-                                            <span className="me-3">Password</span>
-                                            {passwordHidden ? (
-                                                <span className="fw-bold">**</span>
-                                            ) : (
-                                                <span className="fw-bold">{currentDoctor.password}</span>
-                                            )}
-                                            <button
-                                                className="btn bg-white hover:bg-slate-200 m-4"
-                                                onClick={() => setPasswordHidden(!passwordHidden)}
-                                            >
-                                                {passwordHidden ? "Show" : "Hide"}
-                                            </button>
-                                        </li>
-
-                                    </ul>
-                                    <button
-                                        type="button "
-                                        className="btn mb-4 w-56 mx-auto block  bg-red-500 hover:bg-red-700 text-white "
-                                        onClick={() => deleteAccount(currentDoctor._id)}
-                                    >
-                                        Delete Account
-                                    </button>
+                <div className='grid grid-cols-2'>
+            <div>
+                <div className="px-4 sm:px-0">
+                    <h3 className="text-base font-semibold leading-7 text-gray-900">
+                    Your Profile
+                    </h3>
+                    <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+                    Personal details
+                    </p>
+                </div>
+                <div className="mt-6 border-t border-gray-100">
+                    <dl className="divide-y divide-gray-100">
+                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt className="text-sm font-medium leading-6 text-gray-900">
+                        Full name
+                        </dt>
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                        {currentDoctor.name}
+                        </dd>
+                    </div>
+                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt className="text-sm font-medium leading-6 text-gray-900">
+                        Specialization
+                        </dt>
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                        {currentDoctor.specialization}
+                        </dd>
+                    </div>
+                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt className="text-sm font-medium leading-6 text-gray-900">
+                        Email address
+                        </dt>
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                        {currentDoctor.email}
+                        </dd>
+                    </div>
+                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt className="text-sm font-medium leading-6 text-gray-900">
+                        Fee per Session
+                        </dt>
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                        currentDoctor.fees
+                        </dd>
+                    </div>
+                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt className="text-sm font-medium leading-6 text-gray-900">About</dt>
+                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                        {currentDoctor.about}
+                        </dd>
+                    </div>
+                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt className="text-sm font-medium leading-6 text-gray-900">
+                        Attachments
+                        </dt>
+                        <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        <ul
+                            role="list"
+                            className="divide-y divide-gray-100 rounded-md border border-gray-200"
+                        >
+                            <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                            <div className="flex w-0 flex-1 items-center">
+                                <svg
+                                className="h-5 w-5 flex-shrink-0 text-gray-400"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                aria-hidden="true"
+                                >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                                    clipRule="evenodd"
+                                />
+                                </svg>
+                                <div className="ml-4 flex min-w-0 flex-1 gap-2">
+                                <span className="truncate font-medium">
+                                    resume_back_end_developer.pdf
+                                </span>
+                                <span className="flex-shrink-0 text-gray-400">2.4mb</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="px-24 mt-12">
-                            {
-                                <Formik initialValues={currentDoctor} onSubmit={updateProfile}>
-                                    {(updateForm) => (
-
-                                        <form>
-                                            {/* 2 column grid layout with text inputs for the first and last names */}
-                                            <div className="row mb-4">
-                                                <div className="col">
-                                                    <div className="mb-3">
-                                                        <label className="form-label fw-bold mb-3" htmlFor="form7Example1">
-                                                            Username
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            id="username"
-                                                            onChange={updateForm.handleChange}
-                                                            value={updateForm.values.username}
-                                                            className="w-full py-2 rounded-lg px-2"
-                                                        />
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-
-                                            {/* Email input */}
-                                            <div className=" mb-4">
-                                                <label className="form-label fw-bold" htmlFor="form7Example5">
-                                                    Email
-                                                </label>
-                                                <input
-                                                    type="email"
-                                                    id="email"
-                                                    onChange={updateForm.handleChange}
-                                                    value={updateForm.values.email}
-                                                    className="w-full py-2 rounded-lg px-2"
-                                                />
-
-                                            </div>
-                                            {/* Number input */}
-                                            <label className="form-label fw-bold" htmlFor="form7Example6">
-                                                Phone
-                                            </label>
-                                            <div className="form-outline mb-4">
-                                                <input
-                                                    type="number"
-                                                    id="contact"
-                                                    onChange={updateForm.handleChange}
-                                                    value={updateForm.values.contact}
-                                                    className="w-full py-2 rounded-lg px-2"
-                                                />
-                                            </div>
-                                            {/* Address input */}
-                                            <label className="form-label fw-bold" htmlFor="form7Example6">
-                                                Address
-                                            </label>
-                                            <div className="form-outline mb-4">
-                                                <input
-                                                    type="number"
-                                                    id="contact"
-                                                    onChange={updateForm.handleChange}
-                                                    value={updateForm.values.address
-                                                    }
-                                                    className="w-full py-2 rounded-lg px-2"
-                                                />
-                                            </div>
-                                            {/* Degree input */}
-                                            <label className="form-label fw-bold" htmlFor="form7Example6">
-                                                Degrees
-                                            </label>
-                                            <div className="form-outline mb-4">
-                                                <input
-                                                    type="number"
-                                                    id="contact"
-                                                    onChange={updateForm.handleChange}
-                                                    value={updateForm.values.degree}
-                                                    className="w-full py-2 rounded-lg px-2"
-                                                />
-                                            </div>
-                                            {/* Address input */}
-                                            <label className="form-label fw-bold" htmlFor="form7Example6">
-                                                Trainings
-                                            </label>
-                                            <div className="form-outline mb-4">
-                                                <input
-                                                    type="number"
-                                                    id="contact"
-                                                    onChange={updateForm.handleChange}
-                                                    value={updateForm.values.training}
-                                                    className="w-full py-2 rounded-lg px-2"
-                                                />
-                                            </div>
-
-                                
-
-                                            {/* Message input */}
-                                            <label className="form-label fw-bold" htmlFor="form7Example7">
-                                                About
-                                            </label>
-                                            <div className="form-outline mb-4">
-                                                <textarea
-                                                    className="w-full py-2 rounded-lg px-2"
-                                                    id="form7Example7"
-                                                    rows={4}
-                                                    defaultValue={""}
-                                                />
-                                            </div>
-                                           
-                                        </form>
-                                    )}
-                                </Formik>
-                            }
-                        </div>
-
+                            <div className="ml-4 flex-shrink-0">
+                                <a
+                                href="#"
+                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                                >
+                                Download
+                                </a>
+                            </div>
+                            </li>
+                            <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                            <div className="flex w-0 flex-1 items-center">
+                                <svg
+                                className="h-5 w-5 flex-shrink-0 text-gray-400"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                aria-hidden="true"
+                                >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                                    clipRule="evenodd"
+                                />
+                                </svg>
+                                <div className="ml-4 flex min-w-0 flex-1 gap-2">
+                                <span className="truncate font-medium">
+                                    coverletter_back_end_developer.pdf
+                                </span>
+                                <span className="flex-shrink-0 text-gray-400">4.5mb</span>
+                                </div>
+                            </div>
+                            <div className="ml-4 flex-shrink-0">
+                                <a
+                                href="#"
+                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                                >
+                                Download
+                                </a>
+                            </div>
+                            </li>
+                        </ul>
+                        </dd>
                     </div>
+                    </dl>
                 </div>
+            </div>
+
+            <div className="min-h-screen dark:bg-slate-800 gap-6 flex items-center justify-center">
+            <div className="bg-gray-100 dark:bg-gray-700 relative shadow-xl overflow-hidden hover:shadow-2xl group rounded-xl p-5 transition-all duration-500 transform">
+              <div className="flex items-center gap-4">
+                <img
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxhdmF0YXJ8ZW58MHwwfHx8MTY5MTg0NzYxMHww&ixlib=rb-4.0.3&q=80&w=1080"
+                  className="w-32 group-hover:w-36 group-hover:h-36 h-32 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
+                />
+                <div className="w-fit transition-all transform duration-500">
+                  <h1 className="text-gray-600 dark:text-gray-200 font-bold">
+                    Mary Phiri
+                  </h1>
+                  <p className="text-gray-400">Senior Developer</p>
+                  <a className="text-xs text-gray-500 dark:text-gray-200 group-hover:opacity-100 opacity-0 transform transition-all delay-300 duration-500">
+                    mary@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div className="absolute group-hover:bottom-1 delay-300 -bottom-16 transition-all duration-500 bg-gray-600 dark:bg-gray-100 right-1 rounded-lg">
+                <div className="flex justify-evenly items-center gap-2 p-1 text-2xl text-white dark:text-gray-600">
+                  <svg
+                    viewBox="0 0 1024 1024"
+                    fill="currentColor"
+                    height="1em"
+                    width="1em"
+                  >
+                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm215.3 337.7c.3 4.7.3 9.6.3 14.4 0 146.8-111.8 315.9-316.1 315.9-63 0-121.4-18.3-170.6-49.8 9 1 17.6 1.4 26.8 1.4 52 0 99.8-17.6 137.9-47.4-48.8-1-89.8-33-103.8-77 17.1 2.5 32.5 2.5 50.1-2a111 111 0 01-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 01-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 00229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35 25.1-4.7 49.1-14.1 70.5-26.7-8.3 25.7-25.7 47.4-48.8 61.1 22.4-2.4 44-8.6 64-17.3-15.1 22.2-34 41.9-55.7 57.6z" />
+                  </svg>
+                  <svg fill="currentColor" viewBox="0 0 16 16" height="1em" width="1em">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                  </svg>
+                  <svg
+                    viewBox="0 0 960 1000"
+                    fill="currentColor"
+                    height="1em"
+                    width="1em"
+                  >
+                    <path d="M480 20c133.333 0 246.667 46.667 340 140s140 206.667 140 340c0 132-46.667 245-140 339S613.333 980 480 980c-132 0-245-47-339-141S0 632 0 500c0-133.333 47-246.667 141-340S348 20 480 20M362 698V386h-96v312h96m-48-352c34.667 0 52-16 52-48s-17.333-48-52-48c-14.667 0-27 4.667-37 14s-15 20.667-15 34c0 32 17.333 48 52 48m404 352V514c0-44-10.333-77.667-31-101s-47.667-35-81-35c-44 0-76 16.667-96 50h-2l-6-42h-84c1.333 18.667 2 52 2 100v212h98V518c0-12 1.333-20 4-24 8-25.333 24.667-38 50-38 32 0 48 22.667 48 68v174h98" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+
             )
         }
     }
