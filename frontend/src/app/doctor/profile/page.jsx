@@ -85,7 +85,7 @@ const DoctorProfile = () => {
                                 <div>
                                     <div className="text-center my-4">
                                         <label
-                                            className="btn bg-white hover:bg-slate-200 w-100 mt-3"
+                                            className="btn bg-white border hover:bg-slate-200 w-100 mt-3"
                                             htmlFor="upload-image"
                                         >
                                             {" "}
