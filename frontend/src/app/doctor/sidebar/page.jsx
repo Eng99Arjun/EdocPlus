@@ -1,6 +1,9 @@
+'use client'
+import useDoctorContext from '@/context/DoctorContext';
 import React from 'react'
 
 const Sidebar = () => {
+  const {logout} = useDoctorContext();
   return (
     <>
    
@@ -110,8 +113,8 @@ const Sidebar = () => {
           
        
           <li>
-            <a
-              href="#"
+            <button
+             onClick={logout}
               className="flex items-center p-2 text-white rounded-lg hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg
@@ -125,7 +128,7 @@ const Sidebar = () => {
                 <path d="M14 4H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM2 16v-6h12v6H2Z" />
               </svg>
               <span className="ms-3">Logout</span>
-            </a>
+            </button>
           </li>    
         </ul>
       </div>

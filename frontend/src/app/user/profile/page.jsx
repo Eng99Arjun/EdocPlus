@@ -26,6 +26,7 @@ const patientDashboard = () => {
       localStorage.setItem("user", JSON.stringify(userData));
     }
   })
+  // console.log(useForm.values);
 
   return (
     <div>
@@ -49,12 +50,10 @@ const patientDashboard = () => {
                 {currentUser.fullName}
               </h1>
               <h3 className="text-gray-600 font-lg text-semibold leading-6">
-                Owner at Her Company Inc.
+                
               </h3>
               <p className="text-sm text-gray-500 hover:text-gray-600 leading-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non
-                deserunt
+                
               </p>
               <ul className="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                 <li className="flex items-center py-3">
@@ -75,51 +74,8 @@ const patientDashboard = () => {
             <div className="my-4" />
             <div className="bg-white p-3 hover:shadow">
               <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                {/*  */}
-                {/* <span>Similar Profiles</span> */}
+             
               </div>
-              {/* <div className="grid grid-cols-3">
-                <div className="text-center my-2">
-                  <img
-                    className="h-16 w-16 rounded-full mx-auto"
-                    src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
-                    alt=""
-                  />
-                  <a href="#" className="text-main-color">
-                    Kojstantin
-                  </a>
-                </div>
-                <div className="text-center my-2">
-                  <img
-                    className="h-16 w-16 rounded-full mx-auto"
-                    src="https://avatars2.githubusercontent.com/u/24622175?s=60&v=4"
-                    alt=""
-                  />
-                  <a href="#" className="text-main-color">
-                    James
-                  </a>
-                </div>
-                <div className="text-center my-2">
-                  <img
-                    className="h-16 w-16 rounded-full mx-auto"
-                    src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                    alt=""
-                  />
-                  <a href="#" className="text-main-color">
-                    Natie
-                  </a>
-                </div>
-                <div className="text-center my-2">
-                  <img
-                    className="h-16 w-16 rounded-full mx-auto"
-                    src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
-                    alt=""
-                  />
-                  <a href="#" className="text-main-color">
-                    Casey
-                  </a>
-                </div>
-              </div> */}
             </div>
             {/* End of friends card */}
           </div>
@@ -151,8 +107,8 @@ const patientDashboard = () => {
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 font-semibold">First Name</div>
-                    <input type className="px-4 py-2"
-                      values={useForm.values.fullName}
+                    <input type='text' className="px-4 py-2"
+                      value={useForm.values.fullName}
                       id="fullName"
                       onChange={useForm.handleChange}></input>
                   </div>

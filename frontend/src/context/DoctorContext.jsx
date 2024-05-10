@@ -16,7 +16,7 @@ export const DoctorProvider = ({children}) => {
     setCurrentDoctor(null);
     sessionStorage.removeItem("doctor");
     setDoctorLoggedIn(false);
-    router.push("/doctorlogin");
+    router.push("/");
   };
 
   return (

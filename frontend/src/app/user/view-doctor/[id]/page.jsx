@@ -10,6 +10,7 @@ const WEEKDAYS = [
 
 
 const DoctorProfile = () => {
+  
 const [currentPatient, setCurrentPatient] = useState(JSON.parse(localStorage.getItem('patient')));
 
 
@@ -160,39 +161,7 @@ const [currentPatient, setCurrentPatient] = useState(JSON.parse(localStorage.get
 
               </div>
             </div>
-{/* 
-            <div>
-              <p>
-                <h1 className='text-gray-700 text-3xl font-sans'>
-                  ABOUT
-                </h1>
-                <br />
-                <p className="text-slate-500">
-                  Dr. Natalie Paisley is a General Practitioner with 10 years of experience. She is a specialist in treating general health issues and has a special interest in
-                  treating patients with diabetes and hypertension. She is a member of the American Medical Association and has completed her MBBS from the University of California.
-                </p>
-              </p>
-              <div className='bg-green-500 h-1 mt-9'></div>
-              <div className='mt-5 text-slate-500'>
-                <div className='grid grid-cols-2 text-xl font-mono text-slate-500'>
-                  <h1>Speciality</h1>
-                  <p>{doctorDetails.specialization}</p>
-                </div>
 
-                <div className='grid grid-cols-2 text-xl font-mono mt-7'>
-                  <h1>Degrees</h1>
-                  <p>MBBS</p>
-                </div>
-                <div className='grid grid-cols-2 text-xl font-mono mt-7'>
-                  <h1>Training</h1>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsam natus doloribus ullam voluptates incidunt enim mollitia totam inventore nam.</p>
-                </div>
-                <div className='grid grid-cols-2 text-xl font-mono mt-7'>
-                  <h1>Treatments</h1>
-                  <p>65</p>
-                </div>
-              </div>
-            </div> */}
 
             <div className=" m-24 shadow-xl bg-clip-border  rounded-xl w-96 p-4 text-slate-500 ">
               <div className='bg-green-400 h-1 '></div>

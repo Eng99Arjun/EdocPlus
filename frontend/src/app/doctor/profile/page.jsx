@@ -3,8 +3,16 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import { Formik } from 'formik';
 import toast from 'react-hot-toast';
+import { useParams } from 'next/navigation';
 
 const DoctorProfile = () => {
+
+    const WEEKDAYS = [
+        'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+      ]
+
+      const { id } = useParams();
+      const [slotData, setSlotData] = useState({});
 
     const [sessionData, setSessionData] = useState(JSON.parse(sessionStorage.getItem('doctor')));
     const [currentDoctor, setCurrentDoctor] = useState(null);
@@ -28,8 +36,47 @@ const DoctorProfile = () => {
             .catch(err => console.log(err));
     }
 
+    const fetchDoctorSlots = () => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/slot/getbydoctor/${id}`)
+          .then((response) => {
+            console.log(response.status);
+            return response.json();
+          })
+          .then(data => {
+            console.log(data);
+            const uniqueDates = [...new Set(data.map(item => item.date.split('T')[0]))];
+            let temp = {};
+            uniqueDates.forEach(date => {
+              if (temp[date]) {
+                temp[date].push(data.filter(item => item.date.split('T')[0] === date).map(item => item.time));
+              } else {
+                temp[date] = data.filter(item => item.date.split('T')[0] === date).map(item => item.time);
+              }
+            })
+            console.log(temp);
+            setSlotData(temp);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    
+      const showAvailableSlots = () => {
+        return slotData && Object.keys(slotData).map(date => (
+          <div key={date} className='m-7 grid grid-cols-2 font-semibold '>
+            <h2>{date} - {WEEKDAYS[new Date(date).getDay()]}</h2>
+            {
+              slotData[date].map(slot => (
+                <p key={slot}>{slot}</p>
+              ))
+            }
+          </div>
+        ))
+      }
+
     useEffect(() => {
         fetchDoctorData();
+        fetchDoctorSlots();
     }, [])
 
     const uploadProfileImage = (e) => {
@@ -73,7 +120,7 @@ const DoctorProfile = () => {
             return (
                 <div className='grid grid-cols-2'>
             <div>
-                <div className="px-4 sm:px-0">
+                <div className="px-4 sm:p-6">
                     <h3 className="text-base font-semibold leading-7 text-gray-900">
                     Your Profile
                     </h3>
@@ -112,108 +159,41 @@ const DoctorProfile = () => {
                         Fee per Session
                         </dt>
                         <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                        currentDoctor.fees
+                        {currentDoctor.fees}
                         </dd>
                     </div>
+                  
                     <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt className="text-sm font-medium leading-6 text-gray-900">About</dt>
+                       
+                        <dt className="text-sm font-medium leading-6 text-gray-900">Degree</dt>
                         <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                        {currentDoctor.about}
-                        </dd>
-                    </div>
-                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt className="text-sm font-medium leading-6 text-gray-900">
-                        Attachments
-                        </dt>
-                        <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                        <ul
-                            role="list"
-                            className="divide-y divide-gray-100 rounded-md border border-gray-200"
-                        >
-                            <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                            <div className="flex w-0 flex-1 items-center">
-                                <svg
-                                className="h-5 w-5 flex-shrink-0 text-gray-400"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                aria-hidden="true"
-                                >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
-                                    clipRule="evenodd"
-                                />
-                                </svg>
-                                <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                                <span className="truncate font-medium">
-                                    resume_back_end_developer.pdf
-                                </span>
-                                <span className="flex-shrink-0 text-gray-400">2.4mb</span>
-                                </div>
-                            </div>
-                            <div className="ml-4 flex-shrink-0">
-                                <a
-                                href="#"
-                                className="font-medium text-indigo-600 hover:text-indigo-500"
-                                >
-                                Download
-                                </a>
-                            </div>
-                            </li>
-                            <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                            <div className="flex w-0 flex-1 items-center">
-                                <svg
-                                className="h-5 w-5 flex-shrink-0 text-gray-400"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                aria-hidden="true"
-                                >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
-                                    clipRule="evenodd"
-                                />
-                                </svg>
-                                <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                                <span className="truncate font-medium">
-                                    coverletter_back_end_developer.pdf
-                                </span>
-                                <span className="flex-shrink-0 text-gray-400">4.5mb</span>
-                                </div>
-                            </div>
-                            <div className="ml-4 flex-shrink-0">
-                                <a
-                                href="#"
-                                className="font-medium text-indigo-600 hover:text-indigo-500"
-                                >
-                                Download
-                                </a>
-                            </div>
-                            </li>
-                        </ul>
+                        {currentDoctor.degree}
                         </dd>
                     </div>
                     </dl>
                 </div>
             </div>
-
-            <div className="min-h-screen dark:bg-slate-800 gap-6 flex items-center justify-center">
-            <div className="bg-gray-100 dark:bg-gray-700 relative shadow-xl overflow-hidden hover:shadow-2xl group rounded-xl p-5 transition-all duration-500 transform">
-              <div className="flex items-center gap-4">
+            <div>
+            <div className=" ml-24 h-28 dark:bg-slate-800 gap-6 w-80 items-center">
+            <div className="bg-gray-100 mt-5 dark:bg-gray-700 relative shadow-xl overflow-hidden hover:shadow-2xl group rounded-xl p-5 transition-all duration-500 transform">
+              <div className="flex items-center gap-4 p-4 ">
                 <img
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxhdmF0YXJ8ZW58MHwwfHx8MTY5MTg0NzYxMHww&ixlib=rb-4.0.3&q=80&w=1080"
+                  src={currentDoctor.avatar && `${process.env.NEXT_PUBLIC_API_URL}/${currentDoctor.avatar}`}
                   className="w-32 group-hover:w-36 group-hover:h-36 h-32 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
                 />
                 <div className="w-fit transition-all transform duration-500">
                   <h1 className="text-gray-600 dark:text-gray-200 font-bold">
-                    Mary Phiri
+                    {currentDoctor.name}
                   </h1>
-                  <p className="text-gray-400">Senior Developer</p>
-                  <a className="text-xs text-gray-500 dark:text-gray-200 group-hover:opacity-100 opacity-0 transform transition-all delay-300 duration-500">
-                    mary@gmail.com
-                  </a>
+                  <label className='bg-blue-500 border text-white px-2 rounded w-100 mt-3'  htmlFor='upload-image'>
+                    {" "} <i className='fas fs-pen'>&nbsp;Change Photo{" "}</i>
+                  </label>
+                  <input type="file" hidden onChange={uploadProfileImage} id="upload-image" />
+
+                 
                 </div>
               </div>
+            
               <div className="absolute group-hover:bottom-1 delay-300 -bottom-16 transition-all duration-500 bg-gray-600 dark:bg-gray-100 right-1 rounded-lg">
                 <div className="flex justify-evenly items-center gap-2 p-1 text-2xl text-white dark:text-gray-600">
                   <svg
@@ -239,6 +219,19 @@ const DoctorProfile = () => {
               </div>
             </div>
             </div>
+
+            <div className="mt-32 ml-20 shadow-xl bg-clip-border  rounded-xl w-96 p-4 text-slate-500 ">
+              <div className='bg-green-400 h-1 '></div>
+              <h1 className='text-center text-3xl mt-4 font-bold font-mono text-gray-700 mb-5'> Schedule</h1>
+              {
+                showAvailableSlots()
+              }
+
+              
+            </div>
+            </div>
+
+
           </div>
           
 

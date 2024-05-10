@@ -44,7 +44,7 @@ const Login = () => {
         const data = await res.json();
         setCurrentDoctor(data);
         sessionStorage.setItem('doctor', JSON.stringify(data));
-        router.push('/doctor');
+        router.push('/doctor/profile');
       }
       else if (res.status === 401) {
         toast.error('Some error occured')

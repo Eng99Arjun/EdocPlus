@@ -23,7 +23,7 @@ const ManagePatients = () => {
     const deletePatient = (id) => {
         console.log(id);
 
-        const res = fetch ('http://localhost:5000/patient/delete/'+id, {method: 'DELETE'})
+        const res = fetch ('http://localhost:5000/patient/delete/' + id, {method: 'DELETE'})
          if (res.status === 200) {
             fetchData();
          }
@@ -33,25 +33,12 @@ const ManagePatients = () => {
     const displayPatient = () => {
         return  Data.map((patient) => {
             return <tr className='className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"' >
-                {/* <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                    {doctor.name}
-                </th> */}
                 <td className="px-6 py-4">{patient.fullName}</td>
                 <td className="px-6 py-4">{patient.contactNo}</td>
                 <td className="px-6 py-4">{patient.age}</td>
-                <td className="px-6 py-4">{patient.gender}</td>
-                <td className="px-6 py-4">{patient.reports}</td>
-                <td className="px-6 py-4">
-                    <a
-                        href="#"
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                        Edit
-                    </a>
-                </td>
+                <td className="px-6 py-4">{patient.email}</td>
+                
+               
                 <td className="px-6 py-4">
                     <button
                        onClick = {() => {deletePatient(patient._id)}}
@@ -82,10 +69,10 @@ const ManagePatients = () => {
                                 Age
                             </th>
                             <th scope="col" className="px-6 py-3">
-                                Gender
+                                Email
                             </th>
                             <th scope="col" className="px-6 py-3">
-                                Reports
+                                Edit
                             </th>
                         </tr>
                     </thead>

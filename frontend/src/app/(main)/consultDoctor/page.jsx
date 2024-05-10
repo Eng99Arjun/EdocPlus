@@ -48,7 +48,7 @@ const consultDoctor = () => {
 
     const filterDoctor = (e) => {
         const value = e.target.value;
-        setDoctorList(filterList.filter = ((doctor) => {
+        setDoctorList(filterList.filter  ((doctor) => {
             return (doctor.specialization.toLowerCase().includes(value.toLowerCase()));
         }))
     }
