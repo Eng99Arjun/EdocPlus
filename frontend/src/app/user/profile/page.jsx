@@ -106,48 +106,48 @@ const patientDashboard = () => {
               <div className="text-gray-700">
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">First Name</div>
+                    <div className="px-4 py-2 font-semibold">Name</div>
                     <input type='text' className="px-4 py-2"
                       value={useForm.values.fullName}
                       id="fullName"
                       onChange={useForm.handleChange}></input>
                   </div>
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Last Name</div>
-                    <input type='text' className="px-4 py-2"></input>
-                  </div>
+                 
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 font-semibold">Gender</div>
-                    <select className="px-4 py-2">
-                      <option>select gender</option>
-                      <option value="male">male</option>
-                      <option value="female">female</option>
-                    </select>
+                    <p>{currentUser.age} Years </p>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 font-semibold">Contact No.</div>
-                    <input type="number" className="px-4 py-2" placeholder='9577335365'></input>
+                    <input type="number" 
+                    className="px-4 py-2"
+                    value={useForm.values.contactNo}
+                    id="contactNo"
+                    onChange={useForm.handleChange}
+                    >
+                    </input>
                   </div>
+               
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Current Address</div>
-                    <input type='text' className="px-4 py-2"></input>
-                  </div>
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Permanant Address</div>
-                    <input type='text' className="px-4 py-2"></input>
+                    <div className="px-4 py-2 font-semibold">Address</div>
+                    <input type='text' 
+                    className="px-4 py-2"
+                    value={useForm.values.address}
+                    id="address"
+                    onChange={useForm.handleChange}
+                    ></input>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 font-semibold">Email.</div>
 
-                    <input type='email' className="px-4 py-2" />
-
-
-
+                    <input type='email' 
+                    className="px-4 py-2"
+                    value={useForm.values.email}
+                    id="email"
+                    onChange={useForm.handleChange}
+                    />
                   </div>
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Date of Birth</div>
-                    <input type='date' className="px-4 py-2"></input>
-                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -232,9 +232,7 @@ const patientDashboard = () => {
                   </ul>
                 </div>
               </div>
-              {/* End of Experience and education grid */}
-            </div>
-            {/* End of profile tab */}
+           </div>
           </div>
         </div>
       </div>
