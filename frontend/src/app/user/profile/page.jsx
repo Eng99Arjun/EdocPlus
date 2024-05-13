@@ -8,6 +8,21 @@ const patientDashboard = () => {
     JSON.parse(localStorage.getItem("patient"))
   );
 
+  const uploadProfileImage = (e) => {
+        const file = e.target.files[0];
+        const fd = new FormData();
+        fd.append('myfile', file);
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
+            method: 'POST',
+            body: fd,
+        }).then(res => {
+            if (res.status === 200) {
+                toast.success('Profile Image Updated');
+                updateProfile({ avatar: file.name });
+            }
+        });
+    }
+
   const useForm = useFormik({
     initialValues: currentUser,
     onSubmit: async (data) => {
@@ -32,14 +47,32 @@ const patientDashboard = () => {
 
   return (
     <div>
-      <div className="w-full text-white bg-main-color">
-        <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
 
-        </div>
-      </div>
       <div className="container mx-auto my-5 p-5">
         <div className="md:flex no-wrap md:-mx-2 ">
           <div className="w-full md:w-3/12 md:mx-2">
+              <div className="w-full text-white bg-main-color">
+                      <div className="flex items-center gap-4 p-4 ">
+                        <img
+                          src={currentUser.avatar && `${process.env.NEXT_PUBLIC_API_URL}/${currentUser.avatar}`}
+                          className="w-32 group-hover:w-36 group-hover:h-36 h-32 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
+                        />
+                        <div className="w-fit transition-all transform duration-500">
+                          <h1 className="text-gray-600 dark:text-gray-200 font-bold">
+                            {currentUser.name}
+                          </h1>
+                          <label className='bg-blue-500 border text-white px-3 rounded w-100 mt-3'  htmlFor='upload-image'>
+                            {" "} <i className='fas fs-pen'>Change Photo{" "}</i>
+                          </label>
+                          <input type="file" hidden onChange={uploadProfileImage} id="upload-image" />
+
+                        
+                        </div>
+                        <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                      </div>
+
+                </div>
+              </div>
             <div className="bg-blue-300 p-3 border-t-4 border-green-400">
               <div className="image overflow-hidden">
                 <img
@@ -134,6 +167,10 @@ const patientDashboard = () => {
                   </div>
                   
                 </div>
+                    <button className='bg-green-700 p-2 rounded-md text-white ml-96 mt-2'>
+                      Update
+                    </button>
+
               </div>
             </div>
             {/* End of about section */}
