@@ -8,6 +8,7 @@ const patientSchema = new Schema({
     contactNo: String,
     age: Number,
     gender: String,
+    address:String,
     avatar: { type: String, default: 'default.jpg' },
     reports: { type: Array, default: [] },
     createdAt: { type: Date, default: Date.now }
