@@ -8,6 +8,7 @@ const utilRouter = require('./routers/utilRouter')
 const slotRouter = require('./routers/slotRouter')
 const appointmentRouter = require('./routers/appointmentRouter')
 const reportRouter = require('./routers/reportRouter')
+const feedbackRouter = require('./routers/feedbackRouter')
 
 // middleware
 app.use(cors({
@@ -21,6 +22,7 @@ app.use( '/util', utilRouter );
 app.use( '/slot', slotRouter );
 app.use( '/appointment', appointmentRouter );
 app.use( '/report', reportRouter );
+app.use('/feedback', feedbackRouter);
 
 app.use(express.static('./static/uploads'));
 

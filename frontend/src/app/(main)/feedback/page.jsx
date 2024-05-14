@@ -69,9 +69,7 @@ const FeedBackForm = () => {
               Give Us Your Feedback
             </h2>
             <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-              This is a section of some simple filler text, also known as
-              placeholder text. It shares some characteristics of a real written
-              text but is random or otherwise generated.
+              Your feedback is important to us. Please share your experience
             </p>
           </div>
 
