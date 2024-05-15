@@ -12,10 +12,11 @@ const doctorSchema = new Schema({
     contact: String,
     email: String,
     password: String,
-    degree:String,
+    degree: String,
     training: String,
-    about:String,
-    fees:String,
+    about: String,
+    fees: String,
+    meetingLink: { type: String, default: 'https://meet.google.com/yun-rcuf-fhi' },
     createdAt: { type: Date, default: Date.now }
 });
 

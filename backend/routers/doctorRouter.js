@@ -72,6 +72,7 @@ router.delete('/delete/:id', (req, res) => {
 router.get("/getbyid/:id", (req, res) => {
     Model.findById(req.params.id)
         .then((result) => {
+            console.log(result);
             res.status(200).json(result)
         }).catch((err) => {
             res.status(500).json(err)
