@@ -11,7 +11,7 @@ const contact = () => {
           <div className="block w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
             <div className="h-[500px] w-full">
               <iframe
-                src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227821.98710530254!2d80.77769949830773!3d26.848902829067057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh%2C%20India!5e0!3m2!1sen!2sus!4v1715702837351!5m2!1sen!2sus"
                 className="left-0 top-0 h-full w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
                 frameBorder={0}
                 allowFullScreen=""
@@ -48,7 +48,7 @@ const contact = () => {
                       support@example.com
                     </p>
                     <p className="text-neutral-500 dark:text-neutral-200">
-                      +1 234-567-89
+                      +91 9918934183
                     </p>
                   </div>
                 </div>
@@ -75,13 +75,13 @@ const contact = () => {
                   </div>
                   <div className="ml-6 grow">
                     <p className="mb-2 font-bold dark:text-white">
-                      Sales questions
+                       Enquiry
                     </p>
                     <p className="text-neutral-500 dark:text-neutral-200">
-                      sales@example.com
+                      enquiry@example.com
                     </p>
                     <p className="text-neutral-500 dark:text-neutral-200">
-                      +1 234-567-89
+                      +91 9918934183
                     </p>
                   </div>
                 </div>
@@ -107,12 +107,12 @@ const contact = () => {
                     </div>
                   </div>
                   <div className="ml-6 grow">
-                    <p className="mb-2 font-bold dark:text-white">Press</p>
+                    <p className="mb-2 font-bold dark:text-white">Doctors</p>
                     <p className="text-neutral-500 dark:text-neutral-200">
-                      press@example.com
+                      dooctor@example.com
                     </p>
                     <p className="text-neutral-500 dark:text-neutral-200">
-                      +1 234-567-89
+                      +91 9555958354
                     </p>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ const contact = () => {
                       bugs@example.com
                     </p>
                     <p className="text-neutral-500 dark:text-neutral-200">
-                      +1 234-567-89
+                      +91 9555958354
                     </p>
                   </div>
                 </div>

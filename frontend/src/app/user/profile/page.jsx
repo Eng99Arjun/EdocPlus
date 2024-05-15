@@ -12,6 +12,7 @@ const patientDashboard = () => {
     JSON.parse(localStorage.getItem("patient"))
   );
 
+<<<<<<< HEAD
     // const uploadProfileImage = (e) => {
     //     const file = e.target.files[0];
     //     const fd = new FormData();
@@ -47,18 +48,100 @@ const patientDashboard = () => {
                 setcurrentUser(data);
             })
             .catch(err => console.log(err));
+=======
+  const updateProfile = (data) => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/patient/update/${currentUser._id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res => {
+        console.log(res.status);
+        if(res.status === 200) {
+          toast.success('Profile Updated');
+        }else{
+          toast.error('Error Updating Profile');
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        setCurrentDoctor(data);
+      })
+      .catch(err => console.log(err));
+  }
+
+  const uploadProfileImage = (e) => {
+        const file = e.target.files[0];
+        const fd = new FormData();
+        fd.append('myfile', file);
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
+            method: 'POST',
+            body: fd,
+        }).then(res => {
+            if (res.status === 200) {
+                toast.success('Profile Image Updated');
+                updateProfile({ avatar: file.name });
+            }
+        });
     }
+
+  const useForm = useFormik({
+    initialValues: currentUser,
+    onSubmit: async (data) => {
+      console.log(data);
+      const res = await fetch(url + '/patient/update/' + currentUser._id, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      console.log(res.status);
+      const userData = await res.json();
+      console.log(userData);
+      setcurrentUser(userData);
+      localStorage.setItem("user", JSON.stringify(userData));
+>>>>>>> 4ef0f3725b27f6c46e563679638f5c35ee58ba9d
+    }
+
+
 
   return (
     <div>
-      <div className="w-full text-white bg-main-color">
-        <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
 
-        </div>
-      </div>
       <div className="container mx-auto my-5 p-5">
         <div className="md:flex no-wrap md:-mx-2 ">
           <div className="w-full md:w-3/12 md:mx-2">
+            <div>
+              <h3>
+                Welcome to Your Profile
+              </h3>
+            </div>
+              <div className="w-full text-white bg-main-color">
+                      <div className="flex items-center gap-4 p-4 ">
+                        <img
+                          src={currentUser.avatar && `${process.env.NEXT_PUBLIC_API_URL}/${currentUser.avatar}`}
+                          className="w-32 group-hover:w-36 group-hover:h-36 h-32 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
+                        />
+                        <div className="w-fit transition-all transform duration-500">
+                          <h1 className="text-gray-600 dark:text-gray-200 font-bold">
+                            {currentUser.name}
+                          </h1>
+                          <label className='bg-blue-500 border text-white px-3 rounded w-100 mt-3'  htmlFor='upload-image'>
+                            {" "} <i className='fas fs-pen'>Change Photo{" "}</i>
+                          </label>
+                          <input type="file" hidden onChange={uploadProfileImage} id="upload-image" />
+
+                        
+                        </div>
+                        <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                      </div>
+
+                </div>
+              </div>
             <div className="bg-blue-300 p-3 border-t-4 border-green-400">
               <div className="image overflow-hidden">
                 <img
@@ -88,7 +171,13 @@ const patientDashboard = () => {
                 <li className="flex items-center py-3">
                   <span>Member since</span>
 
-                  <input type="date" className="ml-auto"></input>
+                  <input 
+                  type="date" 
+                  className="ml-auto"
+                  value={useForm.values.createdAt}
+                  id="createdAt"
+                  onChange={useForm.handleChange}>
+                  </input>
                 </li>
               </ul>
             </div>
@@ -105,6 +194,7 @@ const patientDashboard = () => {
             {/* Profile tab */}
             {/* About Section */}
             <div className="bg-white p-3 shadow-sm rounded-sm">
+<<<<<<< HEAD
               <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                 <span clas="text-green-500">
                   <svg
@@ -127,6 +217,11 @@ const patientDashboard = () => {
               <Formik initialValues={currentUser} onSubmit={updateProfile}>
                     {(updateProfile) => (
                       <form onSubmit={updateProfile.handleSubmit}>
+=======
+          
+            <form onSubmit={updateProfile.handleSubmit}>
+
+>>>>>>> 4ef0f3725b27f6c46e563679638f5c35ee58ba9d
               <div className="text-gray-700">
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
@@ -138,7 +233,8 @@ const patientDashboard = () => {
                   </div>
                  
                   <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Gender</div>
+                    <div className="px-4 py-2 font-semibold">Age</div>
+                
                     <p>{currentUser.age} Years </p>
                   </div>
                   <div className="grid grid-cols-2">
@@ -161,6 +257,7 @@ const patientDashboard = () => {
                     onChange={updateProfile.handleChange}
                     ></input>
                   </div>
+
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 font-semibold">Email.</div>
 
@@ -174,17 +271,25 @@ const patientDashboard = () => {
                   
                   <button type='submit' className="bg-blue-text-white px-4 py-1">Update</button>
                 </div>
+                    <button type="submit" className='bg-green-700 p-2 rounded-md text-white ml-96 mt-2'>
+                      Update
+                    </button>
+
               </div>
+<<<<<<< HEAD
               </form>
                  )}
                 
                  </Formik>
                
+=======
+                  </form>
+>>>>>>> 4ef0f3725b27f6c46e563679638f5c35ee58ba9d
             </div>
             {/* End of about section */}
             <div className="h-12" />
             {/* Experience and education */}
-            <div className="bg-white p-3 shadow-sm rounded-sm py-7">
+            {/* <div className="bg-white p-3 shadow-sm rounded-sm py-7">
               <div className="grid grid-cols-2">
                 <div>
                   <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
@@ -262,7 +367,7 @@ const patientDashboard = () => {
                   </ul>
                 </div>
               </div>
-           </div>
+           </div> */}
           </div>
         </div>
       </div>

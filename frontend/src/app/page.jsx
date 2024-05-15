@@ -205,46 +205,8 @@ const Home = () => {
               we do. We work tirelessly to protect you and your family.
             </p>
             <div className="pt-6 mt-6 space-y-4 border-t border-gray-200 dark:border-gray-700">
-              <div>
-                <a
-                  href="#"
-                  className="inline-flex items-center text-base font-medium text-purple-600 hover:text-purple-800 dark:text-purple-500 dark:hover:text-purple-700"
-                >
-                  Explore Legality Guide
-                  <svg
-                    className="w-5 h-5 ml-1"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="#"
-                  className="inline-flex items-center text-base font-medium text-purple-600 hover:text-purple-800 dark:text-purple-500 dark:hover:text-purple-700"
-                >
-                  Visit the Trust Center
-                  <svg
-                    className="w-5 h-5 ml-1"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </a>
-              </div>
+              
+             
             </div>
           </div>
           <div className="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
@@ -325,43 +287,7 @@ const Home = () => {
       </section>
       {/* End block */}
       {/* Start block */}
-      <section className="bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-24 lg:px-6">
-          <figure className="max-w-screen-md mx-auto">
-            <svg
-              className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
-              viewBox="0 0 24 27"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
-                fill="currentColor"
-              />
-            </svg>
-            <blockquote>
-              <p className="text-xl font-medium text-gray-900 md:text-2xl dark:text-white">
-                
-              </p>
-            </blockquote>
-            <figcaption className="flex items-center justify-center mt-6 space-x-3">
-              <img
-                className="w-6 h-6 rounded-full"
-                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
-                alt="profile picture"
-              />
-              <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                <div className="pr-3 font-medium text-gray-900 dark:text-white">
-                  
-                </div>
-                <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
-                  
-                </div>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+    
       {/* End block */}
       {/* Start block */}
       <section className="bg-white dark:bg-gray-900">
@@ -606,7 +532,7 @@ const Home = () => {
                   </svg>
                   <span>
                    
-                    <span className="font-semibold">Near By Doctor Avalable</span>
+                    <span className="font-semibold">Near By Doctor Available</span>
                   </span>
                 </li>
                 <li className="flex items-center space-x-3">
@@ -635,293 +561,95 @@ const Home = () => {
       </section>
       {/* End block */}
       {/* Start block */}
-      <section className="bg-white dark:bg-gray-900">
-        <div className="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-24 lg:px-6 ">
-          <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-center text-gray-900 lg:mb-8 lg:text-3xl dark:text-white">
-            Frequently asked questions
-          </h2>
-          <div className="max-w-screen-md mx-auto">
-            <div
-              id="accordion-flush"
-              data-accordion="collapse"
-              data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-              data-inactive-classes="text-gray-500 dark:text-gray-400"
-            >
-              <h3 id="accordion-flush-heading-1">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
-                  data-accordion-target="#accordion-flush-body-1"
-                  aria-expanded="true"
-                  aria-controls="accordion-flush-body-1"
-                >
-                  <span>How Can i book appointment</span>
-                  <svg
-                    data-accordion-icon=""
-                    className="w-6 h-6 rotate-180 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id="accordion-flush-body-1"
-                className=""
-                aria-labelledby="accordion-flush-heading-1"
-              >
-                <div className="py-5 border-b border-gray-200 dark:border-gray-700">
-                  <p className="mb-2 text-gray-500 dark:text-gray-400">
-                    
-                  </p>
-
-                </div>
-              </div>
-              <h3 id="accordion-flush-heading-2">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                  data-accordion-target="#accordion-flush-body-2"
-                  aria-expanded="false"
-                  aria-controls="accordion-flush-body-2"
-                >
-                  <span>how to contact us</span>
-                  <svg
-                    data-accordion-icon=""
-                    className="w-6 h-6 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id="accordion-flush-body-2"
-                className="hidden"
-                aria-labelledby="accordion-flush-heading-2"
-              >
-                <div className="py-5 border-b border-gray-200 dark:border-gray-700">
-                  <p className="mb-2 text-gray-500 dark:text-gray-400">
-                    Landwind is first conceptualized and designed using the Figma
-                    software so everything you see in the library has a design
-                    equivalent in our Figma file.
-                  </p>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    Check out the{" "}
-                    <a
-                      href="#"
-                      className="text-purple-600 dark:text-purple-500 hover:underline"
-                    >
-                      Figma design system
-                    </a>{" "}
-                    based on the utility classes from Tailwind CSS and components
-                    from Landwind.
-                  </p>
-                </div>
-              </div>
-              <h3 id="accordion-flush-heading-3">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                  data-accordion-target="#accordion-flush-body-3"
-                  aria-expanded="false"
-                  aria-controls="accordion-flush-body-3"
-                >
-                  <span>
-                    What are the differences between Edoc+ and Other?
-                  </span>
-                  <svg
-                    data-accordion-icon=""
-                    className="w-6 h-6 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id="accordion-flush-body-3"
-                className="hidden"
-                aria-labelledby="accordion-flush-heading-3"
-              >
-              
-              </div>
-              <h3 id="accordion-flush-heading-4">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
-                  data-accordion-target="#accordion-flush-body-4"
-                  aria-expanded="false"
-                  aria-controls="accordion-flush-body-4"
-                >
-                  <span>What about if i have an emergence</span>
-                  <svg
-                    data-accordion-icon=""
-                    className="w-6 h-6 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </h3>
-              <div
-                id="accordion-flush-body-4"
-                className="hidden"
-                aria-labelledby="accordion-flush-heading-4"
-              >
-                <div className="py-5 border-b border-gray-200 dark:border-gray-700">
-                  <p className="mb-2 text-gray-500 dark:text-gray-400">
-                    The main difference is that the core components from Landwind
-                    are open source under the MIT license, whereas Tailwind UI is a
-                    paid product. Another difference is that Landwind relies on
-                    smaller and standalone components, whereas Tailwind UI offers
-                    sections of pages.
-                  </p>
-                  <p className="mb-2 text-gray-500 dark:text-gray-400">
-                    However, we actually recommend using both Landwind, Landwind
-                    Pro, and even Tailwind UI as there is no technical reason
-                    stopping you from using the best of two worlds.
-                  </p>
-                  <p className="mb-2 text-gray-500 dark:text-gray-400">
-                    Learn more about these technologies:
-                  </p>
-                  <ul className="pl-5 text-gray-500 list-disc dark:text-gray-400">
-                    <li>
-                      <a
-                        href="#"
-                        className="text-purple-600 dark:text-purple-500 hover:underline"
-                      >
-                        Landwind Pro
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="text-purple-600 dark:text-purple-500 hover:underline"
-                      >
-                        Tailwind UI
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* End block */}
-      {/* Start block */}
       <section className="bg-gray-50 dark:bg-gray-800">
         <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
-          <div className="max-w-screen-sm mx-auto text-center">
+          <div className="max-w-screen-md mx-auto text-center">
             <h2 className="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">
-              Book Appointment
+              Give Us Feedback
             </h2>
            
             <a
-              href="#"
+              href="/feedback"
               className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
             >
-              Book
+              Give Feedback
             </a>
           </div>
         </div>
-      </section>
+        </section>
+      {/* Start block */}
+     
       {/* End block */}
-      <footer className="bg-white dark:bg-gray-800">
+      <footer className="bg-gray-500 text-white ">
         <div className="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
             <div>
-              <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Company
+              <h3 className="mb-6 text-sm font-semibold">
+                DOCTOR
               </h3>
-              <ul className="text-gray-500 dark:text-gray-400">
+              <ul className=" dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className=" hover:underline">
+                  <a href="/about" className=" hover:underline">
                     About
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Careers
+                  <a href="/doctor-login" className="hover:underline">
+                    Doctor-login
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Brand Center
+                  <a href="/doctor-signup" className="hover:underline">
+                    Doctor Registration
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Blog
+                  <a href="/feedback" className="hover:underline">
+                    Feedback
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Help center
+              <h3 className="mb-6 text-sm font-semibold">
+                PATIENT
               </h3>
-              <ul className="text-gray-500 dark:text-gray-400">
+              <ul className=" dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Discord Server
+                  <a href="/login" className="hover:underline">
+                    Patient-login
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Twitter
+                  <a href="/signup" className="hover:underline">
+                    Patient- Signup
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <a href="www.facebook.com" className="hover:underline">
                     Facebook
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <a href="contact" className="hover:underline">
                     Contact Us
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Legal
+              <h3 className="mb-6 text-sm font-semibold  uppercase dark:text-white">
+                Services
               </h3>
-              <ul className="text-gray-500 dark:text-gray-400">
+              <ul className=" dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Privacy Policy
+                  <a href="consultDoctor" className="hover:underline">
+                    Consult Doctor
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Licensing
+                  <a href="resetPassword" className="hover:underline">
+                    Reset Password
                   </a>
                 </li>
                 <li className="mb-4">
@@ -932,23 +660,23 @@ const Home = () => {
               </ul>
             </div>
             <div>
-              <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Company
+              <h3 className="mb-6 text-sm font-semibold  uppercase dark:text-white">
+                Edoc+
               </h3>
-              <ul className="text-gray-500 dark:text-gray-400">
+              <ul className=" dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className=" hover:underline">
+                  <a href="/about" className=" hover:underline">
                     About
                   </a>
                 </li>
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
-                    Careers
+                    
                   </a>
                 </li>
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
-                    Brand Center
+                    Admin
                   </a>
                 </li>
                 <li className="mb-4">
@@ -959,10 +687,10 @@ const Home = () => {
               </ul>
             </div>
             <div>
-              <h3 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h3 className="mb-6 text-sm font-semibold  uppercase dark:text-white">
                 Download
               </h3>
-              <ul className="text-gray-500 dark:text-gray-400">
+              <ul className=" dark:text-gray-400">
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
                     iOS

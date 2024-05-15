@@ -58,21 +58,10 @@ const consultDoctor = () => {
             <section className='pt-12'>
                 <form className="flex flex-col md:flex-row justify-center gap-1">
                     <div className="flex">
-                        <select
-                            id="pricingType"
-                            name="pricingType"
-                            className="w-32 h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider"
-                        >
-                            <option value="All" selected=" ">
-                                Location
-                            </option>
-                            <option value="Freemium">Lucknow</option>
-                            <option value="Free">Delhi</option>
-                            <option value="Paid">Prayagraj</option>
-                        </select>
+                        
                         <input
                             type="text"
-                            placeholder="Search for Doctors, clinic or hospitals"
+                            placeholder="Search for Doctors with specialization"
                             className="w-full md:w-80 px-3 h-10 rounded-l border-2 border-sky-500 focus:outline-none focus:border-sky-500"
                             onChange={filterDoctor}
                         />

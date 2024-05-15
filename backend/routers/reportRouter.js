@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Model = require('../model/reportModel')
+const verifyToken = require('./verifyToken');
 
 router.post('/add', (req, res) => {
     console.log(req.body);
@@ -62,6 +63,16 @@ router.get("/getbyid/:id", (req, res) => {
             res.status(500).json(err)
         });
 })
+
+router.get("/getbypatient", verifyToken, (req, res) => {
+    Model.find({ patient: req.user._id }).populate('doctor').populate('slot')
+        .then((result) => {
+            // console.log(result);
+            res.json(result);
+        }).catch((err) => {
+            res.status(500).json(err);
+        });
+});
 
 // getbyappointment
 router.get("/getbyappointment/:id", (req, res) => {

@@ -1,93 +1,203 @@
-import React from 'react'
+"use client";
+import React, { useEffect, useState } from "react";
+import { useFormik } from "formik";
+import { useRouter } from "next/navigation";
+import ReactStars from "react-rating-stars-component";
+import toast from "react-hot-toast";
 
-const Feedback = () => {
+
+const FeedBackForm = () => {
+
+  const [rating, setRating] = useState(0);
+  const [feedback, setFeedback] = useState([]);
+
+  const router = useRouter();
+
+  const FeedBackForm = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      message: "",
+      rating: "",
+    },
+    onSubmit: (values, { resetForm }) => {
+      values.rating = rating;
+      console.log(values);
+      resetForm();
+
+      fetch("http://localhost:5000/feedback/add", {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          console.log(response.status);
+          if (response.status === 200) {
+            toast.success("Feedback Added successfully");
+          } else {
+            toast.error("Something went wrong");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error("Something went wrong");
+        });
+    },
+  });
+
+  const getFeedback = async () => {
+    const res = await fetch("http://localhost:5000/feedback/getall")
+    console.log(res.status);
+    const data = await res.json()
+    console.log(data);
+    setFeedback(data);
+  }
+
+  useEffect(() => {
+    getFeedback()
+  }, [])
+
   return (
-    <>
-    <>
-  {/* component */}
-  <section>
-    <div className="bg-blue-300 py-20">
-      <div className="container mx-auto flex flex-col md:flex-row my-6 md:my-24">
-        <div className="flex flex-col w-full lg:w-1/3 p-8">
-        
-          <p className="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">
-            Leave us a feedback!
-          </p>
-          <p className="text-2xl md:text-base leading-snug text-gray-50 text-opacity-100">
-            Please provide your valuable feedback 
-          </p>
-        </div>
-        <div className="flex flex-col w-full lg:w-2/3 justify-center">
-          <div className="container w-full px-4">
-            <div className="flex flex-wrap justify-center">
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white">
-                  <div className="flex-auto p-5 lg:p-10">
-                    <h4 className="text-2xl mb-4 text-black font-semibold">
-                      Have a suggestion?
-                    </h4>
-                    <form id="feedbackForm" action="" method="">
-                      <div className="relative w-full mb-3">
-                        <label
-                          className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                          htmlFor="email"
-                        >
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          id="email"
-                          className="border-0 px-3 py-3 rounded text-sm shadow w-full
-              bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400"
-                          placeholder=" "
-                          style={{ transition: "all 0.15s ease 0s" }}
-                          required=""
-                        />
-                      </div>
-                      <div className="relative w-full mb-3">
-                        <label
-                          className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                          htmlFor="message"
-                        >
-                          Message
-                        </label>
-                        <textarea
-                          maxLength={300}
-                          name="feedback"
-                          id="feedback"
-                          rows={4}
-                          cols={80}
-                          className="border-0 px-3 py-3 bg-gray-300 placeholder-black text-gray-800 rounded text-sm shadow focus:outline-none w-full"
-                          placeholder=""
-                          required=""
-                          defaultValue={""}
-                        />
-                      </div>
-                      <div className="text-center mt-6">
-                        <button
-                          id="feedbackBtn"
-                          className="bg-yellow-300 text-black text-center mx-auto active:bg-yellow-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                          type="submit"
-                          style={{ transition: "all 0.15s ease 0s" }}
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
+
+    <div>
+      <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <div class="mb-10 md:mb-16">
+            <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
+              Give Us Your Feedback
+            </h2>
+            <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
+              Your feedback is important to us. Please share your experience
+            </p>
+          </div>
+
+          <form
+            onSubmit={FeedBackForm.handleSubmit}
+            class="mx-auto grid max-w-screen-md gap-4"
+          >
+            <div>
+              <label
+                for="first-name"
+                class="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+              >
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                value={FeedBackForm.values.username}
+                onChange={FeedBackForm.handleChange}
+                class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+              />
+              {FeedBackForm.touched.username && (
+                <span className="text-red">{FeedBackForm.errors.username}</span>
+              )}
             </div>
+
+            <div>
+              <label
+                for="email"
+                class="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+              >
+                Email
+              </label>
+              <input
+                type="text"
+                id="email"
+                value={FeedBackForm.values.email}
+                onChange={FeedBackForm.handleChange}
+                class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+              />
+              {FeedBackForm.touched.email && (
+                <span className="text-red">{FeedBackForm.errors.email}</span>
+              )}
+            </div>
+
+            <div class="sm:col-span-2">
+              <label
+                for="message"
+                class="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+              >
+                Message
+              </label>
+              <textarea
+                type="text"
+                id="message"
+                value={FeedBackForm.values.message}
+                onChange={FeedBackForm.handleChange}
+                class="h-64 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300"
+              >
+                {FeedBackForm.touched.message && (
+                  <span className="text-red">
+                    {FeedBackForm.errors.message}
+                  </span>
+                )}
+              </textarea>
+            </div>
+
+            <div className="bg-white py-6 flex justify-start">
+              <ReactStars
+                rating={rating}
+                onChange={setRating}
+                size={48}
+                activeColor="#ffd700"
+              />
+            </div>
+
+            <div class="flex items-center justify-between sm:col-span-2">
+              <button
+                type="submit"
+                class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div className="bg-white py-6 sm:py-8">
+        <div className="mx-auto max-w-screen-md px-4 md:px-8">
+          <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">
+            User's Review
+          </h2>
+          <div className="divide-y">
+            {/* review - start */}
+
+            {
+              feedback.map((feed) => {
+                return (
+                  <div className="flex flex-col gap-3 py-4 md:py-8">
+                    <div>
+                      <span className="block text-sm font-bold">{feed.username}</span>
+                      <span className="block text-sm text-gray-500">
+                        {feed.createdAt}
+                      </span>
+                    </div>
+
+                    <div className="-ml-1 flex gap-0.5">
+
+                      <ReactStars
+                        count={feed.rating}
+                        size={30}
+                        color={'#ffd700'}
+                      />
+                    </div>
+
+                    <p className="text-gray-600">
+                      {feed.message}
+                    </p>
+                  </div>
+                )
+              })
+            }
           </div>
         </div>
       </div>
     </div>
-  </section>
-</>
+  );
+};
 
-    </>
-  )
-}
-
-export default Feedback
+export default FeedBackForm;

@@ -3,7 +3,7 @@ const url="mongodb+srv://arush123:Arush1234@cluster0.fbjmkwy.mongodb.net/EdocPlu
 
 //asynchronous function-return Promise object
 mongoose.connect(url)
-//sortcut- thenc
+//shortcut- thenc
 .then((result) => {
     console.log('database connected successfully');
     

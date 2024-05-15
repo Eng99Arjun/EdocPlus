@@ -41,7 +41,8 @@ const DoctorDashboard = () => {
 
         </div> 
         <div>
-        {/* <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-project-0-cccbbvu/embed/charts?id=663b37d5-221c-4656-81f8-7de805f20e11&maxDataAge=3600&theme=light&autoRefresh=true"></iframe> */}
+        <iframe className='my-12' style={{background: "#FFFFFF",border: "none", borderRadius: "2px",boxShadow:" 0 2px 10px 0 rgba(70, 76, 79, .2)", width:"70vw", height:"70vh"}} src="https://charts.mongodb.com/charts-project-0-cccbbvu/embed/charts?id=663b37d5-221c-4656-81f8-7de805f20e11&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+        <iframe className='mb-12' style={{background: "#FFFFFF",border: "none", borderRadius: "2px",boxShadow:" 0 2px 10px 0 rgba(70, 76, 79, .2)", width:"70vw", height:"70vh"}} src="https://charts.mongodb.com/charts-project-0-cccbbvu/embed/charts?id=66406947-bb43-4bfe-8782-3ad4d37b95b7&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
 
         </div>
         
