@@ -1,12 +1,37 @@
 'use client'
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const patientDashboard = () => {
 
   const [currentUser, setcurrentUser] = useState(
     JSON.parse(localStorage.getItem("patient"))
   );
+
+  const updateProfile = (data) => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/patient/update/${currentUser._id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res => {
+        console.log(res.status);
+        if(res.status === 200) {
+          toast.success('Profile Updated');
+        }else{
+          toast.error('Error Updating Profile');
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        setCurrentDoctor(data);
+      })
+      .catch(err => console.log(err));
+  }
 
   const uploadProfileImage = (e) => {
         const file = e.target.files[0];
@@ -107,7 +132,13 @@ const patientDashboard = () => {
                 <li className="flex items-center py-3">
                   <span>Member since</span>
 
-                  <input type="date" className="ml-auto"></input>
+                  <input 
+                  type="date" 
+                  className="ml-auto"
+                  value={useForm.values.createdAt}
+                  id="createdAt"
+                  onChange={useForm.handleChange}>
+                  </input>
                 </li>
               </ul>
             </div>
@@ -125,6 +156,8 @@ const patientDashboard = () => {
             {/* About Section */}
             <div className="bg-white p-3 shadow-sm rounded-sm">
           
+            <form onSubmit={updateProfile.handleSubmit}>
+
               <div className="text-gray-700">
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
@@ -160,6 +193,7 @@ const patientDashboard = () => {
                     onChange={useForm.handleChange}
                     ></input>
                   </div>
+
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 font-semibold">Email.</div>
 
@@ -172,11 +206,12 @@ const patientDashboard = () => {
                   </div>
                   
                 </div>
-                    <button className='bg-green-700 p-2 rounded-md text-white ml-96 mt-2'>
+                    <button type="submit" className='bg-green-700 p-2 rounded-md text-white ml-96 mt-2'>
                       Update
                     </button>
 
               </div>
+                  </form>
             </div>
             {/* End of about section */}
             <div className="h-12" />

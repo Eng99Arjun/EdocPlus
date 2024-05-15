@@ -7,14 +7,14 @@ export const DoctorProvider = ({children}) => {
   const router = useRouter();
 
   const [currentDoctor, setCurrentDoctor] = useState(
-    JSON.parse(sessionStorage.getItem("doctor"))
+    JSON.parse(localStorage.getItem("doctor"))
   );
 
   const [doctorLoggedIn, setDoctorLoggedIn] = useState(currentDoctor !== null);
 
   const logout = () => {
     setCurrentDoctor(null);
-    sessionStorage.removeItem("doctor");
+    localStorage.removeItem("doctor");
     setDoctorLoggedIn(false);
     router.push("/");
   };
