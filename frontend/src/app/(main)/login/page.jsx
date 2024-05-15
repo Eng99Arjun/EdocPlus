@@ -36,7 +36,7 @@ const PatientLogin = () => {
         }
       });
       console.log(res.status);
-      
+
       if (res.status === 200) {
         resetForm();
         toast.success('Login Successfull');
@@ -48,8 +48,8 @@ const PatientLogin = () => {
         document.cookie = `token=${data.token}`;
         router.push('/user/profile');
       }
-      else if (res.status === 400) {
-        toast.error('Some error occured')
+      else if (res.status === 401) {
+        toast.error('Invalid Details')
       }
     },
     validationSchema: loginValidationSchema
@@ -67,11 +67,11 @@ const PatientLogin = () => {
                 <h2 className="text-dark dark:text-white mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                   Patient Login
                 </h2>
-                
+
                 <div className='p-0 m-0'>
-                  <img src="/login.jpg" 
-                  alt=""
-                  className="border-white border-8 rounded-lg" 
+                  <img src="/login.jpg"
+                    alt=""
+                    className="border-white border-8 rounded-lg"
                   />
                 </div>
                 <div className="mb-8 flex w-full max-w-[370px]">
@@ -95,12 +95,12 @@ const PatientLogin = () => {
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative p-8 bg-white rounded-lg shadow-lg dark:bg-dark-2 sm:p-12">
                 <form onSubmit={loginForm.handleSubmit}>
-                   <h2 className="text-dark dark:text-white mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-                  Patient Login
-                </h2>
-                <p className="text-base leading-relaxed text-body-color dark:text-dark-6 mb-9">
-                  Login to your account to access your dashboard
-                </p>
+                  <h2 className="text-dark dark:text-white mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
+                    Patient Login
+                  </h2>
+                  <p className="text-base leading-relaxed text-body-color dark:text-dark-6 mb-9">
+                    Login to your account to access your dashboard
+                  </p>
                   <div className="mb-6">
                     <input
                       id='email'

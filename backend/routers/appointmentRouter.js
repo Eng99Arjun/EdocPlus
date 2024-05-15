@@ -66,7 +66,7 @@ router.get("/getbypatient", verifyToken, (req, res) => {
 
 // get by doctor
 router.get("/getbydoctor", verifyToken, (req, res) => {
-    Model.find({ doctor: req.user._id }).populate('patient').populate('slot')
+    Model.find({ doctor: req.user._id }).populate('patient').populate('slot').populate('doctor')
         .then((result) => {
             res.json(result);
         }).catch((err) => {

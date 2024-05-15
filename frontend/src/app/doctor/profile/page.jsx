@@ -11,7 +11,6 @@ const DoctorProfile = () => {
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
   ]
 
-  const { id } = useParams();
   const [slotData, setSlotData] = useState({});
 
   const [sessionData, setSessionData] = useState(JSON.parse(sessionStorage.getItem('doctor')));
@@ -29,11 +28,11 @@ const DoctorProfile = () => {
     })
       .then(res => {
         console.log(res.status);
-        setMeetingLink(res.data.meetingLink);
         return res.json();
       })
       .then(data => {
         console.log(data);
+        setMeetingLink(data.meetingLink);
         setCurrentDoctor(data);
       })
       .catch(err => console.log(err));
@@ -111,6 +110,11 @@ const DoctorProfile = () => {
     })
       .then(res => {
         console.log(res.status);
+        if(res.status === 200) {
+          toast.success('Profile Updated');
+        }else{
+          toast.error('Error Updating Profile');
+        }
         return res.json();
       })
       .then(data => {
@@ -166,7 +170,11 @@ const DoctorProfile = () => {
                     Meeting Link
                   </dt>
                   <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    {currentDoctor.meetingLink}
+                    <input
+                      className='border border-gray-300 p-2 rounded-lg w-full'
+                      value={meetingLink}
+                      onChange={(e) => setMeetingLink(e.target.value)}
+                      type="text" />
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -186,6 +194,13 @@ const DoctorProfile = () => {
                   </dd>
                 </div>
               </div>
+
+              <button
+                onClick={() => {
+                  updateProfile({ meetingLink: meetingLink });
+                }}
+                className='bg-blue-500 text-white px-4 py-2 rounded-lg mt-4 ml-4'
+              >Update</button>
             </div>
           </div>
           <div>
