@@ -7,7 +7,7 @@ const PatientContext = createContext();
 export const PatientProvider = ({ children }) => {
   const router = useRouter();
 
-  const [currentPatient, setCurrentPatient] = useState(
+  const [ currentPatient, setCurrentPatient ] = useState(
     JSON.parse(localStorage.getItem("patient"))
   );
 

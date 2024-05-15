@@ -16,8 +16,6 @@ const DoctorProfile = () => {
   const [sessionData, setSessionData] = useState(JSON.parse(sessionStorage.getItem('doctor')));
   const [currentDoctor, setCurrentDoctor] = useState(null);
 
-  const [passwordHidden, setPasswordHidden] = useState(false);
-
   const [meetingLink, setMeetingLink] = useState('');
 
   const fetchDoctorData = () => {
@@ -194,7 +192,6 @@ const DoctorProfile = () => {
                   </dd>
                 </div>
               </div>
-
               <button
                 onClick={() => {
                   updateProfile({ meetingLink: meetingLink });

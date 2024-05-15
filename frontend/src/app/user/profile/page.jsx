@@ -1,380 +1,175 @@
 'use client'
+import React from 'react'
+import { FaMessage } from 'react-icons/fa6';
 import { Formik } from 'formik';
-import { useParams } from 'next/navigation';
-import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import usePatientContext from '@/context/PatientContext';
 
-const patientDashboard = () => {
+const Profile = () => {
+  const { currentPatient, setCurrentPatient } = usePatientContext();
 
-  const { id } = useParams();
+  const uploadProfileImage = (e) => {
+    const file = e.target.files[0];
+    const fd = new FormData();
+    fd.append('myfile', file)
+    fetch(`http://localhost:5000/util/uploadfile`, {
+      method: "POST",
+      body: fd,
+    }).then(res => {
+      if (res.status === 200) {
+        toast.success('Profile image uploaded successfully')
+        updateProfile({ avatar: file.name })
+      }
+    })
+  }
 
-  const [currentUser, setcurrentUser] = useState(
-    JSON.parse(localStorage.getItem("patient"))
-  );
-
-<<<<<<< HEAD
-    // const uploadProfileImage = (e) => {
-    //     const file = e.target.files[0];
-    //     const fd = new FormData();
-    //     fd.append('myfile', file);
-    //     fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
-    //         method: 'POST',
-    //         body: fd,
-    //     }).then(res => {
-    //         if (res.status === 200) {
-    //             toast.success('Profile Image Updated');
-    //             updateProfile({ avatar: file.name });
-    //         }
-    //     });
-    // }
-
-    const updateProfile = (data) => {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/patient/update/${currentUser._id}`, {
-            method: 'PUT',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then(res => {
-                console.log(res.status);
-                if (res.status === 200) {
-                  toast.success('Signup Successful');
-                }
-                return res.json();
-            })
-            .then(data => {
-                console.log(data);
-                setcurrentUser(data);
-            })
-            .catch(err => console.log(err));
-=======
   const updateProfile = (data) => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/patient/update/${currentUser._id}`, {
+    fetch(`http://localhost:5000/patient/update/${currentPatient._id}`, {
       method: 'PUT',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
-      },
+      }
     })
       .then(res => {
-        console.log(res.status);
-        if(res.status === 200) {
-          toast.success('Profile Updated');
-        }else{
-          toast.error('Error Updating Profile');
-        }
-        return res.json();
+        console.log(res.status)
+        toast.success('Updated successfully')
+
+        return res.json()
       })
       .then(data => {
-        console.log(data);
-        setCurrentDoctor(data);
+        console.log(data),
+          setCurrentPatient(data)
       })
-      .catch(err => console.log(err));
-  }
-
-  const uploadProfileImage = (e) => {
-        const file = e.target.files[0];
-        const fd = new FormData();
-        fd.append('myfile', file);
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
-            method: 'POST',
-            body: fd,
-        }).then(res => {
-            if (res.status === 200) {
-                toast.success('Profile Image Updated');
-                updateProfile({ avatar: file.name });
-            }
-        });
-    }
-
-  const useForm = useFormik({
-    initialValues: currentUser,
-    onSubmit: async (data) => {
-      console.log(data);
-      const res = await fetch(url + '/patient/update/' + currentUser._id, {
-        method: 'PUT',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+      .catch((err) => {
+        console.log(err);
       });
-      console.log(res.status);
-      const userData = await res.json();
-      console.log(userData);
-      setcurrentUser(userData);
-      localStorage.setItem("user", JSON.stringify(userData));
->>>>>>> 4ef0f3725b27f6c46e563679638f5c35ee58ba9d
-    }
-
-
-
+  }
   return (
     <div>
-
-      <div className="container mx-auto my-5 p-5">
-        <div className="md:flex no-wrap md:-mx-2 ">
-          <div className="w-full md:w-3/12 md:mx-2">
-            <div>
-              <h3>
-                Welcome to Your Profile
-              </h3>
+      <>
+        <section className="pt-16 grid grid-cols-3 bg-blue-200 py-8 border-b">
+          <div className="w-full lg:w-full  col-span-1 px-4 ">
+            <div className="relative flex flex-col min-w-0 break-words bg-blue-100 w-full mb-6 shadow-xl rounded-lg mt-16">
+              <div className="p-6">
+                <div className="flex flex-wrap justify-center ">
+                  <div className="w-full px-4 flex justify-center">
+                    <div className="relative">
+                      <img
+                        alt="..."
+                        src={currentPatient.avatar && `${process.env.NEXT_PUBLIC_API_URL}/${currentPatient.avatar}`}
+                        className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center mt-28">
+                  <h3 className="text-xl font-semibold leading-normal mb-2 text-blue-900 mb-2">
+                  {currentPatient.fullName}
+                  </h3>
+                </div>
+              </div>
             </div>
-              <div className="w-full text-white bg-main-color">
-                      <div className="flex items-center gap-4 p-4 ">
-                        <img
-                          src={currentUser.avatar && `${process.env.NEXT_PUBLIC_API_URL}/${currentUser.avatar}`}
-                          className="w-32 group-hover:w-36 group-hover:h-36 h-32 object-center object-cover rounded-full transition-all duration-500 delay-500 transform"
-                        />
-                        <div className="w-fit transition-all transform duration-500">
-                          <h1 className="text-gray-600 dark:text-gray-200 font-bold">
-                            {currentUser.name}
-                          </h1>
-                          <label className='bg-blue-500 border text-white px-3 rounded w-100 mt-3'  htmlFor='upload-image'>
-                            {" "} <i className='fas fs-pen'>Change Photo{" "}</i>
-                          </label>
-                          <input type="file" hidden onChange={uploadProfileImage} id="upload-image" />
+          </div>
+          <div className="bg-blue-100 col-span-2 mx-6 rounded-lg shadow-lg">
+            <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+              {/* text - start */}
+              <div className="mb-10 md:mb-16">
+                <h2 className="mb-4 pt-6 text-center text-2xl font-bold text-blue-800 font-serif md:mb-6 lg:text-3xl">
+                  Update Profile
+                </h2>
 
-                        
-                        </div>
-                        <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+              </div>
+              {/* text - end */}
+              {/* form - start */}
+              {
+                <Formik initialValues={currentPatient} onSubmit={updateProfile}>
+                  {(updateProfile) => (
+
+
+                    <form onSubmit={updateProfile.handleSubmit} className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2">
+                      <div>
+                        <label
+                          htmlFor="first-name"
+                          className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                        >
+                          First Name
+                        </label>
+                        <input
+                          type='text'
+                          id="fullName"
+                          value={updateProfile.values.fullName}
+                          onChange={updateProfile.handleChange}
+                          className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="last-name"
+                          className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                        >
+                          Last name*
+                        </label>
+                        <input
+                          type="text"
+                          id="lastname"
+                          className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                          onChange={updateProfile.handleChange}
+                          value={updateProfile.values.lastname}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="first-name"
+                          className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                        >
+                          Email*
+                        </label>
+                        <input
+                          type='text'
+                          id="email"
+                          value={updateProfile.values.email}
+                          onChange={updateProfile.handleChange}
+                          className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="last-name"
+                          className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                        >
+                          Phone No.*
+                        </label>
+                        <input
+                          type='text'
+                          id="phone"
+                          value={updateProfile.values.phone}
+                          onChange={updateProfile.handleChange}
+                          className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                        />
                       </div>
 
-                </div>
-              </div>
-            <div className="bg-blue-300 p-3 border-t-4 border-green-400">
-              <div className="image overflow-hidden">
-                <img
-                  className="h-auto w-full mx-auto"
-                  src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                  alt=""
-                />
-              </div>
-              <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
-                {currentUser.fullName}
-              </h1>
-              <h3 className="text-gray-600 font-lg text-semibold leading-6">
-                
-              </h3>
-              <p className="text-sm text-gray-500 hover:text-gray-600 leading-6">
-                
-              </p>
-              <ul className="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                <li className="flex items-center py-3">
-                  <span>Status</span>
-                  <span className="ml-auto">
-                    <span className="bg-green-500 py-1 px-2 rounded text-white text-sm">
-                      Active
-                    </span>
-                  </span>
-                </li>
-                <li className="flex items-center py-3">
-                  <span>Member since</span>
+                     
+                      <div className="flex items-center justify-between sm:col-span-2">
+                        <button type="submit" className="inline-block rounded-lg bg-blue-900 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-blue-800 mb-5 focus-visible:ring active:bg-blue-700 md:text-base">
+                          Update
+                        </button>
 
-                  <input 
-                  type="date" 
-                  className="ml-auto"
-                  value={useForm.values.createdAt}
-                  id="createdAt"
-                  onChange={useForm.handleChange}>
-                  </input>
-                </li>
-              </ul>
+                      </div>
+
+                    </form>
+                  )}
+                </Formik>
+              }
+              {/* form - end */}
             </div>
-            <div className="my-4" />
-            <div className="bg-white p-3 hover:shadow">
-              <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-             
-              </div>
-            </div>
-            {/* End of friends card */}
           </div>
-          {/* Right Side */}
-          <div className="w-full md:w-9/12 mx-2 h-64">
-            {/* Profile tab */}
-            {/* About Section */}
-            <div className="bg-white p-3 shadow-sm rounded-sm">
-<<<<<<< HEAD
-              <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
-                <span clas="text-green-500">
-                  <svg
-                    className="h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
-                  </svg>
-                </span>
-                <span className="tracking-wide">About</span>
-              </div>
-              <Formik initialValues={currentUser} onSubmit={updateProfile}>
-                    {(updateProfile) => (
-                      <form onSubmit={updateProfile.handleSubmit}>
-=======
-          
-            <form onSubmit={updateProfile.handleSubmit}>
 
->>>>>>> 4ef0f3725b27f6c46e563679638f5c35ee58ba9d
-              <div className="text-gray-700">
-                <div className="grid md:grid-cols-2 text-sm">
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Name</div>
-                    <input type='text' className="px-4 py-2"
-                      value={updateProfile.values.fullName}
-                      id="fullName"
-                      onChange={updateProfile.handleChange}></input>
-                  </div>
-                 
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Age</div>
-                
-                    <p>{currentUser.age} Years </p>
-                  </div>
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Contact No.</div>
-                    <input type="number" 
-                    className="px-4 py-2"
-                    value={updateProfile.values.contactNo}
-                    id="contactNo"
-                    onChange={updateProfile.handleChange}
-                    >
-                    </input>
-                  </div>
-               
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Address</div>
-                    <input type='text' 
-                    className="px-4 py-2"
-                    value={updateProfile.values.address}
-                    id="address"
-                    onChange={updateProfile.handleChange}
-                    ></input>
-                  </div>
+        </section>
+      </>
 
-                  <div className="grid grid-cols-2">
-                    <div className="px-4 py-2 font-semibold">Email.</div>
-
-                    <input type='email' 
-                    className="px-4 py-2"
-                    value={updateProfile.values.email}
-                    id="email"
-                    onChange={updateProfile.handleChange}
-                    />
-                  </div>
-                  
-                  <button type='submit' className="bg-blue-text-white px-4 py-1">Update</button>
-                </div>
-                    <button type="submit" className='bg-green-700 p-2 rounded-md text-white ml-96 mt-2'>
-                      Update
-                    </button>
-
-              </div>
-<<<<<<< HEAD
-              </form>
-                 )}
-                
-                 </Formik>
-               
-=======
-                  </form>
->>>>>>> 4ef0f3725b27f6c46e563679638f5c35ee58ba9d
-            </div>
-            {/* End of about section */}
-            <div className="h-12" />
-            {/* Experience and education */}
-            {/* <div className="bg-white p-3 shadow-sm rounded-sm py-7">
-              <div className="grid grid-cols-2">
-                <div>
-                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
-                    <span clas="text-green-500">
-                      <svg
-                        className="h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span className="tracking-wide">Appointment History</span>
-                  </div>
-                  <ul className="list-inside space-y-2">
-                    <li>
-                      <div className="text-teal-600">Owner at Her Company Inc.</div>
-                      <div className="text-gray-500 text-xs">March 2020 - Now</div>
-                    </li>
-                    <li>
-                      <div className="text-teal-600">Owner at Her Company Inc.</div>
-                      <div className="text-gray-500 text-xs">March 2020 - Now</div>
-                    </li>
-                    <li>
-                      <div className="text-teal-600">Owner at Her Company Inc.</div>
-                      <div className="text-gray-500 text-xs">March 2020 - Now</div>
-                    </li>
-                    <li>
-                      <div className="text-teal-600">Owner at Her Company Inc.</div>
-                      <div className="text-gray-500 text-xs">March 2020 - Now</div>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
-                    <span clas="text-green-500">
-                      <svg
-                        className="h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
-                        <path
-                          fill="#fff"
-                          d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                        />
-                      </svg>
-                    </span>
-                    <span className="tracking-wide">Pathology Appointments</span>
-                  </div>
-                  <ul className="list-inside space-y-2">
-                    <li>
-                      <div className="text-teal-600">Masters Degree in Oxford</div>
-                      <div className="text-gray-500 text-xs">March 2020 - Now</div>
-                    </li>
-                    <li>
-                      <div className="text-teal-600">Bachelors Degreen in LPU</div>
-                      <div className="text-gray-500 text-xs">March 2020 - Now</div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-           </div> */}
-          </div>
-        </div>
-      </div>
     </div>
-
-
   )
 }
 
-export default patientDashboard
+export default Profile
