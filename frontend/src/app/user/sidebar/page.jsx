@@ -52,7 +52,7 @@ const Sidebar = () => {
           </li>
           <li>
             <a
-              href="/user/Prescription"
+              href="/user/prescription"
               className="flex items-center p-2 text-white rounded-lg hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
             >
               <svg

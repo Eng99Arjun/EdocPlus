@@ -51,6 +51,11 @@ const patientDashboard = () => {
       <div className="container mx-auto my-5 p-5">
         <div className="md:flex no-wrap md:-mx-2 ">
           <div className="w-full md:w-3/12 md:mx-2">
+            <div>
+              <h3>
+                Welcome to Your Profile
+              </h3>
+            </div>
               <div className="w-full text-white bg-main-color">
                       <div className="flex items-center gap-4 p-4 ">
                         <img
@@ -176,7 +181,7 @@ const patientDashboard = () => {
             {/* End of about section */}
             <div className="h-12" />
             {/* Experience and education */}
-            <div className="bg-white p-3 shadow-sm rounded-sm py-7">
+            {/* <div className="bg-white p-3 shadow-sm rounded-sm py-7">
               <div className="grid grid-cols-2">
                 <div>
                   <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
@@ -254,7 +259,7 @@ const patientDashboard = () => {
                   </ul>
                 </div>
               </div>
-           </div>
+           </div> */}
           </div>
         </div>
       </div>
