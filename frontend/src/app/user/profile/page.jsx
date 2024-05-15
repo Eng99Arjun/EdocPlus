@@ -1,32 +1,53 @@
 'use client'
-import { useFormik } from 'formik';
+import { Formik } from 'formik';
+import { useParams } from 'next/navigation';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const patientDashboard = () => {
+
+  const { id } = useParams();
 
   const [currentUser, setcurrentUser] = useState(
     JSON.parse(localStorage.getItem("patient"))
   );
 
-  const useForm = useFormik({
-    initialValues: currentUser,
-    onSubmit: async (data) => {
-      console.log(data);
-      const res = await fetch(url + '/patient/update/' + currentUser._id, {
-        method: 'PUT',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      console.log(res.status);
-      const userData = await res.json();
-      console.log(userData);
-      setcurrentUser(userData);
-      localStorage.setItem("user", JSON.stringify(userData));
+    // const uploadProfileImage = (e) => {
+    //     const file = e.target.files[0];
+    //     const fd = new FormData();
+    //     fd.append('myfile', file);
+    //     fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
+    //         method: 'POST',
+    //         body: fd,
+    //     }).then(res => {
+    //         if (res.status === 200) {
+    //             toast.success('Profile Image Updated');
+    //             updateProfile({ avatar: file.name });
+    //         }
+    //     });
+    // }
+
+    const updateProfile = (data) => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/patient/update/${currentUser._id}`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res => {
+                console.log(res.status);
+                if (res.status === 200) {
+                  toast.success('Signup Successful');
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                setcurrentUser(data);
+            })
+            .catch(err => console.log(err));
     }
-  })
-  // console.log(useForm.values);
 
   return (
     <div>
@@ -103,14 +124,17 @@ const patientDashboard = () => {
                 </span>
                 <span className="tracking-wide">About</span>
               </div>
+              <Formik initialValues={currentUser} onSubmit={updateProfile}>
+                    {(updateProfile) => (
+                      <form onSubmit={updateProfile.handleSubmit}>
               <div className="text-gray-700">
                 <div className="grid md:grid-cols-2 text-sm">
                   <div className="grid grid-cols-2">
                     <div className="px-4 py-2 font-semibold">Name</div>
                     <input type='text' className="px-4 py-2"
-                      value={useForm.values.fullName}
+                      value={updateProfile.values.fullName}
                       id="fullName"
-                      onChange={useForm.handleChange}></input>
+                      onChange={updateProfile.handleChange}></input>
                   </div>
                  
                   <div className="grid grid-cols-2">
@@ -121,9 +145,9 @@ const patientDashboard = () => {
                     <div className="px-4 py-2 font-semibold">Contact No.</div>
                     <input type="number" 
                     className="px-4 py-2"
-                    value={useForm.values.contactNo}
+                    value={updateProfile.values.contactNo}
                     id="contactNo"
-                    onChange={useForm.handleChange}
+                    onChange={updateProfile.handleChange}
                     >
                     </input>
                   </div>
@@ -132,9 +156,9 @@ const patientDashboard = () => {
                     <div className="px-4 py-2 font-semibold">Address</div>
                     <input type='text' 
                     className="px-4 py-2"
-                    value={useForm.values.address}
+                    value={updateProfile.values.address}
                     id="address"
-                    onChange={useForm.handleChange}
+                    onChange={updateProfile.handleChange}
                     ></input>
                   </div>
                   <div className="grid grid-cols-2">
@@ -142,14 +166,20 @@ const patientDashboard = () => {
 
                     <input type='email' 
                     className="px-4 py-2"
-                    value={useForm.values.email}
+                    value={updateProfile.values.email}
                     id="email"
-                    onChange={useForm.handleChange}
+                    onChange={updateProfile.handleChange}
                     />
                   </div>
                   
+                  <button type='submit' className="bg-blue-text-white px-4 py-1">Update</button>
                 </div>
               </div>
+              </form>
+                 )}
+                
+                 </Formik>
+               
             </div>
             {/* End of about section */}
             <div className="h-12" />

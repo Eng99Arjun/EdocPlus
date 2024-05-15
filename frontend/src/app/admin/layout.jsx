@@ -2,7 +2,7 @@ import React from 'react'
 import AdminNavbar from './navbar'
 import Sidebar from '../admin/sidebar/page'
 
-const Layout = ({ children }) => {
+const Admin = ({ children }) => {
     return (
         <>
             <AdminNavbar />
@@ -14,4 +14,4 @@ const Layout = ({ children }) => {
     )
 }
 
-export default Layout
+export default Admin

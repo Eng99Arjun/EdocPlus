@@ -16,6 +16,7 @@ const doctorSchema = new Schema({
     training: String,
     about:String,
     fees:String,
+    role:{type:String, default:"doctor"},
     createdAt: { type: Date, default: Date.now }
 });
 
