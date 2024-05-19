@@ -7,7 +7,7 @@ export const DoctorProvider = ({children}) => {
   const router = useRouter();
 
   const [currentDoctor, setCurrentDoctor] = useState(
-    JSON.parse(localStorage.getItem("doctor"))
+    JSON.parse(sessionStorage.getItem("doctor"))
   );
 
   const [doctorLoggedIn, setDoctorLoggedIn] = useState(currentDoctor !== null);
