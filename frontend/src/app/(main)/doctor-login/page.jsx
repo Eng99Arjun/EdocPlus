@@ -45,7 +45,7 @@ const Login = () => {
           navigate('/Admin');
         } else {
           sessionStorage.setItem('doctor', JSON.stringify(data));
-          navigate('/doctor');
+          router.push('/doctor/profile');
         }
       }
       else if (res.status === 401) {
